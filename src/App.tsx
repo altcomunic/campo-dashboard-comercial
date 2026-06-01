@@ -480,15 +480,18 @@ function IndividualDashboard({
       <section className="profile-card">
         <h2>Análise e Plano de Ação — Médio Prazo</h2>
 
-        <p>{vendedor.diagnosticoDesenvolvimento}</p>
+       <p>
+  {vendedor.diagnosticoDesenvolvimento ??
+    'Análise em desenvolvimento. Atualize o cadastro do vendedor em dashboardData.ts.'}
+</p>
 
-        <ul className="pill-list">
-          {vendedor.planoAcaoMedioPrazo.map((acao: string) => (
-            <li key={acao} className="pill pill-green">
-              {acao}
-            </li>
-          ))}
-        </ul>
+<ul className="pill-list">
+  {(vendedor.planoAcaoMedioPrazo ?? []).map((acao: string) => (
+    <li key={acao} className="pill pill-green">
+      {acao}
+    </li>
+  ))}
+</ul>
       </section>
 
       <section className="grid-2">

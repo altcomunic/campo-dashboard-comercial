@@ -1,1 +1,19 @@
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f1f5f9;color:#0f172a}.app{display:flex;min-height:100vh}.sidebar{width:280px;background:linear-gradient(180deg,#052e1a,#064e3b);color:white;padding:24px;display:flex;flex-direction:column;gap:24px}.logo{width:210px;max-height:80px;object-fit:contain;margin-bottom:12px}.nav{display:flex;flex-direction:column;gap:8px}.nav button{display:flex;align-items:center;gap:10px;border:0;background:transparent;color:white;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;font-size:15px}.nav button:hover,.nav button.active{background:rgba(34,197,94,.35)}.nav .seller{padding-left:24px;font-size:14px}.avatar-mini{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px}.sidebar-footer{margin-top:auto;font-weight:800;font-size:30px;line-height:1}.sidebar-footer span{font-size:13px;font-weight:500;letter-spacing:.25em}.content{flex:1;padding:28px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.topbar h1{font-size:34px;margin:0}.topbar p{margin:6px 0 0;color:#475569}.filters{display:flex;gap:16px;align-items:center}.export{background:#15803d;color:white;border:0;border-radius:12px;padding:12px 18px;font-weight:700}.dashboard{display:flex;flex-direction:column;gap:20px}.kpi-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card,.chart-card,.profile-card,.diagnosis{background:#fff;border:1px solid #e2e8f0;border-radius:22px;box-shadow:0 10px 30px rgba(15,23,42,.06)}.card{padding:20px}.card-title{margin:0;color:#64748b;font-size:13px;text-transform:uppercase;font-weight:700}.card-value{margin:10px 0 0;font-size:24px}.card-subtitle{margin:8px 0 0;color:#64748b;font-size:12px;line-height:1.5}.chart-card{padding:20px}.chart-title{font-size:18px;margin:0 0 16px}.profile-card,.diagnosis{padding:24px}.profile-card h2,.diagnosis h3{margin:0 0 12px}.profile-card p,.diagnosis p{line-height:1.8;color:#334155}.pill-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}.pill{border-radius:14px;padding:12px 14px;font-weight:600}.pill-green{background:#dcfce7;color:#166534}.pill-amber{background:#fef3c7;color:#92400e}@media(max-width:1100px){.app{flex-direction:column}.sidebar{width:100%}.kpi-grid,.grid-2{grid-template-columns:1fr}.topbar{flex-direction:column;align-items:flex-start;gap:14px}}
+.development-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.development-grid .profile-card:first-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1100px) {
+  .development-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .development-grid .profile-card:first-child {
+    grid-column: auto;
+  }
+}

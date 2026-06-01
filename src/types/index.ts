@@ -31,6 +31,13 @@ export interface MixMensal {
   RA: number
 }
 
+export interface DesenvolvimentoVendedor {
+  diagnostico: string
+  objetivoCurtoPrazo: string[]
+  objetivoMedioPrazo: string[]
+  planoAcao: string[]
+}
+
 export interface Vendedor {
   id: string
   nome: string
@@ -47,8 +54,7 @@ export interface Vendedor {
   carteira: CarteiraMensal[]
   mix: MixMensal[]
   analises: string[]
-  diagnosticoDesenvolvimento: string
-  planoAcaoMedioPrazo: string[]
+  desenvolvimentoProfissional: DesenvolvimentoVendedor
   pontosFortes: string[]
   desenvolvimento: string[]
 }

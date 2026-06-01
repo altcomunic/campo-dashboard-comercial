@@ -249,7 +249,7 @@ export const vendedores: Vendedor[] = [
     desenvolvimento: ['Fechamento comercial', 'Agressividade positiva', 'Proatividade estratégica'],
   },
 
-  {
+   {
     id: 'wanderson',
     nome: 'Wanderson Silva',
     funcao: 'Vendedor Interno',
@@ -317,12 +317,21 @@ export const vendedores: Vendedor[] = [
         'Revisar mensalmente carteira premium e oportunidades futuras.',
       ],
     },
-    pontosFortes: ['Maturidade profissional', 'Capacidade técnica', 'Carteira pulverizada', 'Autonomia'],
-  desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
-},
+    pontosFortes: [
+      'Maturidade profissional',
+      'Capacidade técnica',
+      'Carteira pulverizada',
+      'Autonomia',
+    ],
+    desenvolvimento: [
+      'Alimentação de sistema',
+      'Velocidade operacional',
+      'Conclusão de tarefas',
+    ],
+  },
 
-{
-  id: 'heliara',
+  {
+    id: 'heliara',
     nome: 'Heliara Nogueira',
     funcao: 'Vendedora Interna',
     tempo: '2 meses',
@@ -397,3 +406,5 @@ export const vendedores: Vendedor[] = [
       'Senso de urgência',
       'Estudo do portfólio de produtos',
     ],
+  },
+]

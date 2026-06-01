@@ -25,11 +25,11 @@ export const mixEquipe2026 = [
 ]
 
 export const margemEquipe = [
-  { mes: 'JAN', semKam2025: 16.9, atual2026: 12.6 },
-  { mes: 'FEV', semKam2025: 15.2, atual2026: 22.2 },
-  { mes: 'MAR', semKam2025: 12.0, atual2026: 18.8 },
-  { mes: 'ABR', semKam2025: 12.0, atual2026: 19.6 },
-  { mes: 'MAI', semKam2025: 17.0, atual2026: 19.1 },
+  { mes: 'JAN', comKam2025: 18.2, semKam2025: 16.9, atual2026: 12.6 },
+  { mes: 'FEV', comKam2025: 15.5, semKam2025: 15.2, atual2026: 22.2 },
+  { mes: 'MAR', comKam2025: 12.5, semKam2025: 12.0, atual2026: 18.8 },
+  { mes: 'ABR', comKam2025: 13.0, semKam2025: 12.0, atual2026: 19.6 },
+  { mes: 'MAI', comKam2025: 17.7, semKam2025: 17.0, atual2026: 19.1 },
 ]
 
 export const vendedores: Vendedor[] = [

@@ -47,6 +47,8 @@ export interface Vendedor {
   carteira: CarteiraMensal[]
   mix: MixMensal[]
   analises: string[]
+  diagnosticoDesenvolvimento: string
+  planoAcaoMedioPrazo: string[]
   pontosFortes: string[]
   desenvolvimento: string[]
 }

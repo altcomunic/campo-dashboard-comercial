@@ -5,7 +5,7 @@ export const equipeComparativo = [
   { mes: 'FEV', comKam2025: 718301, semKam2025: 624551, atual2026: 774364 },
   { mes: 'MAR', comKam2025: 668388, semKam2025: 573513, atual2026: 569451 },
   { mes: 'ABR', comKam2025: 891621, semKam2025: 792863, atual2026: 842321 },
-  { mes: 'MAI', comKam2025: 984740, semKam2025: 754796, atual2026: 794817 },
+  { mes: 'MAI', comKam2025: 984740, semKam2025: 754796, atual2026: 879767 },
 ]
 
 export const carteiraEquipe = [
@@ -13,7 +13,7 @@ export const carteiraEquipe = [
   { mes: 'FEV', ativos: 24, novos: 4, reativados: 7, total: 35 },
   { mes: 'MAR', ativos: 31, novos: 0, reativados: 4, total: 35 },
   { mes: 'ABR', ativos: 28, novos: 2, reativados: 8, total: 38 },
-  { mes: 'MAI', ativos: 30, novos: 7, reativados: 3, total: 40 },
+  { mes: 'MAI', ativos: 30, novos: 7, reativados: 5, total: 42 },
 ]
 
 export const mixEquipe2026 = [
@@ -21,7 +21,7 @@ export const mixEquipe2026 = [
   { mes: 'FEV', MIN: 320686, NCP: 245043, PE: 167538, RA: 41097 },
   { mes: 'MAR', MIN: 202401, NCP: 70439, PE: 259525, RA: 37086 },
   { mes: 'ABR', MIN: 337829, NCP: 245155, PE: 199648, RA: 59689 },
-  { mes: 'MAI', MIN: 207153, NCP: 224374, PE: 239659, RA: 73539 },
+  { mes: 'MAI', MIN: 208919, NCP: 311930, PE: 243408, RA: 65440 },
 ]
 
 export const margemEquipe = [
@@ -29,7 +29,7 @@ export const margemEquipe = [
   { mes: 'FEV', semKam2025: 15.2, atual2026: 22.2 },
   { mes: 'MAR', semKam2025: 12.0, atual2026: 18.8 },
   { mes: 'ABR', semKam2025: 12.0, atual2026: 19.6 },
-  { mes: 'MAI', semKam2025: 17.0, atual2026: 17.7 },
+  { mes: 'MAI', semKam2025: 17.0, atual2026: 19.1 },
 ]
 
 export const vendedores: Vendedor[] = [
@@ -43,36 +43,42 @@ export const vendedores: Vendedor[] = [
     retencao: 'Alta',
     evolucaoCarteira: 'Estável',
     perdas: 'Baixas',
-    resumo: 'Perfil voltado à manutenção e desenvolvimento sustentável de carteira, com responsabilidade no atendimento, fidelização e equilíbrio entre abordagem técnica e comercial.',
+    resumo:
+      'Perfil voltado à manutenção e desenvolvimento sustentável de carteira, com responsabilidade no atendimento, fidelização e equilíbrio entre abordagem técnica e comercial.',
     vendaGerada: [
       { mes: 'JAN', venda: 281080, faturado: 214278 },
       { mes: 'FEV', venda: 123090, faturado: 196752 },
       { mes: 'MAR', venda: 255642, faturado: 158504 },
       { mes: 'ABR', venda: 92385, faturado: 213564 },
-      { mes: 'MAI', venda: 280673, faturado: 280607 },
+      { mes: 'MAI', venda: 380623, faturado: 280607 },
     ],
     dados: [
       { mes: 'JAN', meta: 265664, realizado: 214278, volume: 70, valor: 81 },
       { mes: 'FEV', meta: 319285, realizado: 196752, volume: 53, valor: 62 },
       { mes: 'MAR', meta: 228448, realizado: 158504, volume: 65, valor: 69 },
       { mes: 'ABR', meta: 241229, realizado: 213564, volume: 84, valor: 89 },
-      { mes: 'MAI', meta: 273964, realizado: 280607, volume: 76, valor: 102 },
+      { mes: 'MAI', meta: 273964, realizado: 280607, volume: 78, valor: 102 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 8, novos: 0, reativados: 3, perdas: 1, retencao: 75 },
       { mes: 'FEV', ativos: 6, novos: 1, reativados: 1, perdas: 1, retencao: 67 },
       { mes: 'MAR', ativos: 10, novos: 0, reativados: 0, perdas: 0, retencao: 100 },
       { mes: 'ABR', ativos: 9, novos: 0, reativados: 1, perdas: 0, retencao: 100 },
-      { mes: 'MAI', ativos: 10, novos: 1, reativados: 0, perdas: 0, retencao: 100 },
+      { mes: 'MAI', ativos: 10, novos: 1, reativados: 1, perdas: 0, retencao: 100 },
     ],
     mix: [
       { mes: 'JAN', MIN: 110753, NCP: 40301, PE: 62429, RA: 795 },
       { mes: 'FEV', MIN: 43062, NCP: 82453, PE: 70442, RA: 795 },
       { mes: 'MAR', MIN: 43860, NCP: 30037, PE: 83417, RA: 1189 },
       { mes: 'ABR', MIN: 116392, NCP: 81435, PE: 15737, RA: 0 },
-      { mes: 'MAI', MIN: 133813, NCP: 75887, PE: 70135, RA: 772 },
+      { mes: 'MAI', MIN: 133813, NCP: 86137, PE: 70135, RA: 772 },
     ],
-    analises: ['Carteira estável e fidelizada.', 'Baixa perda e alta recorrência.', 'Boa composição de mix.', 'Necessita acelerar prospecção ativa.'],
+    analises: [
+      'Carteira estável e fidelizada.',
+      'Baixa perda e alta recorrência.',
+      'Melhor faturamento individual em maio.',
+      'Necessita acelerar prospecção ativa.',
+    ],
     pontosFortes: ['Fidelização', 'Atendimento responsável', 'Mix saudável', 'Boa comunicação'],
     desenvolvimento: ['Prospecção ativa', 'Senso de urgência', 'Expansão de carteira'],
   },
@@ -82,40 +88,46 @@ export const vendedores: Vendedor[] = [
     funcao: 'Vendedor Interno',
     tempo: '7 meses',
     perfil: 'Expansão e Volume Comercial',
-    destaque: 'Venda gerada forte, faturamento em recuperação',
+    destaque: 'Maior venda gerada em Maio',
     retencao: 'Moderada',
     evolucaoCarteira: 'Alta movimentação',
     perdas: 'Moderadas',
-    resumo: 'Perfil de vendedor direto, competitivo e orientado à geração de pedidos. Precisa amadurecer relacionamento e previsibilidade.',
+    resumo:
+      'Perfil de vendedor direto, competitivo e orientado à geração de pedidos. Precisa amadurecer relacionamento, autonomia comercial e previsibilidade de carteira.',
     vendaGerada: [
       { mes: 'JAN', venda: 233293, faturado: 325300 },
       { mes: 'FEV', venda: 276499, faturado: 276604 },
       { mes: 'MAR', venda: 281283, faturado: 150968 },
       { mes: 'ABR', venda: 201221, faturado: 296196 },
-      { mes: 'MAI', venda: 286302, faturado: 137602 },
+      { mes: 'MAI', venda: 386302, faturado: 137602 },
     ],
     dados: [
       { mes: 'JAN', meta: 175317, realizado: 325300, volume: 180, valor: 186 },
       { mes: 'FEV', meta: 215307, realizado: 276604, volume: 129, valor: 128 },
       { mes: 'MAR', meta: 149858, realizado: 150968, volume: 86, valor: 101 },
       { mes: 'ABR', meta: 222605, realizado: 296196, volume: 125, valor: 133 },
-      { mes: 'MAI', meta: 265724, realizado: 137602, volume: 52, valor: 52 },
+      { mes: 'MAI', meta: 265724, realizado: 137602, volume: 89, valor: 52 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 6, novos: 0, reativados: 0, perdas: 1, retencao: 50 },
       { mes: 'FEV', ativos: 3, novos: 1, reativados: 3, perdas: 0, retencao: 100 },
       { mes: 'MAR', ativos: 6, novos: 0, reativados: 4, perdas: 3, retencao: 79 },
       { mes: 'ABR', ativos: 3, novos: 1, reativados: 3, perdas: 2, retencao: 86 },
-      { mes: 'MAI', ativos: 5, novos: 0, reativados: 1, perdas: 1, retencao: 83 },
+      { mes: 'MAI', ativos: 5, novos: 0, reativados: 2, perdas: 1, retencao: 83 },
     ],
     mix: [
       { mes: 'JAN', MIN: 292432, NCP: 0, PE: 25386, RA: 6160 },
       { mes: 'FEV', MIN: 265404, NCP: 0, PE: 0, RA: 11200 },
       { mes: 'MAR', MIN: 83937, NCP: 12750, PE: 34672, RA: 19609 },
       { mes: 'ABR', MIN: 178936, NCP: 20795, PE: 58665, RA: 37800 },
-      { mes: 'MAI', MIN: 52886, NCP: 0, PE: 66297, RA: 18419 },
+      { mes: 'MAI', MIN: 52886, NCP: 74700, PE: 86297, RA: 18419 },
     ],
-    analises: ['Alta capacidade de aceleração.', 'Forte venda gerada.', 'Precisa melhorar retenção.', 'Necessita reduzir dependência de indicação.'],
+    analises: [
+      'Maior venda gerada em maio.',
+      'Forte capacidade de geração comercial.',
+      'Gap relevante entre venda gerada e faturamento.',
+      'Precisa melhorar retenção e previsibilidade da carteira.',
+    ],
     pontosFortes: ['Intensidade comercial', 'Geração de volume', 'Perfil competitivo'],
     desenvolvimento: ['Maturidade estratégica', 'Relacionamento sustentável', 'Autonomia comercial'],
   },
@@ -125,24 +137,25 @@ export const vendedores: Vendedor[] = [
     funcao: 'Vendedora Interna',
     tempo: '7 meses',
     perfil: 'Formação e Potencial Consultivo',
-    destaque: 'Crescimento de carteira em Maio',
+    destaque: 'Maior crescimento de carteira em Maio',
     retencao: 'Moderada',
     evolucaoCarteira: 'Em construção',
     perdas: 'Moderadas',
-    resumo: 'Perfil reservado, focado e disciplinado, com forte dedicação operacional e boa capacidade de prospecção.',
+    resumo:
+      'Perfil reservado, focado e disciplinado, com forte dedicação operacional e boa capacidade de prospecção. Está em evolução comercial, principalmente em fechamento e postura consultiva.',
     vendaGerada: [
       { mes: 'JAN', venda: 120105, faturado: 76248 },
       { mes: 'FEV', venda: 49610, faturado: 34272 },
       { mes: 'MAR', venda: 47113, faturado: 55738 },
       { mes: 'ABR', venda: 65309, faturado: 43439 },
-      { mes: 'MAI', venda: 213612, faturado: 232297 },
+      { mes: 'MAI', venda: 216777, faturado: 232294 },
     ],
     dados: [
       { mes: 'JAN', meta: 167696, realizado: 76248, volume: 46, valor: 45 },
       { mes: 'FEV', meta: 201314, realizado: 34272, volume: 15, valor: 17 },
       { mes: 'MAR', meta: 146134, realizado: 55738, volume: 37, valor: 38 },
       { mes: 'ABR', meta: 154709, realizado: 43439, volume: 21, valor: 28 },
-      { mes: 'MAI', meta: 169022, realizado: 232297, volume: 52, valor: 137 },
+      { mes: 'MAI', meta: 169022, realizado: 232294, volume: 52, valor: 137 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 0, novos: 0, reativados: 3, perdas: 0, retencao: 100 },
@@ -156,9 +169,14 @@ export const vendedores: Vendedor[] = [
       { mes: 'FEV', MIN: 2800, NCP: 31472, PE: 0, RA: 0 },
       { mes: 'MAR', MIN: 46307, NCP: 0, PE: 5640, RA: 3791 },
       { mes: 'ABR', MIN: 352, NCP: 36663, PE: 3715, RA: 2715 },
-      { mes: 'MAI', MIN: 5759, NCP: 192837, PE: 11760, RA: 21870 },
+      { mes: 'MAI', MIN: 5759, NCP: 142837, PE: 11760, RA: 21870 },
     ],
-    analises: ['Maior evolução proporcional em carteira.', 'Boa prospecção.', 'Precisa aprimorar fechamento.', 'Potencial consultivo em desenvolvimento.'],
+    analises: [
+      'Maior evolução proporcional em carteira.',
+      'Boa prospecção.',
+      'Precisa aprimorar fechamento comercial.',
+      'Potencial consultivo em desenvolvimento.',
+    ],
     pontosFortes: ['Foco', 'Dedicação', 'Boa prospecção', 'Potencial consultivo'],
     desenvolvimento: ['Fechamento comercial', 'Agressividade positiva', 'Proatividade estratégica'],
   },
@@ -172,13 +190,14 @@ export const vendedores: Vendedor[] = [
     retencao: 'Alta',
     evolucaoCarteira: 'Estável e pulverizada',
     perdas: 'Controladas',
-    resumo: 'Perfil comercial equilibrado e maduro, com forte capacidade de sustentação operacional e apoio técnico à equipe.',
+    resumo:
+      'Perfil comercial equilibrado e maduro, com forte capacidade de sustentação operacional, apoio técnico à equipe e boa pulverização de carteira.',
     vendaGerada: [
       { mes: 'JAN', venda: 213420, faturado: 169723 },
       { mes: 'FEV', venda: 272102, faturado: 266737 },
       { mes: 'MAR', venda: 180605, faturado: 204242 },
       { mes: 'ABR', venda: 246576, faturado: 289123 },
-      { mes: 'MAI', venda: 141868, faturado: 144312 },
+      { mes: 'MAI', venda: 241982, faturado: 144312 },
     ],
     dados: [
       { mes: 'JAN', meta: 271399, realizado: 169723, volume: 60, valor: 63 },
@@ -201,7 +220,12 @@ export const vendedores: Vendedor[] = [
       { mes: 'ABR', MIN: 42149, NCP: 106263, PE: 121535, RA: 19177 },
       { mes: 'MAI', MIN: 14695, NCP: 5715, PE: 91467, RA: 32478 },
     ],
-    analises: ['Perfil mais maduro da equipe.', 'Apoio técnico aos colegas.', 'Carteira pulverizada.', 'Precisa ganhar velocidade operacional.'],
+    analises: [
+      'Perfil mais maduro da equipe.',
+      'Apoio técnico aos colegas.',
+      'Maior base ativa da operação.',
+      'Precisa ganhar velocidade operacional.',
+    ],
     pontosFortes: ['Maturidade profissional', 'Capacidade técnica', 'Carteira pulverizada', 'Autonomia'],
     desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
   },

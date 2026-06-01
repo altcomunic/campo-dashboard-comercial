@@ -287,12 +287,13 @@ function EquipeDashboard() {
               <Legend />
 
               <Line
-                type="monotone"
-                dataKey="comKam2025"
-                name="2025 c/ KAM"
-                stroke="#7c3aed"
-                strokeWidth={3}
-              />
+  type="monotone"
+  dataKey="comKam2025"
+  name="2025 c/ KAM"
+  stroke="#7c3aed"
+  strokeWidth={3}
+  dot={{ r: 4 }}
+/>
 
               <Line
                 type="monotone"

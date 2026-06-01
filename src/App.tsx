@@ -407,6 +407,10 @@ function IndividualDashboard({
   vendedor: any
   clientesAtivosMaio: number
 }) {
+  const temHistoricoComercial =
+    vendedor.vendaGerada.some((item: any) => item.venda > 0 || item.faturado > 0) ||
+    vendedor.dados.some((item: any) => item.realizado > 0)
+
   return (
     <div className="dashboard">
       <section className="kpi-grid">
@@ -417,16 +421,14 @@ function IndividualDashboard({
         />
 
         <Card
-          titulo="Meta Maio"
-          valor={formatCurrency(vendedor.dados[4].meta)}
+          titulo="Função"
+          valor={vendedor.funcao}
+          subtitulo={`Tempo de empresa: ${vendedor.tempo}`}
         />
 
-        <Card
-          titulo="Realizado Maio"
-          valor={formatCurrency(vendedor.dados[4].realizado)}
-        />
+        <Card titulo="Destaque" valor={vendedor.destaque} />
 
-        <Card titulo="% Realizado" valor={`${vendedor.dados[4].valor}%`} />
+        <Card titulo="Retenção" valor={vendedor.retencao} />
 
         <Card titulo="Clientes Ativos" valor={clientesAtivosMaio} />
       </section>
@@ -436,97 +438,113 @@ function IndividualDashboard({
         <p>{vendedor.resumo}</p>
       </section>
 
-      <section className="grid-2">
-        <ChartCard titulo="Venda Gerada x Faturamento">
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={vendedor.vendaGerada}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="mes" />
-              <YAxis />
-              <Tooltip formatter={(v) => formatCurrency(Number(v))} />
-              <Legend />
+      {temHistoricoComercial && (
+        <>
+          <section className="grid-2">
+            <ChartCard titulo="Venda Gerada x Faturamento">
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={vendedor.vendaGerada}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="mes" />
+                  <YAxis />
+                  <Tooltip formatter={(v) => formatCurrency(Number(v))} />
+                  <Legend />
 
-              <Bar
-                dataKey="venda"
-                name="Venda Gerada"
-                fill="#15803d"
-                radius={[8, 8, 0, 0]}
-              />
+                  <Bar
+                    dataKey="venda"
+                    name="Venda Gerada"
+                    fill="#15803d"
+                    radius={[8, 8, 0, 0]}
+                  />
 
-              <Bar
-                dataKey="faturado"
-                name="Faturado"
-                fill="#2563eb"
-                radius={[8, 8, 0, 0]}
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartCard>
+                  <Bar
+                    dataKey="faturado"
+                    name="Faturado"
+                    fill="#2563eb"
+                    radius={[8, 8, 0, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
 
-        <ChartCard titulo="Volume x Valor (% de atingimento)">
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={vendedor.dados}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="mes" />
-              <YAxis />
-              <Tooltip formatter={(v) => `${v}%`} />
-              <Legend />
+            <ChartCard titulo="Volume x Valor (% de atingimento)">
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={vendedor.dados}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="mes" />
+                  <YAxis />
+                  <Tooltip formatter={(v) => `${v}%`} />
+                  <Legend />
 
-              <Line
-                type="monotone"
-                dataKey="volume"
-                name="% Volume"
-                stroke="#15803d"
-                strokeWidth={3}
-              />
+                  <Line
+                    type="monotone"
+                    dataKey="volume"
+                    name="% Volume"
+                    stroke="#15803d"
+                    strokeWidth={3}
+                  />
 
-              <Line
-                type="monotone"
-                dataKey="valor"
-                name="% Valor"
-                stroke="#f97316"
-                strokeWidth={3}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </ChartCard>
-      </section>
+                  <Line
+                    type="monotone"
+                    dataKey="valor"
+                    name="% Valor"
+                    stroke="#f97316"
+                    strokeWidth={3}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </ChartCard>
+          </section>
 
-      <section className="grid-2">
-        <ChartCard titulo="Evolução da Carteira">
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={vendedor.carteira}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="mes" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
+          <section className="grid-2">
+            <ChartCard titulo="Evolução da Carteira">
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={vendedor.carteira}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="mes" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
 
-              <Bar dataKey="ativos" name="Ativos" fill="#2563eb" />
-              <Bar dataKey="novos" name="Novos" fill="#16a34a" />
-              <Bar dataKey="reativados" name="Reativados" fill="#9333ea" />
-              <Bar dataKey="perdas" name="Perdas" fill="#ef4444" />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartCard>
+                  <Bar dataKey="ativos" name="Ativos" fill="#2563eb" />
+                  <Bar dataKey="novos" name="Novos" fill="#16a34a" />
+                  <Bar dataKey="reativados" name="Reativados" fill="#9333ea" />
+                  <Bar dataKey="perdas" name="Perdas" fill="#ef4444" />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
 
-        <ChartCard titulo="Mix de Produtos">
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={vendedor.mix}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="mes" />
-              <YAxis />
-              <Tooltip formatter={(v) => formatCurrency(Number(v))} />
-              <Legend />
+            <ChartCard titulo="Mix de Produtos">
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={vendedor.mix}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="mes" />
+                  <YAxis />
+                  <Tooltip formatter={(v) => formatCurrency(Number(v))} />
+                  <Legend />
 
-              <Bar dataKey="MIN" stackId="a" fill="#2563eb" />
-              <Bar dataKey="NCP" stackId="a" fill="#7c3aed" />
-              <Bar dataKey="PE" stackId="a" fill="#16a34a" />
-              <Bar dataKey="RA" stackId="a" fill="#f97316" />
-            </BarChart>
-          </ResponsiveContainer>
-        </ChartCard>
-      </section>
+                  <Bar dataKey="MIN" stackId="a" fill="#2563eb" />
+                  <Bar dataKey="NCP" stackId="a" fill="#7c3aed" />
+                  <Bar dataKey="PE" stackId="a" fill="#16a34a" />
+                  <Bar dataKey="RA" stackId="a" fill="#f97316" />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
+          </section>
+        </>
+      )}
+
+      {!temHistoricoComercial && (
+        <section className="profile-card">
+          <h2>Fase de Rampagem Comercial</h2>
+          <p>
+            Esta vendedora ainda não possui histórico comercial suficiente para
+            análise de gráficos financeiros e evolução de carteira. O foco atual
+            está em onboarding, limpeza de base, criação de carteira e
+            desenvolvimento de abordagem consultiva.
+          </p>
+        </section>
+      )}
 
       <section className="development-grid">
         <div className="profile-card">

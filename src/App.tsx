@@ -1,4 +1,298 @@
-  />
+import { useMemo, useState } from 'react'
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
+import { BarChart3, Users } from 'lucide-react'
+import { Card, ChartCard, ListCard } from './components/Cards'
+import {
+  carteiraEquipe,
+  equipeComparativo,
+  margemEquipe,
+  mixEquipe2026,
+  vendedores,
+} from './data/dashboardData'
+
+function formatCurrency(v: number) {
+  return `R$ ${Number(v).toLocaleString('pt-BR')}`
+}
+
+export default function App() {
+  const [visao, setVisao] = useState<'equipe' | 'individual'>('equipe')
+  const [selecionado, setSelecionado] = useState('renata')
+
+  const vendedor = useMemo(
+    () => vendedores.find((v) => v.id === selecionado) ?? vendedores[0],
+    [selecionado],
+  )
+
+  const clientesAtivosMaio =
+    vendedor.carteira[vendedor.carteira.length - 1].ativos
+
+  return (
+    <div className="app">
+      <aside className="sidebar">
+        <img src="/logo-campo.png" className="logo" />
+
+        <nav className="nav">
+          <button
+            onClick={() => setVisao('equipe')}
+            className={visao === 'equipe' ? 'active' : ''}
+          >
+            <BarChart3 size={18} />
+            Visão Geral
+          </button>
+
+          <button
+            onClick={() => setVisao('individual')}
+            className={visao === 'individual' ? 'active' : ''}
+          >
+            <Users size={18} />
+            Equipe Comercial
+          </button>
+
+          {vendedores.map((v) => (
+            <button
+              key={v.id}
+              onClick={() => {
+                setVisao('individual')
+                setSelecionado(v.id)
+              }}
+              className={
+                visao === 'individual' && selecionado === v.id
+                  ? 'active seller'
+                  : 'seller'
+              }
+            >
+              <span className="avatar-mini">{v.nome[0]}</span>
+              {v.nome}
+            </button>
+          ))}
+        </nav>
+
+        <div className="sidebar-footer">
+          CAMPO
+          <br />
+          <span>Nutrição Animal</span>
+        </div>
+      </aside>
+
+      <main className="content">
+        <header className="topbar">
+          <div>
+            <h1>Dashboard Executivo Comercial</h1>
+            <p>
+              {visao === 'equipe'
+                ? 'Visão Geral da Operação'
+                : `Análise Individual — ${vendedor.nome}`}
+            </p>
+          </div>
+
+          <div className="filters">
+            <span>
+              Período: <b>Maio/2026 Fechado</b>
+            </span>
+          </div>
+        </header>
+
+        {visao === 'equipe' ? (
+          <EquipeDashboard />
+        ) : (
+          <IndividualDashboard
+            vendedor={vendedor}
+            clientesAtivosMaio={clientesAtivosMaio}
+          />
+        )}
+      </main>
+    </div>
+  )
+}
+
+function EquipeDashboard() {
+  return (
+    <div className="dashboard">
+      <section className="kpi-grid">
+        <Card
+          titulo="Faturamento 2026"
+          valor="R$ 3,85 Mi"
+          subtitulo="Jan a Mai fechado"
+        />
+
+        <Card
+          titulo="Faturamento Maio"
+          valor="R$ 879,8 mil"
+          subtitulo="Vendas Internas"
+        />
+
+        <Card
+          titulo="Margem Maio"
+          valor="19,1%"
+          subtitulo="Acima de 2025 c/ e s/ KAM"
+        />
+
+        <Card
+          titulo="Clientes Mov."
+          valor="42"
+          subtitulo="Maior patamar do ano"
+        />
+
+        <Card
+          titulo="Novos + Reativados"
+          valor="12"
+          subtitulo="7 novos e 5 reativados"
+        />
+      </section>
+
+      <section className="grid-2">
+        <ChartCard titulo="Comparativo de Faturamento — 2025 c/ KAM x 2025 s/ KAM x 2026">
+          <ResponsiveContainer width="100%" height={320}>
+            <BarChart data={equipeComparativo}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="mes" />
+              <YAxis />
+              <Tooltip formatter={(v) => formatCurrency(Number(v))} />
+              <Legend />
+
+              <Bar
+                dataKey="comKam2025"
+                name="2025 c/ KAM"
+                fill="#7c3aed"
+                radius={[8, 8, 0, 0]}
+              />
+
+              <Bar
+                dataKey="semKam2025"
+                name="2025 s/ KAM"
+                fill="#2563eb"
+                radius={[8, 8, 0, 0]}
+              />
+
+              <Bar
+                dataKey="atual2026"
+                name="2026 atual"
+                fill="#15803d"
+                radius={[8, 8, 0, 0]}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        <ChartCard titulo="Evolução da Carteira — 2026">
+          <ResponsiveContainer width="100%" height={320}>
+            <LineChart data={carteiraEquipe}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="mes" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+
+              <Line
+                type="monotone"
+                dataKey="ativos"
+                name="Ativos"
+                stroke="#2563eb"
+                strokeWidth={3}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="novos"
+                name="Novos"
+                stroke="#16a34a"
+                strokeWidth={3}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="reativados"
+                name="Reativados"
+                stroke="#9333ea"
+                strokeWidth={3}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="total"
+                name="Total"
+                stroke="#064e3b"
+                strokeWidth={3}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      </section>
+
+      <section className="grid-2">
+        <ChartCard titulo="Mix Estratégico da Equipe — 2026">
+          <ResponsiveContainer width="100%" height={320}>
+            <AreaChart data={mixEquipe2026}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="mes" />
+              <YAxis />
+              <Tooltip formatter={(v) => formatCurrency(Number(v))} />
+              <Legend />
+
+              <Area
+                type="monotone"
+                dataKey="MIN"
+                stackId="1"
+                stroke="#2563eb"
+                fill="#2563eb"
+              />
+
+              <Area
+                type="monotone"
+                dataKey="NCP"
+                stackId="1"
+                stroke="#7c3aed"
+                fill="#7c3aed"
+              />
+
+              <Area
+                type="monotone"
+                dataKey="PE"
+                stackId="1"
+                stroke="#16a34a"
+                fill="#16a34a"
+              />
+
+              <Area
+                type="monotone"
+                dataKey="RA"
+                stackId="1"
+                stroke="#f97316"
+                fill="#f97316"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        <ChartCard titulo="Margem Comercial — 2025 c/ KAM x 2025 s/ KAM x 2026">
+          <ResponsiveContainer width="100%" height={320}>
+            <LineChart data={margemEquipe}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="mes" />
+              <YAxis />
+              <Tooltip formatter={(v) => `${v}%`} />
+              <Legend />
+
+              <Line
+                type="monotone"
+                dataKey="comKam2025"
+                name="2025 c/ KAM"
+                stroke="#7c3aed"
+                strokeWidth={3}
+              />
 
               <Line
                 type="monotone"

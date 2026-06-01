@@ -478,13 +478,51 @@ function IndividualDashboard({
         </ChartCard>
       </section>
 
-      <section className="profile-card">
-        <h2>Análise e Plano de Ação — Médio Prazo</h2>
+      <section className="development-grid">
+  <div className="profile-card">
+    <h2>Diagnóstico</h2>
+    <p>{vendedor.desenvolvimentoProfissional?.diagnostico}</p>
+  </div>
 
-       <p>
-  {vendedor.diagnosticoDesenvolvimento ??
-    'Análise em desenvolvimento. Atualize o cadastro do vendedor em dashboardData.ts.'}
-</p>
+  <div className="profile-card">
+    <h2>Objetivo de Curto Prazo</h2>
+    <ul className="pill-list">
+      {vendedor.desenvolvimentoProfissional?.objetivoCurtoPrazo?.map(
+        (item: string) => (
+          <li key={item} className="pill pill-green">
+            {item}
+          </li>
+        ),
+      )}
+    </ul>
+  </div>
+
+  <div className="profile-card">
+    <h2>Objetivo de Médio Prazo</h2>
+    <ul className="pill-list">
+      {vendedor.desenvolvimentoProfissional?.objetivoMedioPrazo?.map(
+        (item: string) => (
+          <li key={item} className="pill pill-amber">
+            {item}
+          </li>
+        ),
+      )}
+    </ul>
+  </div>
+
+  <div className="profile-card">
+    <h2>Plano de Ação</h2>
+    <ul className="pill-list">
+      {vendedor.desenvolvimentoProfissional?.planoAcao?.map(
+        (item: string) => (
+          <li key={item} className="pill pill-green">
+            {item}
+          </li>
+        ),
+      )}
+    </ul>
+  </div>
+</section>
 
 <ul className="pill-list">
   {(vendedor.planoAcaoMedioPrazo ?? []).map((acao: string) => (

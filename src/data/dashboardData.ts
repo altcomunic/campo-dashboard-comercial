@@ -319,5 +319,79 @@ export const vendedores: Vendedor[] = [
     },
     pontosFortes: ['Maturidade profissional', 'Capacidade técnica', 'Carteira pulverizada', 'Autonomia'],
     desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
-  },
-]
+  }  {
+    id: 'heliara',
+    nome: 'Heliara Nogueira',
+    funcao: 'Vendedora Interna',
+    tempo: '2 meses',
+    perfil: 'Vendedora enérgica',
+    destaque: 'Fase de rampagem e criação de carteira',
+    retencao: 'Em construção',
+    evolucaoCarteira: 'Inicial',
+    perdas: 'Sem histórico suficiente',
+    resumo:
+      'Heliara possui um perfil mais agressivo de venda, sendo enérgica e sem medo de receber não. É uma vendedora com potencial para gerar movimentação comercial e criar conversas com clientes mais resistentes. O ponto-chave de desenvolvimento agora é a criação de carteira e a evolução para uma abordagem mais consultiva.',
+    vendaGerada: [
+      { mes: 'JAN', venda: 0, faturado: 0 },
+      { mes: 'FEV', venda: 0, faturado: 0 },
+      { mes: 'MAR', venda: 0, faturado: 0 },
+      { mes: 'ABR', venda: 0, faturado: 0 },
+      { mes: 'MAI', venda: 0, faturado: 0 },
+    ],
+    dados: [
+      { mes: 'JAN', meta: 0, realizado: 0, volume: 0, valor: 0 },
+      { mes: 'FEV', meta: 0, realizado: 0, volume: 0, valor: 0 },
+      { mes: 'MAR', meta: 0, realizado: 0, volume: 0, valor: 0 },
+      { mes: 'ABR', meta: 0, realizado: 0, volume: 0, valor: 0 },
+      { mes: 'MAI', meta: 0, realizado: 0, volume: 0, valor: 0 },
+    ],
+    carteira: [
+      { mes: 'JAN', ativos: 0, novos: 0, reativados: 0, perdas: 0, retencao: 0 },
+      { mes: 'FEV', ativos: 0, novos: 0, reativados: 0, perdas: 0, retencao: 0 },
+      { mes: 'MAR', ativos: 0, novos: 0, reativados: 0, perdas: 0, retencao: 0 },
+      { mes: 'ABR', ativos: 0, novos: 0, reativados: 0, perdas: 0, retencao: 0 },
+      { mes: 'MAI', ativos: 0, novos: 0, reativados: 0, perdas: 0, retencao: 0 },
+    ],
+    mix: [
+      { mes: 'JAN', MIN: 0, NCP: 0, PE: 0, RA: 0 },
+      { mes: 'FEV', MIN: 0, NCP: 0, PE: 0, RA: 0 },
+      { mes: 'MAR', MIN: 0, NCP: 0, PE: 0, RA: 0 },
+      { mes: 'ABR', MIN: 0, NCP: 0, PE: 0, RA: 0 },
+      { mes: 'MAI', MIN: 0, NCP: 0, PE: 0, RA: 0 },
+    ],
+    analises: [
+      'Vendedora em fase de rampagem.',
+      'Perfil enérgico e com boa abertura de conversa.',
+      'Potencial para criação de carteira.',
+      'Necessita desenvolver maturidade estratégica e domínio do portfólio.',
+    ],
+    desenvolvimentoProfissional: {
+      diagnostico:
+        'Heliara está em fase inicial de rampagem comercial. Possui perfil enérgico, boa comunicação e facilidade para criar conversas com clientes resistentes. O principal foco neste momento é transformar movimentação em construção de carteira, organização de base e desenvolvimento de uma postura mais consultiva.',
+      objetivoCurtoPrazo: [
+        'Realizar limpeza de base.',
+        'Desenvolver relacionamento com clientes em potencial.',
+        'Iniciar criação de carteira estratégica.',
+      ],
+      objetivoMedioPrazo: [
+        'Assumir gestão de carteira comercial.',
+        'Desenvolver qualidade no atendimento e oportunidades de upsell.',
+        'Atuar com prospecção ativa em eventos e visitas.',
+      ],
+      planoAcao: [
+        'Realizar a limpeza de base da equipe interna.',
+        'Mapear oportunidades com potencial de fechamento.',
+        'Reativar pelo menos 3 clientes por mês.',
+      ],
+    },
+    pontosFortes: [
+      'Escuta ativa',
+      'Facilidade de comunicação',
+      'Potencial consultivo',
+    ],
+    desenvolvimento: [
+      'Maturidade estratégica',
+      'Expansão de carteira',
+      'Senso de urgência',
+      'Estudo do portfólio de produtos',
+    ],

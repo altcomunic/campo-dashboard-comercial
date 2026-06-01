@@ -79,9 +79,32 @@ export const vendedores: Vendedor[] = [
       'Melhor faturamento individual em maio.',
       'Necessita acelerar prospecção ativa.',
     ],
+    desenvolvimentoProfissional: {
+      diagnostico:
+        'Renata possui excelente capacidade de relacionamento, fidelização e organização da carteira. Sua atuação é marcada por atendimento responsável, boa comunicação e manutenção de clientes recorrentes. O principal desafio está em evoluir de uma postura de sustentação para uma atuação mais ativa de expansão comercial, aumentando prospecção, senso de urgência e geração de novas oportunidades.',
+      objetivoCurtoPrazo: [
+        'Realizar no mínimo 5 contatos ativos por dia.',
+        'Reativar pelo menos 2 clientes por mês.',
+        'Gerar pelo menos 1 novo cliente por mês.',
+        'Mapear semanalmente oportunidades de migração para NCP.',
+      ],
+      objetivoMedioPrazo: [
+        'Aumentar em 20% a quantidade de clientes ativos.',
+        'Ampliar participação em produtos de maior margem.',
+        'Criar rotina consistente de prospecção e fechamento.',
+        'Reduzir dependência de recompra passiva.',
+      ],
+      planoAcao: [
+        'Criar agenda diária de prospecção ativa.',
+        'Separar lista semanal de clientes inativos e oportunidades de recompra.',
+        'Fazer follow-up estruturado com data de retorno definida.',
+        'Participar de negociações estratégicas para desenvolver fechamento.',
+      ],
+    },
     pontosFortes: ['Fidelização', 'Atendimento responsável', 'Mix saudável', 'Boa comunicação'],
     desenvolvimento: ['Prospecção ativa', 'Senso de urgência', 'Expansão de carteira'],
   },
+
   {
     id: 'demitrio',
     nome: 'Demitrio Vieira',
@@ -128,9 +151,32 @@ export const vendedores: Vendedor[] = [
       'Gap relevante entre venda gerada e faturamento.',
       'Precisa melhorar retenção e previsibilidade da carteira.',
     ],
+    desenvolvimentoProfissional: {
+      diagnostico:
+        'Demitrio possui perfil hunter, competitivo e orientado à geração de volume. Demonstra forte capacidade de abertura e fechamento de oportunidades, mas ainda precisa amadurecer na construção de carteira sustentável, relacionamento de longo prazo e autonomia comercial. Seu principal desafio é transformar intensidade em previsibilidade.',
+      objetivoCurtoPrazo: [
+        'Reduzir dependência de indicações da coordenação e diretoria.',
+        'Registrar todas as oportunidades no CRM.',
+        'Implantar rotina obrigatória de pós-venda.',
+        'Aumentar qualidade do relacionamento com clientes ativos.',
+      ],
+      objetivoMedioPrazo: [
+        'Construir carteira própria com clientes recorrentes.',
+        'Aumentar taxa de recompra.',
+        'Melhorar retenção da carteira.',
+        'Equilibrar volume, margem e relacionamento.',
+      ],
+      planoAcao: [
+        'Criar agenda semanal de relacionamento com clientes ativos.',
+        'Realizar pós-venda em até 7 dias após faturamento.',
+        'Classificar clientes por potencial de recompra e margem.',
+        'Participar de treinamentos técnicos sobre NCP, PE e rentabilidade.',
+      ],
+    },
     pontosFortes: ['Intensidade comercial', 'Geração de volume', 'Perfil competitivo'],
     desenvolvimento: ['Maturidade estratégica', 'Relacionamento sustentável', 'Autonomia comercial'],
   },
+
   {
     id: 'luana',
     nome: 'Luana Biana',
@@ -177,9 +223,32 @@ export const vendedores: Vendedor[] = [
       'Precisa aprimorar fechamento comercial.',
       'Potencial consultivo em desenvolvimento.',
     ],
+    desenvolvimentoProfissional: {
+      diagnostico:
+        'Luana apresenta perfil focado, disciplinado e dedicado, com destaque para prospecção e execução das atividades propostas. Seu principal ponto de desenvolvimento está no fechamento comercial, segurança em negociações difíceis e maior proatividade estratégica. Possui potencial para evoluir como vendedora consultiva.',
+      objetivoCurtoPrazo: [
+        'Aumentar taxa de conversão das oportunidades abertas.',
+        'Treinar argumentação de fechamento semanalmente.',
+        'Ganhar segurança em negociações técnicas.',
+        'Trazer análises complementares além da tarefa solicitada.',
+      ],
+      objetivoMedioPrazo: [
+        'Evoluir para perfil consultivo em NCP e PE.',
+        'Aumentar ticket médio da carteira.',
+        'Ganhar autonomia comercial em clientes difíceis.',
+        'Transformar prospecção em recorrência de vendas.',
+      ],
+      planoAcao: [
+        'Realizar simulações semanais de negociação com a coordenação.',
+        'Criar roteiro de fechamento com objeções e respostas.',
+        'Estudar tecnicamente NCP e PE toda semana.',
+        'Apresentar mensalmente uma análise de oportunidade da própria carteira.',
+      ],
+    },
     pontosFortes: ['Foco', 'Dedicação', 'Boa prospecção', 'Potencial consultivo'],
     desenvolvimento: ['Fechamento comercial', 'Agressividade positiva', 'Proatividade estratégica'],
   },
+
   {
     id: 'wanderson',
     nome: 'Wanderson Silva',
@@ -226,6 +295,28 @@ export const vendedores: Vendedor[] = [
       'Maior base ativa da operação.',
       'Precisa ganhar velocidade operacional.',
     ],
+    desenvolvimentoProfissional: {
+      diagnostico:
+        'Wanderson é o vendedor com maior maturidade profissional e pessoal da equipe, atuando como braço direito operacional e referência técnica. Possui boa visão de negócio, autonomia e capacidade de resolução. Seu principal ponto de desenvolvimento está na velocidade operacional, alimentação do sistema e conclusão de tarefas dentro do prazo.',
+      objetivoCurtoPrazo: [
+        'Atualizar CRM diariamente.',
+        'Reduzir pendências administrativas.',
+        'Concluir tarefas operacionais dentro do prazo combinado.',
+        'Melhorar velocidade de retorno em demandas internas.',
+      ],
+      objetivoMedioPrazo: [
+        'Consolidar papel de referência técnica da equipe.',
+        'Aumentar previsibilidade da carteira.',
+        'Melhorar produtividade administrativa.',
+        'Equilibrar qualidade de execução com velocidade.',
+      ],
+      planoAcao: [
+        'Criar rotina diária de atualização do sistema.',
+        'Definir prazo objetivo para cada tarefa operacional.',
+        'Compartilhar um aprendizado técnico por semana com a equipe.',
+        'Revisar mensalmente carteira premium e oportunidades futuras.',
+      ],
+    },
     pontosFortes: ['Maturidade profissional', 'Capacidade técnica', 'Carteira pulverizada', 'Autonomia'],
     desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
   },

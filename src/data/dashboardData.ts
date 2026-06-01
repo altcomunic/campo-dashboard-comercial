@@ -318,9 +318,11 @@ export const vendedores: Vendedor[] = [
       ],
     },
     pontosFortes: ['Maturidade profissional', 'Capacidade técnica', 'Carteira pulverizada', 'Autonomia'],
-    desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
-  }  {
-    id: 'heliara',
+  desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
+},
+
+{
+  id: 'heliara',
     nome: 'Heliara Nogueira',
     funcao: 'Vendedora Interna',
     tempo: '2 meses',

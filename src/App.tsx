@@ -287,13 +287,13 @@ function EquipeDashboard() {
               <Legend />
 
               <Line
-  type="monotone"
-  dataKey="comKam2025"
-  name="2025 c/ KAM"
-  stroke="#7c3aed"
-  strokeWidth={3}
-  dot={{ r: 4 }}
-/>
+                type="monotone"
+                dataKey="comKam2025"
+                name="2025 c/ KAM"
+                stroke="#7c3aed"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+              />
 
               <Line
                 type="monotone"
@@ -301,6 +301,7 @@ function EquipeDashboard() {
                 name="2025 s/ KAM"
                 stroke="#2563eb"
                 strokeWidth={3}
+                dot={{ r: 4 }}
               />
 
               <Line
@@ -309,6 +310,7 @@ function EquipeDashboard() {
                 name="2026 atual"
                 stroke="#15803d"
                 strokeWidth={3}
+                dot={{ r: 4 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -345,6 +347,54 @@ function EquipeDashboard() {
           vendedor, fortalecendo a disciplina de CRM e desenvolvendo planos de
           ação individuais focados em expansão, retenção e qualidade comercial.
         </p>
+      </section>
+
+      <section className="grid-2">
+        <div className="profile-card">
+          <h2>Resumo Executivo para Diretoria</h2>
+
+          <p>
+            A equipe de Vendas Internas encerra maio com forte evolução
+            estrutural, atingindo R$ 879,8 mil em faturamento, 19,1% de margem
+            comercial e 42 clientes movimentados. O resultado demonstra
+            amadurecimento da operação, principalmente pela maior participação
+            de produtos estratégicos e pela ampliação da carteira ativa.
+          </p>
+
+          <p>
+            A análise comparativa mostra que 2026 deve ser avaliado
+            principalmente contra 2025 sem KAM, pois a estrutura atual não
+            possui uma carteira dedicada de grandes contas. Mesmo nesse novo
+            modelo, a equipe mantém competitividade e apresenta melhora na
+            qualidade comercial da receita.
+          </p>
+        </div>
+
+        <div className="profile-card">
+          <h2>Prioridades da Gestão</h2>
+
+          <ul className="pill-list">
+            <li className="pill pill-green">
+              Renata: expandir carteira, aumentar prospecção ativa e
+              desenvolver senso de urgência comercial.
+            </li>
+
+            <li className="pill pill-green">
+              Demitrio: reduzir dependência de indicações, melhorar retenção e
+              construir carteira recorrente.
+            </li>
+
+            <li className="pill pill-green">
+              Luana: desenvolver fechamento, segurança técnica e postura
+              consultiva em negociações difíceis.
+            </li>
+
+            <li className="pill pill-green">
+              Wanderson: melhorar velocidade operacional, alimentação de CRM e
+              produtividade administrativa.
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   )
@@ -479,58 +529,49 @@ function IndividualDashboard({
       </section>
 
       <section className="development-grid">
-  <div className="profile-card">
-    <h2>Diagnóstico</h2>
-    <p>{vendedor.desenvolvimentoProfissional?.diagnostico}</p>
-  </div>
+        <div className="profile-card">
+          <h2>Diagnóstico</h2>
+          <p>{vendedor.desenvolvimentoProfissional?.diagnostico}</p>
+        </div>
 
-  <div className="profile-card">
-    <h2>Objetivo de Curto Prazo</h2>
-    <ul className="pill-list">
-      {vendedor.desenvolvimentoProfissional?.objetivoCurtoPrazo?.map(
-        (item: string) => (
-          <li key={item} className="pill pill-green">
-            {item}
-          </li>
-        ),
-      )}
-    </ul>
-  </div>
+        <div className="profile-card">
+          <h2>Objetivo de Curto Prazo</h2>
+          <ul className="pill-list">
+            {vendedor.desenvolvimentoProfissional?.objetivoCurtoPrazo?.map(
+              (item: string) => (
+                <li key={item} className="pill pill-green">
+                  {item}
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
 
-  <div className="profile-card">
-    <h2>Objetivo de Médio Prazo</h2>
-    <ul className="pill-list">
-      {vendedor.desenvolvimentoProfissional?.objetivoMedioPrazo?.map(
-        (item: string) => (
-          <li key={item} className="pill pill-amber">
-            {item}
-          </li>
-        ),
-      )}
-    </ul>
-  </div>
+        <div className="profile-card">
+          <h2>Objetivo de Médio Prazo</h2>
+          <ul className="pill-list">
+            {vendedor.desenvolvimentoProfissional?.objetivoMedioPrazo?.map(
+              (item: string) => (
+                <li key={item} className="pill pill-amber">
+                  {item}
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
 
-  <div className="profile-card">
-    <h2>Plano de Ação</h2>
-    <ul className="pill-list">
-      {vendedor.desenvolvimentoProfissional?.planoAcao?.map(
-        (item: string) => (
-          <li key={item} className="pill pill-green">
-            {item}
-          </li>
-        ),
-      )}
-    </ul>
-  </div>
-</section>
-
-<ul className="pill-list">
-  {(vendedor.planoAcaoMedioPrazo ?? []).map((acao: string) => (
-    <li key={acao} className="pill pill-green">
-      {acao}
-    </li>
-  ))}
-</ul>
+        <div className="profile-card">
+          <h2>Plano de Ação</h2>
+          <ul className="pill-list">
+            {vendedor.desenvolvimentoProfissional?.planoAcao?.map(
+              (item: string) => (
+                <li key={item} className="pill pill-green">
+                  {item}
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
       </section>
 
       <section className="grid-2">

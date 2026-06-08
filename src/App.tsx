@@ -16,11 +16,12 @@ import {
 import { BarChart3, Users } from 'lucide-react'
 import { Card, ChartCard, ListCard } from './components/Cards'
 import {
-  carteiraEquipe,
   equipeComparativo,
   margemEquipe,
+  volumeEquipe,
+  carteiraEquipe,
   mixEquipe2026,
-  vendedores,
+  vendedores
 } from './data/dashboardData'
 
 function formatCurrency(v: number) {

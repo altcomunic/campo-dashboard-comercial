@@ -1,11 +1,17 @@
-import type { Vendedor } from '../types'
-
 export const equipeComparativo = [
   { mes: 'JAN', comKam2025: 970923, semKam2025: 714000, atual2026: 785548 },
   { mes: 'FEV', comKam2025: 718301, semKam2025: 624551, atual2026: 774364 },
   { mes: 'MAR', comKam2025: 668388, semKam2025: 573513, atual2026: 569451 },
   { mes: 'ABR', comKam2025: 891621, semKam2025: 792863, atual2026: 842321 },
   { mes: 'MAI', comKam2025: 984740, semKam2025: 754796, atual2026: 879767 },
+]
+
+export const volumeEquipe = [
+  { mes: 'JAN', comKam2025: 305010, semKam2025: 236580, atual2026: 246948 },
+  { mes: 'FEV', comKam2025: 211830, semKam2025: 196830, atual2026: 222464 },
+  { mes: 'MAR', comKam2025: 222120, semKam2025: 196620, atual2026: 188135 },
+  { mes: 'ABR', comKam2025: 270535, semKam2025: 245395, atual2026: 236375 },
+  { mes: 'MAI', comKam2025: 304125, semKam2025: 234965, atual2026: 225200 },
 ]
 
 export const carteiraEquipe = [
@@ -32,14 +38,14 @@ export const margemEquipe = [
   { mes: 'MAI', comKam2025: 17.7, semKam2025: 17.0, atual2026: 19.1 },
 ]
 
-export const vendedores: Vendedor[] = [
+export const vendedores = [
   {
     id: 'renata',
     nome: 'Renata Botelho',
     funcao: 'Vendedora Interna',
     tempo: '1 ano',
     perfil: 'Relacionamento e Sustentação Comercial',
-    destaque: 'Maior faturamento individual em Maio',
+    destaque: 'Superou a meta financeira de Maio',
     retencao: 'Alta',
     evolucaoCarteira: 'Estável',
     perdas: 'Baixas',
@@ -50,14 +56,21 @@ export const vendedores: Vendedor[] = [
       { mes: 'FEV', venda: 123090, faturado: 196752 },
       { mes: 'MAR', venda: 255642, faturado: 158504 },
       { mes: 'ABR', venda: 92385, faturado: 213564 },
-      { mes: 'MAI', venda: 380623, faturado: 280607 },
+      { mes: 'MAI', venda: 380623, faturado: 290857 },
+    ],
+    volumeRealizado: [
+      { mes: 'JAN', volume: 62015 },
+      { mes: 'FEV', volume: 50920 },
+      { mes: 'MAR', volume: 51435 },
+      { mes: 'ABR', volume: 58825 },
+      { mes: 'MAI', volume: 68600 },
     ],
     dados: [
       { mes: 'JAN', meta: 265664, realizado: 214278, volume: 70, valor: 81 },
       { mes: 'FEV', meta: 319285, realizado: 196752, volume: 53, valor: 62 },
       { mes: 'MAR', meta: 228448, realizado: 158504, volume: 65, valor: 69 },
       { mes: 'ABR', meta: 241229, realizado: 213564, volume: 84, valor: 89 },
-      { mes: 'MAI', meta: 273964, realizado: 280607, volume: 78, valor: 102 },
+      { mes: 'MAI', meta: 273964, realizado: 290857, volume: 77.6, valor: 106.2 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 8, novos: 0, reativados: 3, perdas: 1, retencao: 75 },
@@ -76,7 +89,7 @@ export const vendedores: Vendedor[] = [
     analises: [
       'Carteira estável e fidelizada.',
       'Baixa perda e alta recorrência.',
-      'Melhor faturamento individual em maio.',
+      'Superou a meta financeira em maio.',
       'Necessita acelerar prospecção ativa.',
     ],
     desenvolvimentoProfissional: {
@@ -111,7 +124,7 @@ export const vendedores: Vendedor[] = [
     funcao: 'Vendedor Interno',
     tempo: '7 meses',
     perfil: 'Expansão e Volume Comercial',
-    destaque: 'Maior venda gerada em Maio',
+    destaque: 'Maior volume realizado em Maio',
     retencao: 'Moderada',
     evolucaoCarteira: 'Alta movimentação',
     perdas: 'Moderadas',
@@ -122,14 +135,21 @@ export const vendedores: Vendedor[] = [
       { mes: 'FEV', venda: 276499, faturado: 276604 },
       { mes: 'MAR', venda: 281283, faturado: 150968 },
       { mes: 'ABR', venda: 201221, faturado: 296196 },
-      { mes: 'MAI', venda: 386302, faturado: 137602 },
+      { mes: 'MAI', venda: 386302, faturado: 212302 },
+    ],
+    volumeRealizado: [
+      { mes: 'JAN', volume: 105493 },
+      { mes: 'FEV', volume: 81999 },
+      { mes: 'MAR', volume: 45330 },
+      { mes: 'ABR', volume: 87500 },
+      { mes: 'MAI', volume: 76400 },
     ],
     dados: [
       { mes: 'JAN', meta: 175317, realizado: 325300, volume: 180, valor: 186 },
       { mes: 'FEV', meta: 215307, realizado: 276604, volume: 129, valor: 128 },
       { mes: 'MAR', meta: 149858, realizado: 150968, volume: 86, valor: 101 },
       { mes: 'ABR', meta: 222605, realizado: 296196, volume: 125, valor: 133 },
-      { mes: 'MAI', meta: 265724, realizado: 137602, volume: 89, valor: 52 },
+      { mes: 'MAI', meta: 265724, realizado: 212302, volume: 86.4, valor: 79.9 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 6, novos: 0, reativados: 0, perdas: 1, retencao: 50 },
@@ -146,9 +166,9 @@ export const vendedores: Vendedor[] = [
       { mes: 'MAI', MIN: 52886, NCP: 74700, PE: 86297, RA: 18419 },
     ],
     analises: [
-      'Maior venda gerada em maio.',
+      'Maior volume realizado da equipe em maio.',
       'Forte capacidade de geração comercial.',
-      'Gap relevante entre venda gerada e faturamento.',
+      'Gap entre venda gerada e faturamento ainda relevante.',
       'Precisa melhorar retenção e previsibilidade da carteira.',
     ],
     desenvolvimentoProfissional: {
@@ -183,7 +203,7 @@ export const vendedores: Vendedor[] = [
     funcao: 'Vendedora Interna',
     tempo: '7 meses',
     perfil: 'Formação e Potencial Consultivo',
-    destaque: 'Maior crescimento de carteira em Maio',
+    destaque: 'Maior atingimento financeiro em Maio',
     retencao: 'Moderada',
     evolucaoCarteira: 'Em construção',
     perdas: 'Moderadas',
@@ -194,14 +214,21 @@ export const vendedores: Vendedor[] = [
       { mes: 'FEV', venda: 49610, faturado: 34272 },
       { mes: 'MAR', venda: 47113, faturado: 55738 },
       { mes: 'ABR', venda: 65309, faturado: 43439 },
-      { mes: 'MAI', venda: 216777, faturado: 232294 },
+      { mes: 'MAI', venda: 216777, faturado: 232297 },
+    ],
+    volumeRealizado: [
+      { mes: 'JAN', volume: 26700 },
+      { mes: 'FEV', volume: 9340 },
+      { mes: 'MAR', volume: 19190 },
+      { mes: 'ABR', volume: 9390 },
+      { mes: 'MAI', volume: 29800 },
     ],
     dados: [
       { mes: 'JAN', meta: 167696, realizado: 76248, volume: 46, valor: 45 },
       { mes: 'FEV', meta: 201314, realizado: 34272, volume: 15, valor: 17 },
       { mes: 'MAR', meta: 146134, realizado: 55738, volume: 37, valor: 38 },
       { mes: 'ABR', meta: 154709, realizado: 43439, volume: 21, valor: 28 },
-      { mes: 'MAI', meta: 169022, realizado: 232294, volume: 52, valor: 137 },
+      { mes: 'MAI', meta: 169022, realizado: 232297, volume: 52.3, valor: 137.4 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 0, novos: 0, reativados: 3, perdas: 0, retencao: 100 },
@@ -218,7 +245,7 @@ export const vendedores: Vendedor[] = [
       { mes: 'MAI', MIN: 5759, NCP: 142837, PE: 11760, RA: 21870 },
     ],
     analises: [
-      'Maior evolução proporcional em carteira.',
+      'Maior atingimento financeiro em maio.',
       'Boa prospecção.',
       'Precisa aprimorar fechamento comercial.',
       'Potencial consultivo em desenvolvimento.',
@@ -249,7 +276,7 @@ export const vendedores: Vendedor[] = [
     desenvolvimento: ['Fechamento comercial', 'Agressividade positiva', 'Proatividade estratégica'],
   },
 
-   {
+  {
     id: 'wanderson',
     nome: 'Wanderson Silva',
     funcao: 'Vendedor Interno',
@@ -268,12 +295,19 @@ export const vendedores: Vendedor[] = [
       { mes: 'ABR', venda: 246576, faturado: 289123 },
       { mes: 'MAI', venda: 241982, faturado: 144312 },
     ],
+    volumeRealizado: [
+      { mes: 'JAN', volume: 52740 },
+      { mes: 'FEV', volume: 80205 },
+      { mes: 'MAR', volume: 72180 },
+      { mes: 'ABR', volume: 80660 },
+      { mes: 'MAI', volume: 50500 },
+    ],
     dados: [
       { mes: 'JAN', meta: 271399, realizado: 169723, volume: 60, valor: 63 },
       { mes: 'FEV', meta: 327246, realizado: 266737, volume: 84, valor: 82 },
       { mes: 'MAR', meta: 230622, realizado: 204242, volume: 92, valor: 89 },
       { mes: 'ABR', meta: 237259, realizado: 289123, volume: 115, valor: 122 },
-      { mes: 'MAI', meta: 281302, realizado: 144312, volume: 57, valor: 51 },
+      { mes: 'MAI', meta: 281302, realizado: 144312, volume: 57.1, valor: 51.3 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 14, novos: 2, reativados: 0, perdas: 1, retencao: 100 },
@@ -317,17 +351,8 @@ export const vendedores: Vendedor[] = [
         'Revisar mensalmente carteira premium e oportunidades futuras.',
       ],
     },
-    pontosFortes: [
-      'Maturidade profissional',
-      'Capacidade técnica',
-      'Carteira pulverizada',
-      'Autonomia',
-    ],
-    desenvolvimento: [
-      'Alimentação de sistema',
-      'Velocidade operacional',
-      'Conclusão de tarefas',
-    ],
+    pontosFortes: ['Maturidade profissional', 'Capacidade técnica', 'Carteira pulverizada', 'Autonomia'],
+    desenvolvimento: ['Alimentação de sistema', 'Velocidade operacional', 'Conclusão de tarefas'],
   },
 
   {
@@ -349,12 +374,19 @@ export const vendedores: Vendedor[] = [
       { mes: 'ABR', venda: 0, faturado: 0 },
       { mes: 'MAI', venda: 0, faturado: 0 },
     ],
+    volumeRealizado: [
+      { mes: 'JAN', volume: 0 },
+      { mes: 'FEV', volume: 0 },
+      { mes: 'MAR', volume: 0 },
+      { mes: 'ABR', volume: 0 },
+      { mes: 'MAI', volume: 0 },
+    ],
     dados: [
       { mes: 'JAN', meta: 0, realizado: 0, volume: 0, valor: 0 },
       { mes: 'FEV', meta: 0, realizado: 0, volume: 0, valor: 0 },
       { mes: 'MAR', meta: 0, realizado: 0, volume: 0, valor: 0 },
-      { mes: 'ABR', meta: 0, realizado: 0, volume: 0, valor: 0 },
-      { mes: 'MAI', meta: 0, realizado: 0, volume: 0, valor: 0 },
+      { mes: 'ABR', meta: 169022, realizado: 0, volume: 0, valor: 0 },
+      { mes: 'MAI', meta: 169022, realizado: 0, volume: 0, valor: 0 },
     ],
     carteira: [
       { mes: 'JAN', ativos: 0, novos: 0, reativados: 0, perdas: 0, retencao: 0 },
@@ -395,11 +427,7 @@ export const vendedores: Vendedor[] = [
         'Reativar pelo menos 3 clientes por mês.',
       ],
     },
-    pontosFortes: [
-      'Escuta ativa',
-      'Facilidade de comunicação',
-      'Potencial consultivo',
-    ],
+    pontosFortes: ['Escuta ativa', 'Facilidade de comunicação', 'Potencial consultivo'],
     desenvolvimento: [
       'Maturidade estratégica',
       'Expansão de carteira',

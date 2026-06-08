@@ -16,16 +16,20 @@ import {
 import { BarChart3, Users } from 'lucide-react'
 import { Card, ChartCard, ListCard } from './components/Cards'
 import {
+  carteiraEquipe,
   equipeComparativo,
   margemEquipe,
-  volumeEquipe,
-  carteiraEquipe,
   mixEquipe2026,
-  vendedores
+  volumeEquipe,
+  vendedores,
 } from './data/dashboardData'
 
 function formatCurrency(v: number) {
   return `R$ ${Number(v).toLocaleString('pt-BR')}`
+}
+
+function formatKg(v: number) {
+  return `${Number(v).toLocaleString('pt-BR')} kg`
 }
 
 export default function App() {
@@ -136,6 +140,12 @@ function EquipeDashboard() {
         />
 
         <Card
+          titulo="Volume Maio"
+          valor="225,2 mil kg"
+          subtitulo="59,4% da meta"
+        />
+
+        <Card
           titulo="Margem Maio"
           valor="19,1%"
           subtitulo="Acima de 2025 c/ e s/ KAM"
@@ -145,12 +155,6 @@ function EquipeDashboard() {
           titulo="Clientes Mov."
           valor="42"
           subtitulo="Maior patamar do ano"
-        />
-
-        <Card
-          titulo="Novos + Reativados"
-          valor="12"
-          subtitulo="7 novos e 5 reativados"
         />
       </section>
 
@@ -188,6 +192,47 @@ function EquipeDashboard() {
           </ResponsiveContainer>
         </ChartCard>
 
+        <ChartCard titulo="Comparativo de Volume — 2025 c/ KAM x 2025 s/ KAM x 2026">
+          <ResponsiveContainer width="100%" height={320}>
+            <LineChart data={volumeEquipe}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="mes" />
+              <YAxis />
+              <Tooltip formatter={(v) => formatKg(Number(v))} />
+              <Legend />
+
+              <Line
+                type="monotone"
+                dataKey="comKam2025"
+                name="2025 c/ KAM"
+                stroke="#7c3aed"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="semKam2025"
+                name="2025 s/ KAM"
+                stroke="#2563eb"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="atual2026"
+                name="2026 atual"
+                stroke="#15803d"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      </section>
+
+      <section className="grid-2">
         <ChartCard titulo="Evolução da Carteira — 2026">
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={carteiraEquipe}>
@@ -227,6 +272,45 @@ function EquipeDashboard() {
                 name="Total"
                 stroke="#064e3b"
                 strokeWidth={3}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        <ChartCard titulo="Margem Comercial — 2025 c/ KAM x 2025 s/ KAM x 2026">
+          <ResponsiveContainer width="100%" height={320}>
+            <LineChart data={margemEquipe}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="mes" />
+              <YAxis />
+              <Tooltip formatter={(v) => `${v}%`} />
+              <Legend />
+
+              <Line
+                type="monotone"
+                dataKey="comKam2025"
+                name="2025 c/ KAM"
+                stroke="#7c3aed"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="semKam2025"
+                name="2025 s/ KAM"
+                stroke="#2563eb"
+                strokeWidth={3}
+                dot={{ r: 4 }}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="atual2026"
+                name="2026 atual"
+                stroke="#15803d"
+                strokeWidth={3}
+                dot={{ r: 4 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -278,106 +362,13 @@ function EquipeDashboard() {
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard titulo="Margem Comercial — 2025 c/ KAM x 2025 s/ KAM x 2026">
-          <ResponsiveContainer width="100%" height={320}>
-            <LineChart data={margemEquipe}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="mes" />
-              <YAxis />
-              <Tooltip formatter={(v) => `${v}%`} />
-              <Legend />
-
-              <Line
-                type="monotone"
-                dataKey="comKam2025"
-                name="2025 c/ KAM"
-                stroke="#7c3aed"
-                strokeWidth={3}
-                dot={{ r: 4 }}
-              />
-
-              <Line
-                type="monotone"
-                dataKey="semKam2025"
-                name="2025 s/ KAM"
-                stroke="#2563eb"
-                strokeWidth={3}
-                dot={{ r: 4 }}
-              />
-
-              <Line
-                type="monotone"
-                dataKey="atual2026"
-                name="2026 atual"
-                stroke="#15803d"
-                strokeWidth={3}
-                dot={{ r: 4 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </ChartCard>
-      </section>
-
-      <section className="diagnosis">
-        <h3>Diagnóstico Executivo</h3>
-
-        <p>
-          A operação de Vendas Internas encerra maio com evolução estrutural
-          relevante, atingindo R$ 879,8 mil em faturamento, 19,1% de margem
-          comercial e 42 clientes movimentados, maior patamar do ano até o
-          momento.
-        </p>
-
-        <p>
-          O comparativo mais justo permanece sendo 2025 sem KAM versus 2026,
-          pois a estrutura atual não conta com uma carteira dedicada de grandes
-          contas. Mesmo assim, a equipe atual mantém competitividade superior em
-          faturamento acumulado e apresenta melhora importante na qualidade da
-          receita.
-        </p>
-
-        <p>
-          O principal ganho estratégico está na composição do mix e na margem:
-          maio mostra maior participação de NCP e PE, menor dependência relativa
-          de ração e margem acima dos cenários históricos de 2025 com e sem KAM.
-        </p>
-
-        <p>
-          A prioridade para o próximo ciclo é transformar essa movimentação de
-          carteira em previsibilidade recorrente, reduzindo oscilações por
-          vendedor, fortalecendo a disciplina de CRM e desenvolvendo planos de
-          ação individuais focados em expansão, retenção e qualidade comercial.
-        </p>
-      </section>
-
-      <section className="grid-2">
-        <div className="profile-card">
-          <h2>Resumo Executivo para Diretoria</h2>
-
-          <p>
-            A equipe de Vendas Internas encerra maio com forte evolução
-            estrutural, atingindo R$ 879,8 mil em faturamento, 19,1% de margem
-            comercial e 42 clientes movimentados. O resultado demonstra
-            amadurecimento da operação, principalmente pela maior participação
-            de produtos estratégicos e pela ampliação da carteira ativa.
-          </p>
-
-          <p>
-            A análise comparativa mostra que 2026 deve ser avaliado
-            principalmente contra 2025 sem KAM, pois a estrutura atual não
-            possui uma carteira dedicada de grandes contas. Mesmo nesse novo
-            modelo, a equipe mantém competitividade e apresenta melhora na
-            qualidade comercial da receita.
-          </p>
-        </div>
-
         <div className="profile-card">
           <h2>Prioridades da Gestão</h2>
 
           <ul className="pill-list">
             <li className="pill pill-green">
-              Renata: expandir carteira, aumentar prospecção ativa e
-              desenvolver senso de urgência comercial.
+              Renata: expandir carteira, aumentar prospecção ativa e desenvolver
+              senso de urgência comercial.
             </li>
 
             <li className="pill pill-green">
@@ -394,8 +385,50 @@ function EquipeDashboard() {
               Wanderson: melhorar velocidade operacional, alimentação de CRM e
               produtividade administrativa.
             </li>
+
+            <li className="pill pill-green">
+              Heliara: estruturar carteira inicial, limpar base e desenvolver
+              domínio do portfólio.
+            </li>
           </ul>
         </div>
+      </section>
+
+      <section className="diagnosis">
+        <h3>Diagnóstico Executivo</h3>
+
+        <p>
+          A operação de Vendas Internas encerra maio com faturamento de R$
+          879,8 mil, volume de 225,2 mil kg, margem comercial de 19,1% e 42
+          clientes movimentados. O resultado demonstra evolução relevante da
+          operação em qualidade de receita, margem e composição de mix.
+        </p>
+
+        <p>
+          O comparativo mais justo permanece sendo 2025 sem KAM versus 2026,
+          pois a estrutura atual não conta com uma carteira dedicada de grandes
+          contas. Mesmo assim, a equipe atual mantém competitividade em
+          faturamento e apresenta melhora importante na margem comercial.
+        </p>
+
+        <p>
+          O principal ponto de atenção está no volume: maio fechou com 225,2 mil
+          kg, equivalente a 59,4% da meta mensal. Isso indica que o próximo ciclo
+          precisa priorizar expansão de carteira, reativação de clientes e maior
+          previsibilidade de volume, preservando a qualidade da margem atual.
+        </p>
+      </section>
+
+      <section className="profile-card">
+        <h2>Resumo Executivo para Diretoria</h2>
+
+        <p>
+          A leitura geral mostra que a equipe evoluiu em qualidade comercial,
+          margem e desenvolvimento de carteira, mas ainda precisa ampliar volume
+          e recorrência. Renata e Luana superaram a meta financeira, Demitrio
+          liderou em volume realizado, Wanderson mantém a maior base ativa e
+          Heliara inicia a fase de rampagem com foco em construção de carteira.
+        </p>
       </section>
     </div>
   )
@@ -468,6 +501,27 @@ function IndividualDashboard({
               </ResponsiveContainer>
             </ChartCard>
 
+            <ChartCard titulo="Volume Realizado por Mês">
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={vendedor.volumeRealizado}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="mes" />
+                  <YAxis />
+                  <Tooltip formatter={(v) => formatKg(Number(v))} />
+                  <Legend />
+
+                  <Bar
+                    dataKey="volume"
+                    name="Volume Realizado"
+                    fill="#15803d"
+                    radius={[8, 8, 0, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
+          </section>
+
+          <section className="grid-2">
             <ChartCard titulo="Volume x Valor (% de atingimento)">
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={vendedor.dados}>
@@ -495,9 +549,7 @@ function IndividualDashboard({
                 </LineChart>
               </ResponsiveContainer>
             </ChartCard>
-          </section>
 
-          <section className="grid-2">
             <ChartCard titulo="Evolução da Carteira">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={vendedor.carteira}>
@@ -514,7 +566,9 @@ function IndividualDashboard({
                 </BarChart>
               </ResponsiveContainer>
             </ChartCard>
+          </section>
 
+          <section className="grid-2">
             <ChartCard titulo="Mix de Produtos">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={vendedor.mix}>

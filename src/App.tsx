@@ -145,6 +145,30 @@ const historicalComparison = [
     margemSemKam2025: 17.0,
     margemAtual2026: 19.1,
   },
+  {
+    mes: 'JUN',
+    comKam2025: 1085851,
+    semKam2025: 959688,
+    atual2026: 932396,
+    volumeComKam2025: 335200,
+    volumeSemKam2025: 293100,
+    volumeAtual2026: 259615,
+    margemComKam2025: 22.3,
+    margemSemKam2025: 21.6,
+    margemAtual2026: 22.2,
+  },
+  {
+    mes: 'JUL*',
+    comKam2025: 1085857,
+    semKam2025: 922168,
+    atual2026: 732770,
+    volumeComKam2025: 335700,
+    volumeSemKam2025: 282750,
+    volumeAtual2026: 201700,
+    margemComKam2025: 21.2,
+    margemSemKam2025: 21.3,
+    margemAtual2026: 26.6,
+  },
 ]
 
 const teamMonthly = [
@@ -426,21 +450,21 @@ const executiveTotals = {
 }
 
 const comparableTotals = {
-  faturamentoComKam: 4233973,
-  faturamentoSemKam: 3459723,
-  faturamento2026: 3851456,
-  volumeComKam: 1313620,
-  volumeSemKam: 1110390,
-  volume2026: 1119130,
-  crescimentoOrganicoValor: 11.3,
-  gapComKamValor: -9.0,
-  recuperacaoKamValor: 50.6,
-  crescimentoOrganicoVolume: 0.8,
-  gapComKamVolume: -14.8,
-  recuperacaoKamVolume: 4.3,
-  margemComKam: 15.6,
-  margemSemKam: 14.7,
-  margem2026: 18.5,
+  faturamentoComKam: 6405681,
+  faturamentoSemKam: 5341579,
+  faturamento2026: 5516617,
+  volumeComKam: 1984520,
+  volumeSemKam: 1686240,
+  volume2026: 1580445,
+  crescimentoOrganicoValor: 3.3,
+  gapComKamValor: -13.9,
+  recuperacaoKamValor: 16.4,
+  crescimentoOrganicoVolume: -6.3,
+  gapComKamVolume: -20.4,
+  recuperacaoKamVolume: -35.5,
+  margemComKam: 17.7,
+  margemSemKam: 17.1,
+  margem2026: 20.2,
 }
 
 const acquisitionChannels = [
@@ -1019,13 +1043,13 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Comparação histórica obrigatória"
           title="2025 com KAM × 2025 sem KAM × 2026"
-          subtitle="Período comparável fechado de janeiro a maio. Junho de 2026 permanece na leitura operacional, mas não entra nos cards históricos por ausência do recorte sem KAM de junho/2025."
+          subtitle="Janeiro a julho; julho de 2026 é parcial e permanece visível em todos os comparativos."
         />
         <div className="cd-grid cd-grid-4">
           <MetricCard
             label="Faturamento 2026 comparável"
             value={formatCurrency(comparableTotals.faturamento2026)}
-            subtitle="Janeiro a maio"
+            subtitle="Janeiro a julho · julho parcial"
             tone="green"
             icon={<CircleDollarSign size={18} />}
             deltas={[
@@ -1036,7 +1060,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           <MetricCard
             label="Volume 2026 comparável"
             value={formatKg(comparableTotals.volume2026)}
-            subtitle="Janeiro a maio"
+            subtitle="Janeiro a julho · julho parcial"
             tone="blue"
             icon={<Boxes size={18} />}
             deltas={[
@@ -1071,19 +1095,19 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           recovery={comparableTotals.recuperacaoKamValor}
           organic={comparableTotals.crescimentoOrganicoValor}
           gap={comparableTotals.gapComKamValor}
-          text="A equipe recuperou aproximadamente metade do faturamento que as contas KAM acrescentavam ao período comparável de 2025. Ainda existe um gap de 9,0% para a operação total anterior."
+          text="Até julho, a equipe recompôs 16,4% do faturamento associado ao efeito KAM. O resultado está 3,3% acima de 2025 sem KAM, mas ainda 13,9% abaixo da operação total anterior."
         />
         <RecoveryCard
           title="Recuperação de volume do efeito KAM"
           recovery={comparableTotals.recuperacaoKamVolume}
           organic={comparableTotals.crescimentoOrganicoVolume}
           gap={comparableTotals.gapComKamVolume}
-          text="A recuperação física foi mínima: apenas 4,3% do volume associado ao efeito KAM foi recomposto. Isso confirma que o avanço atual vem muito mais de preço/mix e margem do que de escala."
+          text="O volume de 2026 está 6,3% abaixo de 2025 sem KAM e 20,4% abaixo de 2025 com KAM. A evolução financeira vem de preço, mix e margem, não de recuperação da escala física."
         />
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a maio · valores em reais">
+        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a julho · julho de 2026 parcial · valores em reais">
           <ResponsiveContainer width="100%" height={330}>
             <BarChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1098,7 +1122,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a maio · quilos vendidos">
+        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a julho · julho de 2026 parcial · quilos vendidos">
           <ResponsiveContainer width="100%" height={330}>
             <LineChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1280,7 +1304,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       <section className="cd-card cd-diagnosis">
         <h3>Diagnóstico executivo da operação</h3>
         <p>
-          <strong>Houve evolução real, mas ainda não uma evolução estrutural completa.</strong> No período comparável de janeiro a maio, a equipe cresceu 11,3% em faturamento contra 2025 sem KAM e ficou 9,0% abaixo do resultado com KAM. Em volume, o crescimento orgânico foi de apenas 0,8% e o gap para 2025 com KAM permanece em 14,8%. A operação está mais rentável, mais tecnificada e gera maior contribuição por tonelada, porém ainda depende de poucos clientes, de negócios pontuais e principalmente do desempenho do Wanderson. O próximo ciclo deve priorizar segunda compra, expansão de volume e distribuição do crescimento entre os cinco vendedores.
+          <strong>Houve evolução financeira, mas ainda não uma recuperação estrutural de escala.</strong> De janeiro a julho, com julho parcial, a equipe está 3,3% acima de 2025 sem KAM em faturamento e 13,9% abaixo do resultado com KAM. Em volume, está 6,3% abaixo de 2025 sem KAM e 20,4% abaixo de 2025 com KAM. A operação está mais rentável, mais tecnificada e gera maior contribuição por tonelada, porém ainda depende de poucos clientes, de negócios pontuais e principalmente do desempenho do Wanderson. O próximo ciclo deve priorizar segunda compra, expansão de volume e distribuição do crescimento entre os cinco vendedores.
         </p>
       </section>
     </div>
@@ -1329,7 +1353,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
 
       <section className="cd-card cd-kam-context">
         <ShieldCheck size={22} color="#1d8f56" />
-        <p><strong>Contexto corporativo KAM:</strong> no período comparável Jan–Mai, 2026 está 11,3% acima de 2025 sem KAM e 9,0% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
+        <p><strong>Contexto corporativo KAM:</strong> de janeiro a julho, com julho parcial, 2026 está 3,3% acima de 2025 sem KAM e 13,9% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
       </section>
 
       {seller.id === 'luana' && (

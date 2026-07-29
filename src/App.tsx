@@ -37,7 +37,7 @@ import {
 
 type Tone = 'green' | 'blue' | 'amber' | 'red' | 'purple' | 'slate'
 type Page = 'executivo' | SellerId
-type SellerId = 'demitrio' | 'renata' | 'luana' | 'wanderson'
+type SellerId = 'demitrio' | 'renata' | 'luana' | 'wanderson' | 'heliara'
 
 type MonthlyResult = {
   mes: string
@@ -271,7 +271,7 @@ const sellers: Seller[] = [
       { mes: 'ABR', faturamento: 43439, volume: 9390, mc: 10794, margem: 24.8, tkm: 4626, mcTon: 1149, desconto: 4.0, clientes: 4, ncp: 36663, retidos: 1, novos: 2, reativados: 1, perdas: 3 },
       { mes: 'MAI', faturamento: 232297, volume: 29778, mc: 37205, margem: 16.0, tkm: 7801, mcTon: 1249, desconto: 18.0, clientes: 8, ncp: 142837, retidos: 0, novos: 5, reativados: 3, perdas: 4 },
       { mes: 'JUN', faturamento: 40361, volume: 10525, mc: 9870, margem: 24.5, tkm: 3835, mcTon: 938, desconto: 7.3, clientes: 7, ncp: 14523, retidos: 2, novos: 3, reativados: 2, perdas: 6 },
-      { mes: 'JUL', faturamento: 161444, volume: 46740, mc: 34366, margem: 21.3, tkm: 3454, mcTon: 735, desconto: 7.7, clientes: 1, ncp: 72403, retidos: 1, novos: 0, reativados: 0, perdas: 6 },
+      { mes: 'JUL', faturamento: 161444, volume: 46740, mc: 34366, margem: 21.3, tkm: 3454, mcTon: 735, desconto: 7.7, clientes: 10, ncp: 72403, retidos: 7, novos: 2, reativados: 1, perdas: 6 },
     ],
     clientesUnicos: 17,
     recorrentes: 7,
@@ -354,6 +354,53 @@ const sellers: Seller[] = [
     diagnostico:
       'Wanderson é o principal motor da evolução atual. A carteira cresceu em escala e recorrência, e junho apresentou resultado distribuído entre mais clientes. O próximo passo é elevar a margem dos clientes de grande volume e consolidar as aquisições recentes.',
   },
+  {
+    id: 'heliara',
+    nome: 'Heliara Nogueira',
+    perfil: 'Formação e recuperação de carteira',
+    status: 'Em evolução, ainda sem equilíbrio',
+    statusTone: 'blue',
+    resumo:
+      'Ingressou em 01/04/2026 e trabalha uma base saturada, praticamente de resgate. Julho marcou uma mudança de ritmo, mas o desafio central ainda é transformar movimentações pontuais em carteira fiel e rentável.',
+    monthly: [
+      { mes: 'ABR', faturamento: 2101, volume: 920, mc: 126, margem: 6.0, tkm: 2284, mcTon: 137, desconto: 6.8, clientes: 1, ncp: 0, retidos: 0, novos: 0, reativados: 1, perdas: 0 },
+      { mes: 'MAI', faturamento: 0, volume: 0, mc: 0, margem: 0, tkm: 0, mcTon: 0, desconto: 0, clientes: 0, ncp: 0, retidos: 0, novos: 0, reativados: 0, perdas: 1 },
+      { mes: 'JUN', faturamento: 2800, volume: 900, mc: 701, margem: 25.0, tkm: 3111, mcTon: 779, desconto: 8.0, clientes: 1, ncp: 0, retidos: 0, novos: 1, reativados: 0, perdas: 0 },
+      { mes: 'JUL', faturamento: 20872, volume: 2900, mc: 5588, margem: 26.8, tkm: 7197, mcTon: 1927, desconto: 7.8, clientes: 2, ncp: 20872, retidos: 1, novos: 1, reativados: 0, perdas: 1 },
+    ],
+    clientesUnicos: 3,
+    recorrentes: 1,
+    compraUnica: 2,
+    recorrencia: 33.3,
+    concentracaoTop3: 100,
+    comissao: 0,
+    topClients: [
+      { nome: 'Claudiomar Contin Portugal Filho', faturamento: 0, participacao: 47.7, leitura: '900 kg em junho e 1.350 kg em julho; único cliente recorrente até o momento.' },
+      { nome: 'Agenor Domingos Peris', faturamento: 0, participacao: 31.8, leitura: '1.500 kg em julho; primeira compra, com prioridade para acompanhamento de recompra.' },
+      { nome: 'Jose Carlos da Silva', faturamento: 2101, participacao: 20.5, leitura: '920 kg em abril; cliente reativado, ainda sem nova movimentação identificada.' },
+    ],
+    pontosFortes: [
+      'Boa comunicação e capacidade de quebrar objeções.',
+      'Evolução no uso dos sistemas e no aprendizado técnico.',
+      'Disposição para ajudar e concluir tarefas que domina.',
+      'Boa resistência comercial diante de uma base bastante saturada.',
+    ],
+    riscos: [
+      'A operação ainda não gera retorno suficiente para o custo da estrutura.',
+      'Apenas um dos três clientes apresentou recorrência.',
+      'Interromper ou antecipar falas pode limitar a escuta consultiva.',
+      'Dificuldades novas podem gerar bloqueio ou abandono da tarefa.',
+    ],
+    prioridades: [
+      'Acompanhar semanalmente os indicadores individuais.',
+      'Desenvolver escuta ativa e abordagem mais personalizada.',
+      'Projetar nominalmente oportunidades, negociações e clientes ativos.',
+      'Fidelizar Agenor e Jose Carlos e manter Claudiomar recorrente.',
+      'Preservar o foco nas responsabilidades comerciais.',
+    ],
+    diagnostico:
+      'Heliara possui potencial comercial, energia e capacidade de lidar com objeções. Julho demonstra evolução relevante, porém ainda pontual. O próximo estágio é converter comunicação em método, disciplina e previsibilidade, ampliando a carteira ativa e a frequência de compra.',
+  },
 ]
 
 const sellerPhotos: Record<SellerId, string> = {
@@ -361,6 +408,7 @@ const sellerPhotos: Record<SellerId, string> = {
   renata: '/team/renata-botelho.png',
   luana: '/team/luana-biana.png',
   wanderson: '/team/wanderson-silva.png',
+  heliara: '/team/heliara-nogueira.png',
 }
 
 const executiveTotals = {
@@ -370,9 +418,9 @@ const executiveTotals = {
   margem: 20.2,
   tkm: 3491,
   mcTon: 705,
-  clientesCarteira: 107,
-  recorrentes: 53,
-  compraUnica: 54,
+  clientesCarteira: 110,
+  recorrentes: 54,
+  compraUnica: 56,
   ncp: 1544497,
   ncpShare: 28.0,
 }
@@ -931,7 +979,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Visão consolidada"
           title="Resultado atual da operação"
-          subtitle="Janeiro a julho de 2026; julho ainda é parcial. A análise individual cobre Demitrio, Renata, Luana e Wanderson."
+          subtitle="Janeiro a julho de 2026; julho ainda é parcial. As análises individuais cobrem toda a equipe, respeitando o período de atuação de cada profissional."
         />
         <div className="cd-grid cd-grid-6">
           <MetricCard label="Faturamento" value={formatCurrency(executiveTotals.faturamento)} subtitle="Acumulado Jan–Jul" tone="green" icon={<CircleDollarSign size={18} />} />
@@ -956,11 +1004,6 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
               <h3>Resultado com rosto, contexto e responsabilidade.</h3>
             </div>
             <p>Os resultados de julho permanecem visíveis e identificados como parciais em todas as análises.</p>
-          </div>
-          <div className="cd-person-card cd-person-card-static">
-            <img className="cd-person-photo" src="/team/heliara-nogueira.png" alt="Heliara Nogueira" />
-            <strong>Heliara Nogueira</strong>
-            <span>Integração à equipe · análise individual em uma próxima etapa</span>
           </div>
           {sellers.map((seller) => (
             <button className="cd-person-card" key={seller.id} onClick={() => onSelectSeller(seller.id)}>
@@ -1197,12 +1240,12 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Dependência da equipe</div>
           <h3>Férias alteraram a leitura das carteiras</h3>
-          <p>Parte dos clientes do Wanderson foi atendida pela Luana no início de julho. O valor e o volume permanecem no resultado dela, mas esses clientes não foram incorporados à carteira própria.</p>
+          <p>Somente Uandersson Jose Santos Paniago, FREC Agropecuária, Aguinaldo Caiado Parrode e Felix Pereira Filho foram atendidos pela Luana como suporte durante as férias do Wanderson. O resultado permanece com ela, sem incorporar esses quatro nomes à carteira própria.</p>
         </div>
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Gargalo estrutural</div>
           <h3>Primeira compra não vira recorrência</h3>
-          <p>Nas quatro carteiras foram identificados 107 registros de clientes únicos: 53 recorrentes e 54 de compra única. A segunda compra continua sendo o principal indicador de aquisição.</p>
+          <p>Nas cinco carteiras foram identificados 110 registros de clientes únicos: 54 recorrentes e 56 de compra única. A segunda compra continua sendo o principal indicador de aquisição.</p>
         </div>
       </section>
 
@@ -1237,7 +1280,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       <section className="cd-card cd-diagnosis">
         <h3>Diagnóstico executivo da operação</h3>
         <p>
-          <strong>Houve evolução real, mas ainda não uma evolução estrutural completa.</strong> No período comparável de janeiro a maio, a equipe cresceu 11,3% em faturamento contra 2025 sem KAM e ficou 9,0% abaixo do resultado com KAM. Em volume, o crescimento orgânico foi de apenas 0,8% e o gap para 2025 com KAM permanece em 14,8%. A operação está mais rentável, mais tecnificada e gera maior contribuição por tonelada, porém ainda depende de poucos clientes, de negócios pontuais e principalmente do desempenho do Wanderson. O próximo ciclo deve priorizar segunda compra, expansão de volume e distribuição do crescimento entre os quatro vendedores.
+          <strong>Houve evolução real, mas ainda não uma evolução estrutural completa.</strong> No período comparável de janeiro a maio, a equipe cresceu 11,3% em faturamento contra 2025 sem KAM e ficou 9,0% abaixo do resultado com KAM. Em volume, o crescimento orgânico foi de apenas 0,8% e o gap para 2025 com KAM permanece em 14,8%. A operação está mais rentável, mais tecnificada e gera maior contribuição por tonelada, porém ainda depende de poucos clientes, de negócios pontuais e principalmente do desempenho do Wanderson. O próximo ciclo deve priorizar segunda compra, expansão de volume e distribuição do crescimento entre os cinco vendedores.
         </p>
       </section>
     </div>
@@ -1292,7 +1335,14 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       {seller.id === 'luana' && (
         <section className="cd-card cd-kam-context">
           <UserCheck size={22} color="#7b61ff" />
-          <p><strong>Ajuste de carteira em julho:</strong> clientes do Wanderson atendidos temporariamente durante as férias não foram incorporados à carteira própria da Luana. O faturamento de R$ 161.444 e o volume de 46.740 kg foram preservados integralmente no resultado comercial.</p>
+          <p><strong>Ajuste de carteira em julho:</strong> somente Uandersson Jose Santos Paniago, FREC Agropecuária Ltda, Aguinaldo Caiado Parrode e Felix Pereira Filho foram classificados como suporte temporário ao Wanderson. Eles não entram na carteira própria da Luana, mas o faturamento de R$ 161.444 e o volume de 46.740 kg permanecem integralmente no resultado comercial.</p>
+        </section>
+      )}
+
+      {seller.id === 'heliara' && (
+        <section className="cd-card cd-kam-context">
+          <UserCheck size={22} color="#2f80ed" />
+          <p><strong>Contexto de entrada:</strong> Heliara iniciou em 01/04/2026 e recebeu uma base bastante saturada, praticamente de resgate. Nenhum cliente foi atendido como suporte; toda a movimentação exibida pertence à carteira dela.</p>
         </section>
       )}
 
@@ -1376,7 +1426,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
           <div className="cd-stat-row">
             <div className="cd-stat-box"><span>Top 3 clientes</span><strong>{formatPercent(seller.concentracaoTop3)}</strong></div>
             <div className="cd-stat-box"><span>Compra única</span><strong>{formatPercent((seller.compraUnica / seller.clientesUnicos) * 100)}</strong></div>
-            <div className="cd-stat-box"><span>Comissão</span><strong>{formatCurrency(seller.comissao)}</strong></div>
+            <div className="cd-stat-box"><span>Comissão</span><strong>{seller.id === 'heliara' ? 'Não informada' : formatCurrency(seller.comissao)}</strong></div>
           </div>
         </div>
       </section>
@@ -1428,7 +1478,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
               {seller.topClients.map((client) => (
                 <tr key={client.nome}>
                   <td><div className="cd-client-name">{client.nome}</div></td>
-                  <td><strong>{formatCurrency(client.faturamento, false)}</strong></td>
+                  <td><strong>{seller.id === 'heliara' && client.faturamento === 0 ? 'Não disponível' : formatCurrency(client.faturamento, false)}</strong></td>
                   <td>
                     <div className="cd-mini-bar">
                       <strong>{formatPercent(client.participacao)}</strong>

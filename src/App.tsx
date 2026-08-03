@@ -158,16 +158,16 @@ const historicalComparison = [
     margemAtual2026: 22.2,
   },
   {
-    mes: 'JUL*',
+    mes: 'JUL',
     comKam2025: 1085857,
     semKam2025: 922168,
-    atual2026: 732770,
+    atual2026: 917171,
     volumeComKam2025: 335700,
     volumeSemKam2025: 282750,
-    volumeAtual2026: 201700,
+    volumeAtual2026: 265522,
     margemComKam2025: 21.2,
     margemSemKam2025: 21.3,
-    margemAtual2026: 26.6,
+    margemAtual2026: 25.0,
   },
 ]
 
@@ -178,7 +178,7 @@ const teamMonthly = [
   { mes: 'ABR', faturamento: 842322, volume: 236375, mc: 165014, margem: 19.6, clientes: 37, tkm: 3563, mcTon: 698 },
   { mes: 'MAI', faturamento: 879767, volume: 225208, mc: 168290, margem: 19.1, clientes: 42, tkm: 3906, mcTon: 747 },
   { mes: 'JUN', faturamento: 932396, volume: 259615, mc: 207217, margem: 22.2, clientes: 46, tkm: 3591, mcTon: 798 },
-  { mes: 'JUL', faturamento: 732770, volume: 201700, mc: 195120, margem: 26.6, clientes: 39, tkm: 3633, mcTon: 967 },
+  { mes: 'JUL', faturamento: 917171, volume: 265522, mc: 229723, margem: 25.0, clientes: 44, tkm: 3454, mcTon: 865 },
 ]
 
 const sellers: Seller[] = [
@@ -197,7 +197,7 @@ const sellers: Seller[] = [
       { mes: 'ABR', faturamento: 296196, volume: 87500, mc: 47974, margem: 16.2, tkm: 3385, mcTon: 548, desconto: 12.3, clientes: 7, ncp: 20795, retidos: 3, novos: 3, reativados: 1, perdas: 5 },
       { mes: 'MAI', faturamento: 212302, volume: 76350, mc: 50684, margem: 23.9, tkm: 2781, mcTon: 664, desconto: 12.1, clientes: 7, ncp: 74700, retidos: 3, novos: 3, reativados: 1, perdas: 4 },
       { mes: 'JUN', faturamento: 213881, volume: 53420, mc: 52101, margem: 24.4, tkm: 4004, mcTon: 975, desconto: 10.9, clientes: 4, ncp: 49198, retidos: 4, novos: 0, reativados: 0, perdas: 3 },
-      { mes: 'JUL', faturamento: 232569, volume: 73735, mc: 68466, margem: 29.4, tkm: 3154, mcTon: 929, desconto: 12.8, clientes: 7, ncp: 183668, retidos: 7, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'JUL', faturamento: 334668, volume: 110862, mc: 84256, margem: 25.2, tkm: 3019, mcTon: 760, desconto: 16.1, clientes: 7, ncp: 285767, retidos: 7, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 19,
     recorrentes: 8,
@@ -246,7 +246,7 @@ const sellers: Seller[] = [
       { mes: 'ABR', faturamento: 213564, volume: 58825, mc: 49224, margem: 23.0, tkm: 3630, mcTon: 837, desconto: 9.9, clientes: 10, ncp: 81435, retidos: 3, novos: 4, reativados: 3, perdas: 7 },
       { mes: 'MAI', faturamento: 290857, volume: 68560, mc: 65424, margem: 22.5, tkm: 4242, mcTon: 954, desconto: 9.5, clientes: 12, ncp: 86137, retidos: 3, novos: 2, reativados: 7, perdas: 7 },
       { mes: 'JUN', faturamento: 226738, volume: 68460, mc: 47288, margem: 20.9, tkm: 3312, mcTon: 691, desconto: 11.1, clientes: 12, ncp: 24270, retidos: 9, novos: 3, reativados: 0, perdas: 3 },
-      { mes: 'JUL', faturamento: 149140, volume: 41550, mc: 35597, margem: 23.9, tkm: 3589, mcTon: 857, desconto: 9.3, clientes: 9, ncp: 25698, retidos: 7, novos: 1, reativados: 1, perdas: 3 },
+      { mes: 'JUL', faturamento: 215176, volume: 62830, mc: 51313, margem: 23.8, tkm: 3425, mcTon: 817, desconto: 10.5, clientes: 11, ncp: 25698, retidos: 8, novos: 2, reativados: 1, perdas: 4 },
     ],
     clientesUnicos: 31,
     recorrentes: 14,
@@ -295,7 +295,7 @@ const sellers: Seller[] = [
       { mes: 'ABR', faturamento: 43439, volume: 9390, mc: 10794, margem: 24.8, tkm: 4626, mcTon: 1149, desconto: 4.0, clientes: 4, ncp: 36663, retidos: 1, novos: 2, reativados: 1, perdas: 3 },
       { mes: 'MAI', faturamento: 232297, volume: 29778, mc: 37205, margem: 16.0, tkm: 7801, mcTon: 1249, desconto: 18.0, clientes: 8, ncp: 142837, retidos: 0, novos: 5, reativados: 3, perdas: 4 },
       { mes: 'JUN', faturamento: 40361, volume: 10525, mc: 9870, margem: 24.5, tkm: 3835, mcTon: 938, desconto: 7.3, clientes: 7, ncp: 14523, retidos: 2, novos: 3, reativados: 2, perdas: 6 },
-      { mes: 'JUL', faturamento: 161444, volume: 46740, mc: 34366, margem: 21.3, tkm: 3454, mcTon: 735, desconto: 7.7, clientes: 10, ncp: 72403, retidos: 7, novos: 2, reativados: 1, perdas: 6 },
+      { mes: 'JUL', faturamento: 161444, volume: 46740, mc: 34366, margem: 21.3, tkm: 3454, mcTon: 735, desconto: 7.7, clientes: 11, ncp: 72403, retidos: 3, novos: 2, reativados: 6, perdas: 4 },
     ],
     clientesUnicos: 17,
     recorrentes: 7,
@@ -344,7 +344,7 @@ const sellers: Seller[] = [
       { mes: 'ABR', faturamento: 289123, volume: 80660, mc: 57022, margem: 19.7, tkm: 3584, mcTon: 707, desconto: 9.4, clientes: 16, ncp: 106263, retidos: 5, novos: 4, reativados: 7, perdas: 6 },
       { mes: 'MAI', faturamento: 144312, volume: 50520, mc: 23643, margem: 16.4, tkm: 2857, mcTon: 468, desconto: 7.9, clientes: 15, ncp: 8257, retidos: 8, novos: 2, reativados: 5, perdas: 8 },
       { mes: 'JUN', faturamento: 448616, volume: 126310, mc: 99498, margem: 22.2, tkm: 3552, mcTon: 788, desconto: 9.2, clientes: 22, ncp: 61907, retidos: 17, novos: 3, reativados: 2, perdas: 10 },
-      { mes: 'JUL', faturamento: 168745, volume: 36800, mc: 51103, margem: 30.3, tkm: 4585, mcTon: 1389, desconto: 8.5, clientes: 10, ncp: 112808, retidos: 8, novos: 0, reativados: 2, perdas: 12 },
+      { mes: 'JUL', faturamento: 182636, volume: 41740, mc: 53725, margem: 29.4, tkm: 4376, mcTon: 1287, desconto: 8.4, clientes: 13, ncp: 112808, retidos: 11, novos: 0, reativados: 2, perdas: 11 },
     ],
     clientesUnicos: 40,
     recorrentes: 24,
@@ -390,7 +390,7 @@ const sellers: Seller[] = [
       { mes: 'ABR', faturamento: 2101, volume: 920, mc: 126, margem: 6.0, tkm: 2284, mcTon: 137, desconto: 6.8, clientes: 1, ncp: 0, retidos: 0, novos: 0, reativados: 1, perdas: 0 },
       { mes: 'MAI', faturamento: 0, volume: 0, mc: 0, margem: 0, tkm: 0, mcTon: 0, desconto: 0, clientes: 0, ncp: 0, retidos: 0, novos: 0, reativados: 0, perdas: 1 },
       { mes: 'JUN', faturamento: 2800, volume: 900, mc: 701, margem: 25.0, tkm: 3111, mcTon: 779, desconto: 8.0, clientes: 1, ncp: 0, retidos: 0, novos: 1, reativados: 0, perdas: 0 },
-      { mes: 'JUL', faturamento: 20872, volume: 2900, mc: 5588, margem: 26.8, tkm: 7197, mcTon: 1927, desconto: 7.8, clientes: 2, ncp: 20872, retidos: 1, novos: 1, reativados: 0, perdas: 1 },
+      { mes: 'JUL', faturamento: 23247, volume: 3350, mc: 6063, margem: 26.1, tkm: 6939, mcTon: 1810, desconto: 7.7, clientes: 2, ncp: 23247, retidos: 0, novos: 1, reativados: 1, perdas: 1 },
     ],
     clientesUnicos: 3,
     recorrentes: 1,
@@ -399,8 +399,8 @@ const sellers: Seller[] = [
     concentracaoTop3: 100,
     comissao: 0,
     topClients: [
-      { nome: 'Claudiomar Contin Portugal Filho', faturamento: 0, participacao: 47.7, leitura: '900 kg em junho e 1.350 kg em julho; único cliente recorrente até o momento.' },
-      { nome: 'Agenor Domingos Peris', faturamento: 0, participacao: 31.8, leitura: '1.500 kg em julho; primeira compra, com prioridade para acompanhamento de recompra.' },
+      { nome: 'Claudiomar Contin Portugal Filho', faturamento: 0, participacao: 47.7, leitura: 'Cliente recorrente entre junho e julho; principal vínculo em acompanhamento.' },
+      { nome: 'Agenor Domingos Peris', faturamento: 0, participacao: 31.8, leitura: 'Primeira compra em julho, com prioridade para acompanhamento de recompra.' },
       { nome: 'Jose Carlos da Silva', faturamento: 2101, participacao: 20.5, leitura: '920 kg em abril; cliente reativado, ainda sem nova movimentação identificada.' },
     ],
     pontosFortes: [
@@ -456,11 +456,11 @@ const comparableTotals = {
   volumeComKam: 1984520,
   volumeSemKam: 1686240,
   volume2026: 1580445,
-  crescimentoOrganicoValor: 3.3,
-  gapComKamValor: -13.9,
+  crescimentoOrganicoValor: 6.7,
+  gapComKamValor: -11.0,
   recuperacaoKamValor: 16.4,
-  crescimentoOrganicoVolume: -6.3,
-  gapComKamVolume: -20.4,
+  crescimentoOrganicoVolume: -2.5,
+  gapComKamVolume: -17.1,
   recuperacaoKamVolume: -35.5,
   margemComKam: 17.7,
   margemSemKam: 17.1,
@@ -1003,7 +1003,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Visão consolidada"
           title="Resultado atual da operação"
-          subtitle="Janeiro a julho de 2026; julho ainda é parcial. As análises individuais cobrem toda a equipe, respeitando o período de atuação de cada profissional."
+          subtitle="Janeiro a julho de 2026 com todos os meses fechados. As análises individuais cobrem toda a equipe, respeitando o período de atuação de cada profissional."
         />
         <div className="cd-grid cd-grid-6">
           <MetricCard label="Faturamento" value={formatCurrency(executiveTotals.faturamento)} subtitle="Acumulado Jan–Jul" tone="green" icon={<CircleDollarSign size={18} />} />
@@ -1027,7 +1027,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
               <div className="cd-kicker">Vendas Internas</div>
               <h3>Resultado com rosto, contexto e responsabilidade.</h3>
             </div>
-            <p>Os resultados de julho permanecem visíveis e identificados como parciais em todas as análises.</p>
+            <p>Julho está fechado e incorporado integralmente aos acumulados, comparativos e análises individuais.</p>
           </div>
           {sellers.map((seller) => (
             <button className="cd-person-card" key={seller.id} onClick={() => onSelectSeller(seller.id)}>
@@ -1043,13 +1043,13 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Comparação histórica obrigatória"
           title="2025 com KAM × 2025 sem KAM × 2026"
-          subtitle="Janeiro a julho; julho de 2026 é parcial e permanece visível em todos os comparativos."
+          subtitle="Janeiro a julho de 2026, com julho fechado em todos os comparativos."
         />
         <div className="cd-grid cd-grid-4">
           <MetricCard
             label="Faturamento 2026 comparável"
             value={formatCurrency(comparableTotals.faturamento2026)}
-            subtitle="Janeiro a julho · julho parcial"
+            subtitle="Janeiro a julho · período fechado"
             tone="green"
             icon={<CircleDollarSign size={18} />}
             deltas={[
@@ -1060,7 +1060,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           <MetricCard
             label="Volume 2026 comparável"
             value={formatKg(comparableTotals.volume2026)}
-            subtitle="Janeiro a julho · julho parcial"
+            subtitle="Janeiro a julho · período fechado"
             tone="blue"
             icon={<Boxes size={18} />}
             deltas={[
@@ -1095,7 +1095,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           recovery={comparableTotals.recuperacaoKamValor}
           organic={comparableTotals.crescimentoOrganicoValor}
           gap={comparableTotals.gapComKamValor}
-          text="Até julho, a equipe recompôs 16,4% do faturamento associado ao efeito KAM. O resultado está 3,3% acima de 2025 sem KAM, mas ainda 13,9% abaixo da operação total anterior."
+          text="Até julho, a equipe recompôs 33,8% do faturamento associado ao efeito KAM. O resultado está 6,7% acima de 2025 sem KAM, mas ainda 11,0% abaixo da operação total anterior."
         />
         <RecoveryCard
           title="Recuperação de volume do efeito KAM"
@@ -1107,7 +1107,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a julho · julho de 2026 parcial · valores em reais">
+        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a julho de 2026 · valores em reais">
           <ResponsiveContainer width="100%" height={330}>
             <BarChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1122,7 +1122,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a julho · julho de 2026 parcial · quilos vendidos">
+        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a julho de 2026 · quilos vendidos">
           <ResponsiveContainer width="100%" height={330}>
             <LineChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1154,7 +1154,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Evolução operacional de 2026" subtitle="Faturamento, MC Gerencial e volume; julho parcial">
+        <ChartCard title="Evolução operacional de 2026" subtitle="Faturamento, MC Gerencial e volume; julho fechado">
           <ResponsiveContainer width="100%" height={310}>
             <ComposedChart data={teamMonthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1229,7 +1229,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Clientes ativos por mês" subtitle="Julho é parcial e considera a carteira sem duplicar clientes cobertos nas férias">
+        <ChartCard title="Clientes ativos por mês" subtitle="Julho fechado; carteira sem duplicar clientes cobertos nas férias">
           <ResponsiveContainer width="100%" height={300}>
             <ComposedChart data={teamMonthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1259,7 +1259,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Leitura de crescimento</div>
           <h3>Evolução financeira, não de escala</h3>
-          <p>Julho parcial combina menor escala com melhor qualidade: 201,7 mil kg, R$ 732,8 mil em faturamento e margem de 26,6%, a maior do ano até o momento.</p>
+          <p>Julho fechado alcançou 265,5 mil kg, R$ 917,2 mil em faturamento e margem de 25,0%, a maior do ano até o momento.</p>
         </div>
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Dependência da equipe</div>
@@ -1304,7 +1304,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       <section className="cd-card cd-diagnosis">
         <h3>Diagnóstico executivo da operação</h3>
         <p>
-          <strong>Houve evolução financeira, mas ainda não uma recuperação estrutural de escala.</strong> De janeiro a julho, com julho parcial, a equipe está 3,3% acima de 2025 sem KAM em faturamento e 13,9% abaixo do resultado com KAM. Em volume, está 6,3% abaixo de 2025 sem KAM e 20,4% abaixo de 2025 com KAM. A operação está mais rentável, mais tecnificada e gera maior contribuição por tonelada, porém ainda depende de poucos clientes, de negócios pontuais e principalmente do desempenho do Wanderson. O próximo ciclo deve priorizar segunda compra, expansão de volume e distribuição do crescimento entre os cinco vendedores.
+          <strong>Houve evolução financeira e forte ganho de rentabilidade, mas a escala ainda não foi totalmente recuperada.</strong> De janeiro a julho, a equipe está 6,7% acima de 2025 sem KAM em faturamento e 11,0% abaixo do resultado com KAM. Em volume, está 2,5% abaixo de 2025 sem KAM e 17,1% abaixo de 2025 com KAM. A margem acumulada chegou a 20,2%, acima dos dois cenários históricos. O próximo ciclo deve priorizar expansão de volume, segunda compra e distribuição do crescimento entre os cinco vendedores.
         </p>
       </section>
     </div>
@@ -1353,7 +1353,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
 
       <section className="cd-card cd-kam-context">
         <ShieldCheck size={22} color="#1d8f56" />
-        <p><strong>Contexto corporativo KAM:</strong> de janeiro a julho, com julho parcial, 2026 está 3,3% acima de 2025 sem KAM e 13,9% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
+        <p><strong>Contexto corporativo KAM:</strong> de janeiro a julho, 2026 está 6,7% acima de 2025 sem KAM e 11,0% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
       </section>
 
       {seller.id === 'luana' && (
@@ -1382,7 +1382,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Evolução mensal" subtitle="Faturamento, MC e volume; julho parcial">
+        <ChartCard title="Evolução mensal" subtitle="Faturamento, MC e volume; julho fechado">
           <ResponsiveContainer width="100%" height={330}>
             <ComposedChart data={seller.monthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1476,7 +1476,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
             <tbody>
               {seller.monthly.map((item) => (
                 <tr key={item.mes}>
-                  <td><strong>{item.mes}</strong>{item.mes === 'JUL' && <div className="cd-client-reading">Parcial</div>}</td>
+                  <td><strong>{item.mes}</strong>{item.mes === 'JUL' && <div className="cd-client-reading">Fechado</div>}</td>
                   <td>{formatCurrency(item.faturamento, false)}</td>
                   <td>{formatKg(item.volume, false)}</td>
                   <td>{formatCurrency(item.mc, false)}</td>
@@ -1602,7 +1602,7 @@ export default function App() {
                 <p>{page === 'executivo' ? 'Visão macro da operação, carteira, mix e comparação histórica' : selectedSeller?.perfil}</p>
               </div>
             </div>
-            <div className="cd-period"><Activity size={15} /><span>Atualização: <strong>Julho/2026 parcial</strong></span></div>
+            <div className="cd-period"><Activity size={15} /><span>Atualização: <strong>Julho/2026 fechado</strong></span></div>
           </header>
 
           <div className="cd-content">

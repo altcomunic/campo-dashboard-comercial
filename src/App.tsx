@@ -37,7 +37,7 @@ import {
 
 type Tone = 'green' | 'blue' | 'amber' | 'red' | 'purple' | 'slate'
 type Page = 'executivo' | SellerId
-type SellerId = 'demitrio' | 'renata' | 'luana' | 'wanderson'
+type SellerId = 'demitrio' | 'renata' | 'luana' | 'wanderson' | 'heliara'
 
 type MonthlyResult = {
   mes: string
@@ -95,7 +95,7 @@ const historicalComparison = [
     volumeAtual2026: 246948,
     margemComKam2025: 18.2,
     margemSemKam2025: 16.9,
-    margemAtual2026: 18.9,
+    margemAtual2026: 12.6,
   },
   {
     mes: 'FEV',
@@ -107,7 +107,7 @@ const historicalComparison = [
     volumeAtual2026: 222464,
     margemComKam2025: 15.5,
     margemSemKam2025: 15.2,
-    margemAtual2026: 20.1,
+    margemAtual2026: 22.2,
   },
   {
     mes: 'MAR',
@@ -119,7 +119,7 @@ const historicalComparison = [
     volumeAtual2026: 188135,
     margemComKam2025: 12.5,
     margemSemKam2025: 12.0,
-    margemAtual2026: 21.2,
+    margemAtual2026: 18.8,
   },
   {
     mes: 'ABR',
@@ -143,17 +143,42 @@ const historicalComparison = [
     volumeAtual2026: 225208,
     margemComKam2025: 17.7,
     margemSemKam2025: 17.0,
-    margemAtual2026: 20.1,
+    margemAtual2026: 19.1,
+  },
+  {
+    mes: 'JUN',
+    comKam2025: 1085851,
+    semKam2025: 959688,
+    atual2026: 932396,
+    volumeComKam2025: 335200,
+    volumeSemKam2025: 293100,
+    volumeAtual2026: 259615,
+    margemComKam2025: 22.3,
+    margemSemKam2025: 21.6,
+    margemAtual2026: 22.2,
+  },
+  {
+    mes: 'JUL',
+    comKam2025: 1085857,
+    semKam2025: 922168,
+    atual2026: 917171,
+    volumeComKam2025: 335700,
+    volumeSemKam2025: 282750,
+    volumeAtual2026: 265522,
+    margemComKam2025: 21.2,
+    margemSemKam2025: 21.3,
+    margemAtual2026: 25.0,
   },
 ]
 
 const teamMonthly = [
-  { mes: 'JAN', faturamento: 785549, volume: 246948, mc: 148473, margem: 18.9, clientes: 36, tkm: 3181, mcTon: 601 },
-  { mes: 'FEV', faturamento: 774365, volume: 222464, mc: 155521, margem: 20.1, clientes: 35, tkm: 3481, mcTon: 699 },
-  { mes: 'MAR', faturamento: 569452, volume: 188135, mc: 120814, margem: 21.2, clientes: 33, tkm: 3027, mcTon: 642 },
+  { mes: 'JAN', faturamento: 785548, volume: 246948, mc: 99121, margem: 12.6, clientes: 36, tkm: 3181, mcTon: 401 },
+  { mes: 'FEV', faturamento: 774364, volume: 222464, mc: 172123, margem: 22.2, clientes: 35, tkm: 3481, mcTon: 774 },
+  { mes: 'MAR', faturamento: 569451, volume: 188135, mc: 107288, margem: 18.8, clientes: 35, tkm: 3027, mcTon: 570 },
   { mes: 'ABR', faturamento: 842322, volume: 236375, mc: 165014, margem: 19.6, clientes: 37, tkm: 3563, mcTon: 698 },
-  { mes: 'MAI', faturamento: 879768, volume: 225208, mc: 176956, margem: 20.1, clientes: 42, tkm: 3906, mcTon: 786 },
-  { mes: 'JUN', faturamento: 870292, volume: 238230, mc: 195333, margem: 22.4, clientes: 37, tkm: 3653, mcTon: 820 },
+  { mes: 'MAI', faturamento: 879767, volume: 225208, mc: 168290, margem: 19.1, clientes: 42, tkm: 3906, mcTon: 747 },
+  { mes: 'JUN', faturamento: 932396, volume: 259615, mc: 207217, margem: 22.2, clientes: 46, tkm: 3591, mcTon: 798 },
+  { mes: 'JUL', faturamento: 917171, volume: 265522, mc: 229723, margem: 25.0, clientes: 44, tkm: 3454, mcTon: 865 },
 ]
 
 const sellers: Seller[] = [
@@ -171,14 +196,15 @@ const sellers: Seller[] = [
       { mes: 'MAR', faturamento: 150968, volume: 45330, mc: 46755, margem: 31.0, tkm: 3330, mcTon: 1031, desconto: 7.8, clientes: 8, ncp: 12750, retidos: 3, novos: 3, reativados: 2, perdas: 4 },
       { mes: 'ABR', faturamento: 296196, volume: 87500, mc: 47974, margem: 16.2, tkm: 3385, mcTon: 548, desconto: 12.3, clientes: 7, ncp: 20795, retidos: 3, novos: 3, reativados: 1, perdas: 5 },
       { mes: 'MAI', faturamento: 212302, volume: 76350, mc: 50684, margem: 23.9, tkm: 2781, mcTon: 664, desconto: 12.1, clientes: 7, ncp: 74700, retidos: 3, novos: 3, reativados: 1, perdas: 4 },
-      { mes: 'JUN', faturamento: 213881, volume: 53420, mc: 51580, margem: 24.1, tkm: 4004, mcTon: 966, desconto: 10.9, clientes: 4, ncp: 49198, retidos: 2, novos: 0, reativados: 2, perdas: 5 },
+      { mes: 'JUN', faturamento: 213881, volume: 53420, mc: 52101, margem: 24.4, tkm: 4004, mcTon: 975, desconto: 10.9, clientes: 4, ncp: 49198, retidos: 4, novos: 0, reativados: 0, perdas: 3 },
+      { mes: 'JUL', faturamento: 334668, volume: 110862, mc: 84256, margem: 25.2, tkm: 3019, mcTon: 760, desconto: 16.1, clientes: 7, ncp: 285767, retidos: 7, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 19,
     recorrentes: 8,
     compraUnica: 11,
     recorrencia: 42.0,
     concentracaoTop3: 69.4,
-    comissao: 15139.7,
+    comissao: 16906.6,
     topClients: [
       { nome: 'Ronnei Frolich Pereira', faturamento: 426264, participacao: 28.9, leitura: 'Recorrente, com evolução de MIN para RA, PE e NCP.' },
       { nome: 'Caio Monteiro', faturamento: 305589, participacao: 20.7, leitura: 'Compra todos os meses e ampliou o mix para NCP.' },
@@ -219,14 +245,15 @@ const sellers: Seller[] = [
       { mes: 'MAR', faturamento: 158504, volume: 51435, mc: 29042, margem: 18.3, tkm: 3082, mcTon: 565, desconto: 6.4, clientes: 10, ncp: 30038, retidos: 3, novos: 5, reativados: 2, perdas: 5 },
       { mes: 'ABR', faturamento: 213564, volume: 58825, mc: 49224, margem: 23.0, tkm: 3630, mcTon: 837, desconto: 9.9, clientes: 10, ncp: 81435, retidos: 3, novos: 4, reativados: 3, perdas: 7 },
       { mes: 'MAI', faturamento: 290857, volume: 68560, mc: 65424, margem: 22.5, tkm: 4242, mcTon: 954, desconto: 9.5, clientes: 12, ncp: 86137, retidos: 3, novos: 2, reativados: 7, perdas: 7 },
-      { mes: 'JUN', faturamento: 205834, volume: 60960, mc: 44016, margem: 21.4, tkm: 3377, mcTon: 722, desconto: 11.2, clientes: 10, ncp: 24269, retidos: 5, novos: 3, reativados: 2, perdas: 7 },
+      { mes: 'JUN', faturamento: 226738, volume: 68460, mc: 47288, margem: 20.9, tkm: 3312, mcTon: 691, desconto: 11.1, clientes: 12, ncp: 24270, retidos: 9, novos: 3, reativados: 0, perdas: 3 },
+      { mes: 'JUL', faturamento: 215176, volume: 62830, mc: 51313, margem: 23.8, tkm: 3425, mcTon: 817, desconto: 10.5, clientes: 11, ncp: 25698, retidos: 8, novos: 2, reativados: 1, perdas: 4 },
     ],
-    clientesUnicos: 30,
+    clientesUnicos: 31,
     recorrentes: 14,
-    compraUnica: 16,
-    recorrencia: 46.7,
+    compraUnica: 17,
+    recorrencia: 45.2,
     concentracaoTop3: 51.3,
-    comissao: 15779.8,
+    comissao: 17468.0,
     topClients: [
       { nome: 'Iara Aparecida Costa Esteves', faturamento: 242542, participacao: 19.0, leitura: 'Melhor caso de ampliação de mix: MIN, PE e NCP.' },
       { nome: 'Marcos Antonio Guedes', faturamento: 218143, participacao: 17.0, leitura: 'Alto valor, mas baixa frequência entre os pedidos.' },
@@ -267,14 +294,15 @@ const sellers: Seller[] = [
       { mes: 'MAR', faturamento: 55738, volume: 19190, mc: 9649, margem: 17.3, tkm: 2905, mcTon: 503, desconto: 12.4, clientes: 4, ncp: 0, retidos: 1, novos: 2, reativados: 1, perdas: 2 },
       { mes: 'ABR', faturamento: 43439, volume: 9390, mc: 10794, margem: 24.8, tkm: 4626, mcTon: 1149, desconto: 4.0, clientes: 4, ncp: 36663, retidos: 1, novos: 2, reativados: 1, perdas: 3 },
       { mes: 'MAI', faturamento: 232297, volume: 29778, mc: 37205, margem: 16.0, tkm: 7801, mcTon: 1249, desconto: 18.0, clientes: 8, ncp: 142837, retidos: 0, novos: 5, reativados: 3, perdas: 4 },
-      { mes: 'JUN', faturamento: 31990, volume: 7950, mc: 7622, margem: 23.8, tkm: 4024, mcTon: 959, desconto: 7.6, clientes: 4, ncp: 12301, retidos: 1, novos: 2, reativados: 1, perdas: 7 },
+      { mes: 'JUN', faturamento: 40361, volume: 10525, mc: 9870, margem: 24.5, tkm: 3835, mcTon: 938, desconto: 7.3, clientes: 7, ncp: 14523, retidos: 2, novos: 3, reativados: 2, perdas: 6 },
+      { mes: 'JUL', faturamento: 161444, volume: 46740, mc: 34366, margem: 21.3, tkm: 3454, mcTon: 735, desconto: 7.7, clientes: 11, ncp: 72403, retidos: 3, novos: 2, reativados: 6, perdas: 4 },
     ],
     clientesUnicos: 17,
     recorrentes: 7,
     compraUnica: 10,
     recorrencia: 41.2,
     concentracaoTop3: 55.6,
-    comissao: 5496.1,
+    comissao: 7124.6,
     topClients: [
       { nome: 'Maria Elisa Borges', faturamento: 126963, participacao: 26.8, leitura: 'Grande operação de NCP, desconto elevado e sem recompra até junho.' },
       { nome: 'Maria Consuelo Rocha', faturamento: 86441, participacao: 18.2, leitura: 'Mais recorrente, mas com deterioração de margem na migração para RA.' },
@@ -315,14 +343,15 @@ const sellers: Seller[] = [
       { mes: 'MAR', faturamento: 204242, volume: 72180, mc: 35368, margem: 17.3, tkm: 2830, mcTon: 490, desconto: 7.3, clientes: 11, ncp: 27652, retidos: 5, novos: 3, reativados: 3, perdas: 12 },
       { mes: 'ABR', faturamento: 289123, volume: 80660, mc: 57022, margem: 19.7, tkm: 3584, mcTon: 707, desconto: 9.4, clientes: 16, ncp: 106263, retidos: 5, novos: 4, reativados: 7, perdas: 6 },
       { mes: 'MAI', faturamento: 144312, volume: 50520, mc: 23643, margem: 16.4, tkm: 2857, mcTon: 468, desconto: 7.9, clientes: 15, ncp: 8257, retidos: 8, novos: 2, reativados: 5, perdas: 8 },
-      { mes: 'JUN', faturamento: 418587, volume: 115900, mc: 92115, margem: 22.0, tkm: 3612, mcTon: 795, desconto: 9.4, clientes: 19, ncp: 61905, retidos: 8, novos: 4, reativados: 7, perdas: 7 },
+      { mes: 'JUN', faturamento: 448616, volume: 126310, mc: 99498, margem: 22.2, tkm: 3552, mcTon: 788, desconto: 9.2, clientes: 22, ncp: 61907, retidos: 17, novos: 3, reativados: 2, perdas: 10 },
+      { mes: 'JUL', faturamento: 182636, volume: 41740, mc: 53725, margem: 29.4, tkm: 4376, mcTon: 1287, desconto: 8.4, clientes: 13, ncp: 112808, retidos: 11, novos: 0, reativados: 2, perdas: 11 },
     ],
     clientesUnicos: 40,
     recorrentes: 24,
     compraUnica: 16,
     recorrencia: 60.0,
     concentracaoTop3: 48.6,
-    comissao: 16991.4,
+    comissao: 18808.2,
     topClients: [
       { nome: 'FREC Agropecuária', faturamento: 389164, participacao: 26.1, leitura: 'Maior cliente, alta recorrência e volume, mas margem abaixo das linhas tecnificadas.' },
       { nome: 'Gvinah Ltda', faturamento: 180628, participacao: 12.1, leitura: 'Cliente tecnificado e rentável, porém com forte oscilação entre pedidos.' },
@@ -349,38 +378,93 @@ const sellers: Seller[] = [
     diagnostico:
       'Wanderson é o principal motor da evolução atual. A carteira cresceu em escala e recorrência, e junho apresentou resultado distribuído entre mais clientes. O próximo passo é elevar a margem dos clientes de grande volume e consolidar as aquisições recentes.',
   },
+  {
+    id: 'heliara',
+    nome: 'Heliara Nogueira',
+    perfil: 'Formação e recuperação de carteira',
+    status: 'Em evolução, ainda sem equilíbrio',
+    statusTone: 'blue',
+    resumo:
+      'Ingressou em 01/04/2026 e trabalha uma base saturada, praticamente de resgate. Julho marcou uma mudança de ritmo, mas o desafio central ainda é transformar movimentações pontuais em carteira fiel e rentável.',
+    monthly: [
+      { mes: 'ABR', faturamento: 2101, volume: 920, mc: 126, margem: 6.0, tkm: 2284, mcTon: 137, desconto: 6.8, clientes: 1, ncp: 0, retidos: 0, novos: 0, reativados: 1, perdas: 0 },
+      { mes: 'MAI', faturamento: 0, volume: 0, mc: 0, margem: 0, tkm: 0, mcTon: 0, desconto: 0, clientes: 0, ncp: 0, retidos: 0, novos: 0, reativados: 0, perdas: 1 },
+      { mes: 'JUN', faturamento: 2800, volume: 900, mc: 701, margem: 25.0, tkm: 3111, mcTon: 779, desconto: 8.0, clientes: 1, ncp: 0, retidos: 0, novos: 1, reativados: 0, perdas: 0 },
+      { mes: 'JUL', faturamento: 23247, volume: 3350, mc: 6063, margem: 26.1, tkm: 6939, mcTon: 1810, desconto: 7.7, clientes: 2, ncp: 23247, retidos: 0, novos: 1, reativados: 1, perdas: 1 },
+    ],
+    clientesUnicos: 3,
+    recorrentes: 1,
+    compraUnica: 2,
+    recorrencia: 33.3,
+    concentracaoTop3: 100,
+    comissao: 0,
+    topClients: [
+      { nome: 'Claudiomar Contin Portugal Filho', faturamento: 0, participacao: 47.7, leitura: 'Cliente recorrente entre junho e julho; principal vínculo em acompanhamento.' },
+      { nome: 'Agenor Domingos Peris', faturamento: 0, participacao: 31.8, leitura: 'Primeira compra em julho, com prioridade para acompanhamento de recompra.' },
+      { nome: 'Jose Carlos da Silva', faturamento: 2101, participacao: 20.5, leitura: '920 kg em abril; cliente reativado, ainda sem nova movimentação identificada.' },
+    ],
+    pontosFortes: [
+      'Boa comunicação e capacidade de quebrar objeções.',
+      'Evolução no uso dos sistemas e no aprendizado técnico.',
+      'Disposição para ajudar e concluir tarefas que domina.',
+      'Boa resistência comercial diante de uma base bastante saturada.',
+    ],
+    riscos: [
+      'A operação ainda não gera retorno suficiente para o custo da estrutura.',
+      'Apenas um dos três clientes apresentou recorrência.',
+      'Interromper ou antecipar falas pode limitar a escuta consultiva.',
+      'Dificuldades novas podem gerar bloqueio ou abandono da tarefa.',
+    ],
+    prioridades: [
+      'Acompanhar semanalmente os indicadores individuais.',
+      'Desenvolver escuta ativa e abordagem mais personalizada.',
+      'Projetar nominalmente oportunidades, negociações e clientes ativos.',
+      'Fidelizar Agenor e Jose Carlos e manter Claudiomar recorrente.',
+      'Preservar o foco nas responsabilidades comerciais.',
+    ],
+    diagnostico:
+      'Heliara possui potencial comercial, energia e capacidade de lidar com objeções. Julho demonstra evolução relevante, porém ainda pontual. O próximo estágio é converter comunicação em método, disciplina e previsibilidade, ampliando a carteira ativa e a frequência de compra.',
+  },
 ]
 
+const sellerPhotos: Record<SellerId, string> = {
+  demitrio: '/team/demitrio-vieira.png',
+  renata: '/team/renata-botelho.png',
+  luana: '/team/luana-biana.png',
+  wanderson: '/team/wanderson-silva.png',
+  heliara: '/team/heliara-nogueira.png',
+}
+
 const executiveTotals = {
-  faturamento: 4721748,
-  volume: 1357360,
-  mc: 962111,
-  margem: 20.4,
-  tkm: 3479,
-  mcTon: 709,
-  clientesCarteira: 106,
-  recorrentes: 53,
-  compraUnica: 53,
-  ncp: 1126979,
-  ncpShare: 23.9,
+  faturamento: 5516617,
+  volume: 1580445,
+  mc: 1114173,
+  margem: 20.2,
+  tkm: 3491,
+  mcTon: 705,
+  clientesCarteira: 110,
+  recorrentes: 54,
+  compraUnica: 56,
+  ncp: 1544497,
+  ncpShare: 28.0,
 }
 
 const comparableTotals = {
-  faturamentoComKam: 4233973,
-  faturamentoSemKam: 3459723,
-  faturamento2026: 3851456,
-  volumeComKam: 1313620,
-  volumeSemKam: 1110390,
-  volume2026: 1119130,
-  crescimentoOrganicoValor: 11.3,
-  gapComKamValor: -9.0,
-  recuperacaoKamValor: 50.6,
-  crescimentoOrganicoVolume: 0.8,
-  gapComKamVolume: -14.8,
-  recuperacaoKamVolume: 4.3,
-  margemComKam: 15.6,
-  margemSemKam: 14.7,
-  margem2026: 19.9,
+  faturamentoComKam: 6405681,
+  faturamentoSemKam: 5341579,
+  faturamento2026: 5516617,
+  volumeComKam: 1984520,
+  volumeSemKam: 1686240,
+  volume2026: 1580445,
+  crescimentoOrganicoValor: 6.7,
+  gapComKamValor: -11.0,
+  recuperacaoKamValor: 16.4,
+  crescimentoOrganicoVolume: -2.5,
+  gapComKamVolume: -17.1,
+  recuperacaoKamVolume: -35.5,
+  margemComKam: 17.7,
+  margemSemKam: 17.1,
+  margem2026: 20.2,
 }
 
 const acquisitionChannels = [
@@ -395,17 +479,18 @@ const channelColors = ['#1d7a46', '#2f80ed', '#7b61ff', '#f2994a', '#d35454']
 
 const css = `
   :root {
-    --cd-green-950: #062b1d;
-    --cd-green-900: #0a3d28;
-    --cd-green-800: #0f5738;
-    --cd-green-700: #147347;
-    --cd-green-600: #1d8f56;
-    --cd-green-100: #daf3e4;
-    --cd-bg: #f3f6f8;
-    --cd-card: #ffffff;
-    --cd-border: #dfe7e2;
-    --cd-text: #13211a;
-    --cd-muted: #68766e;
+    --cd-green-950: #03150f;
+    --cd-green-900: #071f17;
+    --cd-green-800: #0b3b28;
+    --cd-green-700: #20a767;
+    --cd-green-600: #2fd37f;
+    --cd-green-100: rgba(47, 211, 127, .13);
+    --cd-bg: #07110e;
+    --cd-card: #0d1b17;
+    --cd-card-raised: #11231d;
+    --cd-border: rgba(160, 206, 183, .13);
+    --cd-text: #f3f8f5;
+    --cd-muted: #8fa59a;
     --cd-blue: #2f80ed;
     --cd-purple: #7b61ff;
     --cd-amber: #f2994a;
@@ -425,17 +510,18 @@ const css = `
   .cd-shell { display: flex; min-height: 100vh; }
 
   .cd-sidebar {
-    width: 274px;
+    width: 288px;
     position: fixed;
     inset: 0 auto 0 0;
     z-index: 40;
     display: flex;
     flex-direction: column;
-    padding: 22px 16px;
+    padding: 28px 18px;
     color: #fff;
     background:
-      radial-gradient(circle at 20% 5%, rgba(54, 185, 111, .28), transparent 30%),
-      linear-gradient(180deg, var(--cd-green-900), var(--cd-green-950));
+      radial-gradient(circle at 20% 0%, rgba(47, 211, 127, .18), transparent 30%),
+      linear-gradient(180deg, #0a2018, #06100d);
+    border-right: 1px solid var(--cd-border);
     transition: transform .25s ease;
   }
 
@@ -489,20 +575,22 @@ const css = `
   .cd-nav button:hover { background: rgba(255,255,255,.08); color: #fff; }
   .cd-nav button.cd-active {
     color: #fff;
-    background: linear-gradient(135deg, rgba(47, 184, 103, .95), rgba(24, 134, 77, .95));
-    box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    background: linear-gradient(135deg, rgba(47, 211, 127, .18), rgba(47, 211, 127, .07));
+    box-shadow: inset 3px 0 0 var(--cd-green-600);
   }
 
   .cd-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 9px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,.12);
+    background: linear-gradient(145deg, rgba(47,211,127,.28), rgba(255,255,255,.08));
+    border: 1px solid rgba(255,255,255,.13);
     font-size: 12px;
     font-weight: 800;
+    object-fit: cover;
   }
 
   .cd-sidebar-note {
@@ -516,7 +604,7 @@ const css = `
     color: rgba(255,255,255,.72);
   }
 
-  .cd-main { width: 100%; margin-left: 274px; min-width: 0; }
+  .cd-main { width: 100%; margin-left: 288px; min-width: 0; }
 
   .cd-topbar {
     position: sticky;
@@ -526,10 +614,10 @@ const css = `
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    padding: 18px 28px;
-    background: rgba(243, 246, 248, .9);
+    padding: 22px 44px;
+    background: rgba(7, 17, 14, .84);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(208, 220, 213, .82);
+    border-bottom: 1px solid var(--cd-border);
   }
 
   .cd-topbar h1 { margin: 0; font-size: clamp(22px, 2.2vw, 32px); letter-spacing: -.035em; }
@@ -538,7 +626,7 @@ const css = `
     display: flex;
     align-items: center;
     gap: 9px;
-    background: #fff;
+    background: rgba(47, 211, 127, .08);
     border: 1px solid var(--cd-border);
     border-radius: 14px;
     padding: 10px 13px;
@@ -546,39 +634,39 @@ const css = `
     font-size: 12px;
     white-space: nowrap;
   }
-  .cd-period strong { color: var(--cd-green-800); }
+  .cd-period strong { color: var(--cd-green-600); }
 
   .cd-menu-btn { display: none; border: 0; background: transparent; padding: 7px; }
   .cd-close-btn { display: none; margin-left: auto; border: 0; color: #fff; background: transparent; }
 
-  .cd-content { padding: 26px 28px 44px; }
-  .cd-dashboard { display: flex; flex-direction: column; gap: 22px; max-width: 1720px; margin: 0 auto; }
+  .cd-content { padding: 48px 44px 96px; }
+  .cd-dashboard { display: flex; flex-direction: column; gap: 64px; max-width: 1480px; margin: 0 auto; }
 
   .cd-section-head {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
   }
-  .cd-section-head h2 { margin: 0; font-size: 20px; letter-spacing: -.025em; }
-  .cd-section-head p { margin: 5px 0 0; color: var(--cd-muted); font-size: 13px; }
-  .cd-kicker { color: var(--cd-green-700); font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+  .cd-section-head h2 { margin: 6px 0 0; font-size: clamp(24px, 2.4vw, 38px); letter-spacing: -.04em; }
+  .cd-section-head p { margin: 10px 0 0; color: var(--cd-muted); font-size: 14px; line-height: 1.65; max-width: 820px; }
+  .cd-kicker { color: var(--cd-green-600); font-size: 10px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
 
-  .cd-grid { display: grid; gap: 16px; }
+  .cd-grid { display: grid; gap: 24px; }
   .cd-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cd-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cd-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .cd-grid-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .cd-grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .cd-card {
     background: var(--cd-card);
     border: 1px solid var(--cd-border);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(14, 55, 35, .055);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .16);
   }
 
-  .cd-metric { padding: 18px; min-width: 0; position: relative; overflow: hidden; }
+  .cd-metric { padding: 26px; min-width: 0; min-height: 178px; position: relative; overflow: hidden; }
   .cd-metric::after {
     content: '';
     position: absolute;
@@ -587,29 +675,30 @@ const css = `
     right: -34px;
     top: -34px;
     border-radius: 50%;
-    background: var(--metric-soft, #e7f4ec);
+    background: var(--metric-soft, rgba(47,211,127,.11));
+    opacity: .45;
   }
   .cd-metric-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .cd-metric-label { color: var(--cd-muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+  .cd-metric-label { color: var(--cd-muted); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .11em; }
   .cd-metric-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: var(--metric, var(--cd-green-700)); background: var(--metric-soft, #e7f4ec); }
-  .cd-metric-value { margin-top: 13px; font-size: clamp(21px, 1.8vw, 29px); line-height: 1.05; font-weight: 850; letter-spacing: -.045em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cd-metric-value { margin-top: 22px; font-size: clamp(28px, 2.4vw, 40px); line-height: 1.05; font-weight: 850; letter-spacing: -.05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .cd-metric-sub { margin-top: 9px; color: var(--cd-muted); font-size: 12px; line-height: 1.45; }
   .cd-metric-comparisons { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
   .cd-comparison { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 750; }
-  .cd-positive { color: #148449; }
-  .cd-negative { color: #c24b4b; }
+  .cd-positive { color: #56e49b; }
+  .cd-negative { color: #ff7f7f; }
   .cd-neutral { color: var(--cd-muted); }
 
-  .cd-chart { padding: 20px 18px 10px; min-width: 0; }
-  .cd-chart-head { padding: 0 4px 10px; }
-  .cd-chart-head h3 { margin: 0; font-size: 16px; letter-spacing: -.02em; }
+  .cd-chart { padding: 28px 24px 18px; min-width: 0; }
+  .cd-chart-head { padding: 0 4px 22px; }
+  .cd-chart-head h3 { margin: 0; font-size: 18px; letter-spacing: -.025em; }
   .cd-chart-head p { margin: 5px 0 0; color: var(--cd-muted); font-size: 12px; }
 
-  .cd-insight-card { padding: 20px; }
+  .cd-insight-card { padding: 28px; }
   .cd-insight-card h3 { margin: 0; font-size: 17px; }
-  .cd-insight-card p { margin: 10px 0 0; color: #46554d; line-height: 1.7; font-size: 13px; }
+  .cd-insight-card p { margin: 14px 0 0; color: #a9bab1; line-height: 1.75; font-size: 13px; }
 
-  .cd-progress { height: 10px; border-radius: 999px; background: #e8eeea; overflow: hidden; margin: 14px 0 7px; }
+  .cd-progress { height: 9px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; margin: 20px 0 10px; }
   .cd-progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #1d8f56, #3db874); }
   .cd-progress-meta { display: flex; justify-content: space-between; color: var(--cd-muted); font-size: 11px; }
 
@@ -622,79 +711,110 @@ const css = `
     font-size: 11px;
     font-weight: 800;
   }
-  .cd-badge-green { color: #11663a; background: #dff5e7; }
-  .cd-badge-blue { color: #215fa9; background: #e2efff; }
-  .cd-badge-purple { color: #6042c4; background: #ebe7ff; }
-  .cd-badge-amber { color: #9a641f; background: #fff0d8; }
-  .cd-badge-red { color: #a54040; background: #ffe2e2; }
-  .cd-badge-slate { color: #52605a; background: #edf1ef; }
+  .cd-badge-green { color: #65e9a5; background: rgba(47,211,127,.12); }
+  .cd-badge-blue { color: #72afff; background: rgba(47,128,237,.14); }
+  .cd-badge-purple { color: #ae9cff; background: rgba(123,97,255,.15); }
+  .cd-badge-amber { color: #ffc171; background: rgba(242,153,74,.14); }
+  .cd-badge-red { color: #ff9191; background: rgba(211,84,84,.15); }
+  .cd-badge-slate { color: #b6c5bd; background: rgba(182,197,189,.10); }
 
   .cd-table-wrap { overflow: auto; }
   .cd-table { width: 100%; border-collapse: collapse; min-width: 850px; font-size: 12px; }
-  .cd-table th { text-align: left; padding: 12px 13px; color: var(--cd-muted); background: #f7faf8; font-size: 10px; text-transform: uppercase; letter-spacing: .065em; border-bottom: 1px solid var(--cd-border); white-space: nowrap; }
-  .cd-table td { padding: 13px; border-bottom: 1px solid #edf1ef; vertical-align: middle; }
+  .cd-table th { text-align: left; padding: 16px 18px; color: var(--cd-muted); background: rgba(255,255,255,.025); font-size: 10px; text-transform: uppercase; letter-spacing: .085em; border-bottom: 1px solid var(--cd-border); white-space: nowrap; }
+  .cd-table td { padding: 18px; border-bottom: 1px solid var(--cd-border); vertical-align: middle; }
   .cd-table tr:last-child td { border-bottom: 0; }
-  .cd-table tbody tr:hover { background: #fbfdfc; }
+  .cd-table tbody tr:hover { background: rgba(47,211,127,.035); }
   .cd-seller-cell { display: flex; align-items: center; gap: 10px; }
   .cd-seller-cell .cd-avatar { background: var(--cd-green-100); color: var(--cd-green-800); }
+  img.cd-avatar { display: block; }
 
   .cd-mini-bar { min-width: 110px; }
-  .cd-mini-bar-track { height: 6px; border-radius: 999px; background: #e9efec; overflow: hidden; margin-top: 5px; }
+  .cd-mini-bar-track { height: 6px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; margin-top: 5px; }
   .cd-mini-bar-track span { display: block; height: 100%; background: var(--cd-green-600); border-radius: inherit; }
 
   .cd-diagnosis {
-    padding: 22px;
+    padding: 32px;
     border-left: 5px solid var(--cd-green-600);
-    background: linear-gradient(135deg, #ffffff, #f3fbf6);
+    background: linear-gradient(135deg, #10221b, #0a1813);
   }
   .cd-diagnosis h3 { margin: 0; font-size: 18px; }
-  .cd-diagnosis p { margin: 10px 0 0; line-height: 1.75; color: #3f5047; font-size: 13px; }
-  .cd-diagnosis strong { color: var(--cd-green-800); }
+  .cd-diagnosis p { margin: 12px 0 0; line-height: 1.8; color: #a9bab1; font-size: 14px; }
+  .cd-diagnosis strong { color: var(--cd-green-600); }
 
   .cd-list { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 9px; }
-  .cd-list li { display: flex; gap: 9px; align-items: flex-start; color: #425047; font-size: 13px; line-height: 1.5; }
+  .cd-list li { display: flex; gap: 9px; align-items: flex-start; color: #a9bab1; font-size: 13px; line-height: 1.6; }
   .cd-list-icon { flex: 0 0 auto; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 7px; background: var(--cd-green-100); color: var(--cd-green-700); }
   .cd-list-risk .cd-list-icon { background: #ffe8e5; color: var(--cd-red); }
   .cd-list-priority .cd-list-icon { background: #fff0d8; color: #a66a1f; }
 
   .cd-seller-hero {
-    padding: 22px;
+    padding: 34px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     background:
       radial-gradient(circle at 95% 10%, rgba(50, 171, 101, .14), transparent 28%),
-      #fff;
+      var(--cd-card);
   }
+  .cd-seller-identity { display: flex; align-items: center; gap: 22px; min-width: 0; }
+  .cd-seller-portrait { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 24px; object-fit: cover; object-position: center; border: 1px solid rgba(255,255,255,.13); box-shadow: 0 18px 40px rgba(0,0,0,.28); }
   .cd-seller-hero h2 { margin: 5px 0 0; font-size: 27px; letter-spacing: -.035em; }
   .cd-seller-hero p { margin: 8px 0 0; max-width: 860px; color: var(--cd-muted); line-height: 1.65; font-size: 13px; }
 
-  .cd-kam-context { padding: 14px 18px; display: flex; align-items: center; gap: 12px; border: 1px dashed #a9cbb7; background: #f6fbf8; }
-  .cd-kam-context p { margin: 0; color: #405148; font-size: 12px; line-height: 1.55; }
+  .cd-kam-context { padding: 18px 22px; display: flex; align-items: center; gap: 12px; border: 1px dashed rgba(47,211,127,.35); background: rgba(47,211,127,.05); }
+  .cd-kam-context p { margin: 0; color: #a9bab1; font-size: 12px; line-height: 1.65; }
 
   .cd-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 13px; }
-  .cd-stat-box { border: 1px solid var(--cd-border); background: #f9fbfa; border-radius: 12px; padding: 11px; }
+  .cd-stat-box { border: 1px solid var(--cd-border); background: rgba(255,255,255,.025); border-radius: 12px; padding: 14px; }
   .cd-stat-box span { display: block; color: var(--cd-muted); font-size: 10px; text-transform: uppercase; font-weight: 800; }
   .cd-stat-box strong { display: block; margin-top: 5px; font-size: 16px; }
 
-  .cd-icon-button { border: 0; background: #edf5f0; color: var(--cd-green-800); width: 34px; height: 34px; border-radius: 10px; display: inline-grid; place-items: center; cursor: pointer; }
+  .cd-icon-button { border: 0; background: rgba(47,211,127,.10); color: var(--cd-green-600); width: 36px; height: 36px; border-radius: 10px; display: inline-grid; place-items: center; cursor: pointer; }
   .cd-icon-button:hover { background: var(--cd-green-100); }
 
-  .cd-client-name { font-weight: 800; color: #24342b; }
+  .cd-client-name { font-weight: 800; color: var(--cd-text); }
   .cd-client-reading { margin-top: 4px; color: var(--cd-muted); font-size: 11px; line-height: 1.45; max-width: 460px; }
 
   .cd-acquisition-row { display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; }
   .cd-targets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
-  .cd-target { padding: 12px; border: 1px solid var(--cd-border); border-radius: 13px; background: #f8fbf9; }
-  .cd-target strong { display: block; font-size: 18px; color: var(--cd-green-800); }
+  .cd-target { padding: 16px; border: 1px solid var(--cd-border); border-radius: 13px; background: rgba(255,255,255,.025); }
+  .cd-target strong { display: block; font-size: 20px; color: var(--cd-green-600); }
   .cd-target span { display: block; margin-top: 4px; color: var(--cd-muted); font-size: 10px; line-height: 1.35; }
 
-  .recharts-default-tooltip { border-radius: 12px !important; border-color: #dce5df !important; box-shadow: 0 10px 25px rgba(0,0,0,.08) !important; font-size: 12px !important; }
+  .recharts-default-tooltip { background: #10221b !important; color: #f3f8f5 !important; border-radius: 12px !important; border-color: var(--cd-border) !important; box-shadow: 0 12px 30px rgba(0,0,0,.3) !important; font-size: 12px !important; }
+  .recharts-cartesian-axis-tick-value, .recharts-legend-item-text { fill: #8fa59a !important; color: #8fa59a !important; }
+  .recharts-cartesian-grid line { stroke: rgba(160,206,183,.11); }
+
+  .cd-team-strip {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+  }
+  .cd-team-intro, .cd-person-card {
+    min-height: 150px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 1px solid var(--cd-border);
+    background: var(--cd-card);
+  }
+  .cd-team-intro { grid-column: 1 / -1; min-height: 128px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg, rgba(47,211,127,.11), rgba(47,211,127,.025)); }
+  .cd-team-intro h3 { margin: 8px 0 0; font-size: 22px; letter-spacing: -.03em; }
+  .cd-team-intro p { margin: 10px 0 0; color: var(--cd-muted); font-size: 12px; line-height: 1.6; }
+  .cd-person-card { border: 0; color: var(--cd-text); text-align: left; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+  .cd-person-card:hover { transform: translateY(-3px); background: var(--cd-card-raised); }
+  .cd-person-photo { width: 72px; height: 72px; border-radius: 22px; display: block; object-fit: cover; object-position: center; background: linear-gradient(145deg, #75efb2, #24b86d); box-shadow: 0 0 0 5px rgba(47,211,127,.08); }
+  .cd-person-card-static { cursor: default; }
+  .cd-person-card-static:hover { transform: none; background: var(--cd-card); }
+  .cd-person-card strong { display: block; margin-top: 20px; font-size: 14px; }
+  .cd-person-card span { display: block; margin-top: 5px; color: var(--cd-muted); font-size: 11px; line-height: 1.45; }
 
   @media (max-width: 1400px) {
-    .cd-grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cd-grid-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .cd-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cd-team-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cd-team-intro { grid-column: 1 / -1; }
   }
 
   @media (max-width: 1100px) {
@@ -704,11 +824,12 @@ const css = `
     .cd-sidebar.cd-open { transform: translateX(0); }
     .cd-menu-btn, .cd-close-btn { display: inline-flex; }
     .cd-topbar { padding: 15px 18px; }
-    .cd-content { padding: 20px 18px 38px; }
+    .cd-content { padding: 32px 20px 64px; }
+    .cd-dashboard { gap: 48px; }
   }
 
   @media (max-width: 720px) {
-    .cd-grid-6, .cd-grid-4 { grid-template-columns: 1fr; }
+    .cd-grid-6, .cd-grid-4, .cd-team-strip { grid-template-columns: 1fr; }
     .cd-topbar { align-items: flex-start; }
     .cd-period { display: none; }
     .cd-seller-hero { align-items: flex-start; flex-direction: column; }
@@ -868,7 +989,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           tkm: faturamento / (volume / 1000),
           mcTon: mc / (volume / 1000),
           ncpShare: (ncp / faturamento) * 100,
-          crescimento: variation(seller.monthly[5].faturamento, seller.monthly[0].faturamento),
+          crescimento: variation(seller.monthly[seller.monthly.length - 1]?.faturamento ?? 0, seller.monthly[0].faturamento),
         }
       })
       .sort((a, b) => b.faturamento - a.faturamento)
@@ -882,15 +1003,39 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Visão consolidada"
           title="Resultado atual da operação"
-          subtitle="Janeiro a junho de 2026; junho ainda é parcial. A análise cobre Demitrio, Renata, Luana e Wanderson."
+          subtitle="Janeiro a julho de 2026 com todos os meses fechados. As análises individuais cobrem toda a equipe, respeitando o período de atuação de cada profissional."
         />
         <div className="cd-grid cd-grid-6">
-          <MetricCard label="Faturamento" value={formatCurrency(executiveTotals.faturamento)} subtitle="Acumulado Jan–Jun" tone="green" icon={<CircleDollarSign size={18} />} />
-          <MetricCard label="Volume" value={formatKg(executiveTotals.volume)} subtitle="Acumulado Jan–Jun" tone="blue" icon={<Boxes size={18} />} />
-          <MetricCard label="MC Gerencial" value={formatCurrency(executiveTotals.mc)} subtitle="20,4% sobre o faturamento" tone="purple" icon={<WalletCards size={18} />} />
+          <MetricCard label="Faturamento" value={formatCurrency(executiveTotals.faturamento)} subtitle="Acumulado Jan–Jul" tone="green" icon={<CircleDollarSign size={18} />} />
+          <MetricCard label="Volume" value={formatKg(executiveTotals.volume)} subtitle="Acumulado Jan–Jul" tone="blue" icon={<Boxes size={18} />} />
+          <MetricCard label="MC Gerencial" value={formatCurrency(executiveTotals.mc)} subtitle="20,2% sobre o faturamento" tone="purple" icon={<WalletCards size={18} />} />
           <MetricCard label="TKM / Ton" value={formatCurrency(executiveTotals.tkm, false)} subtitle="Valor médio por tonelada" tone="amber" icon={<Gauge size={18} />} />
           <MetricCard label="MC / Ton" value={formatCurrency(executiveTotals.mcTon, false)} subtitle="Contribuição por tonelada" tone="green" icon={<Activity size={18} />} />
-          <MetricCard label="Clientes nas carteiras" value={formatNumber(executiveTotals.clientesCarteira)} subtitle="53 recorrentes e 53 de compra única" tone="slate" icon={<Users size={18} />} />
+          <MetricCard label="Clientes nas carteiras" value={formatNumber(executiveTotals.clientesCarteira)} subtitle="53 recorrentes e 54 de compra única" tone="slate" icon={<Users size={18} />} />
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader
+          kicker="Equipe em foco"
+          title="Pessoas por trás do resultado"
+          subtitle="Conheça a equipe e acesse a leitura individual das carteiras já consolidadas no dashboard."
+        />
+        <div className="cd-team-strip">
+          <div className="cd-team-intro">
+            <div>
+              <div className="cd-kicker">Vendas Internas</div>
+              <h3>Resultado com rosto, contexto e responsabilidade.</h3>
+            </div>
+            <p>Julho está fechado e incorporado integralmente aos acumulados, comparativos e análises individuais.</p>
+          </div>
+          {sellers.map((seller) => (
+            <button className="cd-person-card" key={seller.id} onClick={() => onSelectSeller(seller.id)}>
+              <img className="cd-person-photo" src={sellerPhotos[seller.id]} alt={seller.nome} />
+              <strong>{seller.nome}</strong>
+              <span>{seller.perfil}</span>
+            </button>
+          ))}
         </div>
       </section>
 
@@ -898,13 +1043,13 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Comparação histórica obrigatória"
           title="2025 com KAM × 2025 sem KAM × 2026"
-          subtitle="Período comparável fechado de janeiro a maio. Junho de 2026 permanece na leitura operacional, mas não entra nos cards históricos por ausência do recorte sem KAM de junho/2025."
+          subtitle="Janeiro a julho de 2026, com julho fechado em todos os comparativos."
         />
         <div className="cd-grid cd-grid-4">
           <MetricCard
             label="Faturamento 2026 comparável"
             value={formatCurrency(comparableTotals.faturamento2026)}
-            subtitle="Janeiro a maio"
+            subtitle="Janeiro a julho · período fechado"
             tone="green"
             icon={<CircleDollarSign size={18} />}
             deltas={[
@@ -915,7 +1060,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           <MetricCard
             label="Volume 2026 comparável"
             value={formatKg(comparableTotals.volume2026)}
-            subtitle="Janeiro a maio"
+            subtitle="Janeiro a julho · período fechado"
             tone="blue"
             icon={<Boxes size={18} />}
             deltas={[
@@ -950,19 +1095,19 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           recovery={comparableTotals.recuperacaoKamValor}
           organic={comparableTotals.crescimentoOrganicoValor}
           gap={comparableTotals.gapComKamValor}
-          text="A equipe recuperou aproximadamente metade do faturamento que as contas KAM acrescentavam ao período comparável de 2025. Ainda existe um gap de 9,0% para a operação total anterior."
+          text="Até julho, a equipe recompôs 33,8% do faturamento associado ao efeito KAM. O resultado está 6,7% acima de 2025 sem KAM, mas ainda 11,0% abaixo da operação total anterior."
         />
         <RecoveryCard
           title="Recuperação de volume do efeito KAM"
           recovery={comparableTotals.recuperacaoKamVolume}
           organic={comparableTotals.crescimentoOrganicoVolume}
           gap={comparableTotals.gapComKamVolume}
-          text="A recuperação física foi mínima: apenas 4,3% do volume associado ao efeito KAM foi recomposto. Isso confirma que o avanço atual vem muito mais de preço/mix e margem do que de escala."
+          text="O volume de 2026 está 6,3% abaixo de 2025 sem KAM e 20,4% abaixo de 2025 com KAM. A evolução financeira vem de preço, mix e margem, não de recuperação da escala física."
         />
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a maio · valores em reais">
+        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a julho de 2026 · valores em reais">
           <ResponsiveContainer width="100%" height={330}>
             <BarChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -977,7 +1122,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a maio · quilos vendidos">
+        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a julho de 2026 · quilos vendidos">
           <ResponsiveContainer width="100%" height={330}>
             <LineChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1009,7 +1154,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Evolução operacional de 2026" subtitle="Faturamento, MC Gerencial e volume; junho parcial">
+        <ChartCard title="Evolução operacional de 2026" subtitle="Faturamento, MC Gerencial e volume; julho fechado">
           <ResponsiveContainer width="100%" height={310}>
             <ComposedChart data={teamMonthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1045,7 +1190,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
                 <th>Recorrência</th>
                 <th>Top 3</th>
                 <th>NCP</th>
-                <th>Jan × Jun</th>
+                <th>Jan × Jul</th>
                 <th></th>
               </tr>
             </thead>
@@ -1054,7 +1199,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
                 <tr key={seller.id}>
                   <td>
                     <div className="cd-seller-cell">
-                      <span className="cd-avatar">{seller.nome.charAt(0)}</span>
+                      <img className="cd-avatar" src={sellerPhotos[seller.id]} alt="" />
                       <div>
                         <div className="cd-client-name">{seller.nome}</div>
                         <span className={badgeClass(seller.statusTone)}>{seller.status}</span>
@@ -1084,7 +1229,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Clientes ativos por mês" subtitle="O pico de maio não se sustentou integralmente em junho">
+        <ChartCard title="Clientes ativos por mês" subtitle="Julho fechado; carteira sem duplicar clientes cobertos nas férias">
           <ResponsiveContainer width="100%" height={300}>
             <ComposedChart data={teamMonthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1097,7 +1242,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Participação de NCP por vendedor" subtitle="Tecnificação acumulada no faturamento de janeiro a junho">
+        <ChartCard title="Participação de NCP por vendedor" subtitle="Tecnificação acumulada no faturamento de janeiro a julho">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={ncpBySeller} layout="vertical" margin={{ top: 8, right: 28, left: 12, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1114,17 +1259,17 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Leitura de crescimento</div>
           <h3>Evolução financeira, não de escala</h3>
-          <p>Entre janeiro e junho, o faturamento cresceu 10,8% e a MC avançou 31,6%, enquanto o volume caiu 3,5% e os clientes ativos passaram de 36 para 37.</p>
+          <p>Julho fechado alcançou 265,5 mil kg, R$ 917,2 mil em faturamento e margem de 25,0%, a maior do ano até o momento.</p>
         </div>
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Dependência da equipe</div>
-          <h3>Crescimento concentrado no Wanderson</h3>
-          <p>Wanderson cresceu 146,6% entre janeiro e junho. Os outros três vendedores, juntos, recuaram aproximadamente 26,7% no mesmo comparativo.</p>
+          <h3>Férias alteraram a leitura das carteiras</h3>
+          <p>Somente Uandersson Jose Santos Paniago, FREC Agropecuária, Aguinaldo Caiado Parrode e Felix Pereira Filho foram atendidos pela Luana como suporte durante as férias do Wanderson. O resultado permanece com ela, sem incorporar esses quatro nomes à carteira própria.</p>
         </div>
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Gargalo estrutural</div>
           <h3>Primeira compra não vira recorrência</h3>
-          <p>Nas quatro carteiras foram identificados 106 registros de clientes únicos: 53 recorrentes e 53 de compra única. A segunda compra precisa virar o principal indicador de aquisição.</p>
+          <p>Nas cinco carteiras foram identificados 110 registros de clientes únicos: 54 recorrentes e 56 de compra única. A segunda compra continua sendo o principal indicador de aquisição.</p>
         </div>
       </section>
 
@@ -1159,7 +1304,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       <section className="cd-card cd-diagnosis">
         <h3>Diagnóstico executivo da operação</h3>
         <p>
-          <strong>Houve evolução real, mas ainda não uma evolução estrutural completa.</strong> No período comparável de janeiro a maio, a equipe cresceu 11,3% em faturamento contra 2025 sem KAM e ficou 9,0% abaixo do resultado com KAM. Em volume, o crescimento orgânico foi de apenas 0,8% e o gap para 2025 com KAM permanece em 14,8%. A operação está mais rentável, mais tecnificada e gera maior contribuição por tonelada, porém ainda depende de poucos clientes, de negócios pontuais e principalmente do desempenho do Wanderson. O próximo ciclo deve priorizar segunda compra, expansão de volume e distribuição do crescimento entre os quatro vendedores.
+          <strong>Houve evolução financeira e forte ganho de rentabilidade, mas a escala ainda não foi totalmente recuperada.</strong> De janeiro a julho, a equipe está 6,7% acima de 2025 sem KAM em faturamento e 11,0% abaixo do resultado com KAM. Em volume, está 2,5% abaixo de 2025 sem KAM e 17,1% abaixo de 2025 com KAM. A margem acumulada chegou a 20,2%, acima dos dois cenários históricos. O próximo ciclo deve priorizar expansão de volume, segunda compra e distribuição do crescimento entre os cinco vendedores.
         </p>
       </section>
     </div>
@@ -1181,9 +1326,9 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       mcTon: mc / (volume / 1000),
       ncp,
       ncpShare: (ncp / faturamento) * 100,
-      crescimentoFaturamento: variation(seller.monthly[5].faturamento, seller.monthly[0].faturamento),
-      crescimentoVolume: variation(seller.monthly[5].volume, seller.monthly[0].volume),
-      crescimentoMc: variation(seller.monthly[5].mc, seller.monthly[0].mc),
+      crescimentoFaturamento: variation(seller.monthly[seller.monthly.length - 1]?.faturamento ?? 0, seller.monthly[0].faturamento),
+      crescimentoVolume: variation(seller.monthly[seller.monthly.length - 1]?.volume ?? 0, seller.monthly[0].volume),
+      crescimentoMc: variation(seller.monthly[seller.monthly.length - 1]?.mc ?? 0, seller.monthly[0].mc),
     }
   }, [seller])
 
@@ -1195,23 +1340,40 @@ function SellerDashboard({ seller }: { seller: Seller }) {
   return (
     <div className="cd-dashboard">
       <section className="cd-card cd-seller-hero">
-        <div>
-          <div className="cd-kicker">Análise individual</div>
-          <h2>{seller.nome}</h2>
-          <p>{seller.resumo}</p>
+        <div className="cd-seller-identity">
+          <img className="cd-seller-portrait" src={sellerPhotos[seller.id]} alt={seller.nome} />
+          <div>
+            <div className="cd-kicker">Análise individual</div>
+            <h2>{seller.nome}</h2>
+            <p>{seller.resumo}</p>
+          </div>
         </div>
         <span className={badgeClass(seller.statusTone)}>{seller.status}</span>
       </section>
 
       <section className="cd-card cd-kam-context">
         <ShieldCheck size={22} color="#1d8f56" />
-        <p><strong>Contexto corporativo KAM:</strong> no período comparável Jan–Mai, 2026 está 11,3% acima de 2025 sem KAM e 9,0% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
+        <p><strong>Contexto corporativo KAM:</strong> de janeiro a julho, 2026 está 6,7% acima de 2025 sem KAM e 11,0% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
       </section>
 
+      {seller.id === 'luana' && (
+        <section className="cd-card cd-kam-context">
+          <UserCheck size={22} color="#7b61ff" />
+          <p><strong>Ajuste de carteira em julho:</strong> somente Uandersson Jose Santos Paniago, FREC Agropecuária Ltda, Aguinaldo Caiado Parrode e Felix Pereira Filho foram classificados como suporte temporário ao Wanderson. Eles não entram na carteira própria da Luana, mas o faturamento de R$ 161.444 e o volume de 46.740 kg permanecem integralmente no resultado comercial.</p>
+        </section>
+      )}
+
+      {seller.id === 'heliara' && (
+        <section className="cd-card cd-kam-context">
+          <UserCheck size={22} color="#2f80ed" />
+          <p><strong>Contexto de entrada:</strong> Heliara iniciou em 01/04/2026 e recebeu uma base bastante saturada, praticamente de resgate. Nenhum cliente foi atendido como suporte; toda a movimentação exibida pertence à carteira dela.</p>
+        </section>
+      )}
+
       <section className="cd-grid cd-grid-4">
-        <MetricCard label="Faturamento" value={formatCurrency(totals.faturamento)} subtitle="Jan–Jun" tone="green" icon={<CircleDollarSign size={18} />} deltas={[{ value: totals.crescimentoFaturamento, label: 'Jan × Jun' }]} />
-        <MetricCard label="Volume" value={formatKg(totals.volume)} subtitle="Jan–Jun" tone="blue" icon={<Boxes size={18} />} deltas={[{ value: totals.crescimentoVolume, label: 'Jan × Jun' }]} />
-        <MetricCard label="MC Gerencial" value={formatCurrency(totals.mc)} subtitle={formatPercent(totals.margem)} tone="purple" icon={<WalletCards size={18} />} deltas={[{ value: totals.crescimentoMc, label: 'Jan × Jun' }]} />
+        <MetricCard label="Faturamento" value={formatCurrency(totals.faturamento)} subtitle="Jan–Jul" tone="green" icon={<CircleDollarSign size={18} />} deltas={[{ value: totals.crescimentoFaturamento, label: 'Jan × Jul' }]} />
+        <MetricCard label="Volume" value={formatKg(totals.volume)} subtitle="Jan–Jul" tone="blue" icon={<Boxes size={18} />} deltas={[{ value: totals.crescimentoVolume, label: 'Jan × Jul' }]} />
+        <MetricCard label="MC Gerencial" value={formatCurrency(totals.mc)} subtitle={formatPercent(totals.margem)} tone="purple" icon={<WalletCards size={18} />} deltas={[{ value: totals.crescimentoMc, label: 'Jan × Jul' }]} />
         <MetricCard label="Clientes únicos" value={formatNumber(seller.clientesUnicos)} subtitle={`${seller.recorrentes} recorrentes · ${seller.compraUnica} compra única`} tone="slate" icon={<Users size={18} />} />
         <MetricCard label="TKM / Ton" value={formatCurrency(totals.tkm, false)} subtitle="Valor médio acumulado" tone="amber" icon={<Gauge size={18} />} />
         <MetricCard label="MC / Ton" value={formatCurrency(totals.mcTon, false)} subtitle="Contribuição média" tone="green" icon={<Activity size={18} />} />
@@ -1220,7 +1382,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Evolução mensal" subtitle="Faturamento, MC e volume; junho parcial">
+        <ChartCard title="Evolução mensal" subtitle="Faturamento, MC e volume; julho fechado">
           <ResponsiveContainer width="100%" height={330}>
             <ComposedChart data={seller.monthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1288,7 +1450,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
           <div className="cd-stat-row">
             <div className="cd-stat-box"><span>Top 3 clientes</span><strong>{formatPercent(seller.concentracaoTop3)}</strong></div>
             <div className="cd-stat-box"><span>Compra única</span><strong>{formatPercent((seller.compraUnica / seller.clientesUnicos) * 100)}</strong></div>
-            <div className="cd-stat-box"><span>Comissão</span><strong>{formatCurrency(seller.comissao)}</strong></div>
+            <div className="cd-stat-box"><span>Comissão</span><strong>{seller.id === 'heliara' ? 'Não informada' : formatCurrency(seller.comissao)}</strong></div>
           </div>
         </div>
       </section>
@@ -1314,7 +1476,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
             <tbody>
               {seller.monthly.map((item) => (
                 <tr key={item.mes}>
-                  <td><strong>{item.mes}</strong>{item.mes === 'JUN' && <div className="cd-client-reading">Parcial</div>}</td>
+                  <td><strong>{item.mes}</strong>{item.mes === 'JUL' && <div className="cd-client-reading">Fechado</div>}</td>
                   <td>{formatCurrency(item.faturamento, false)}</td>
                   <td>{formatKg(item.volume, false)}</td>
                   <td>{formatCurrency(item.mc, false)}</td>
@@ -1340,7 +1502,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
               {seller.topClients.map((client) => (
                 <tr key={client.nome}>
                   <td><div className="cd-client-name">{client.nome}</div></td>
-                  <td><strong>{formatCurrency(client.faturamento, false)}</strong></td>
+                  <td><strong>{seller.id === 'heliara' && client.faturamento === 0 ? 'Não disponível' : formatCurrency(client.faturamento, false)}</strong></td>
                   <td>
                     <div className="cd-mini-bar">
                       <strong>{formatPercent(client.participacao)}</strong>
@@ -1419,7 +1581,7 @@ export default function App() {
           <nav className="cd-nav">
             {sellers.map((seller) => (
               <button key={seller.id} className={page === seller.id ? 'cd-active' : ''} onClick={() => navigate(seller.id)}>
-                <span className="cd-avatar">{seller.nome.charAt(0)}</span>
+                <img className="cd-avatar" src={sellerPhotos[seller.id]} alt="" />
                 <span>{seller.nome}</span>
               </button>
             ))}
@@ -1440,7 +1602,7 @@ export default function App() {
                 <p>{page === 'executivo' ? 'Visão macro da operação, carteira, mix e comparação histórica' : selectedSeller?.perfil}</p>
               </div>
             </div>
-            <div className="cd-period"><Activity size={15} /><span>Atualização: <strong>Junho/2026 parcial</strong></span></div>
+            <div className="cd-period"><Activity size={15} /><span>Atualização: <strong>Julho/2026 fechado</strong></span></div>
           </header>
 
           <div className="cd-content">

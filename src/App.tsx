@@ -82,6 +82,7 @@ type Seller = {
   riscos: string[]
   prioridades: string[]
   diagnostico: string
+  ativo: boolean
 }
 
 const historicalComparison = [
@@ -169,6 +170,30 @@ const historicalComparison = [
     margemSemKam2025: 21.3,
     margemAtual2026: 25.0,
   },
+  {
+    mes: 'AGO',
+    comKam2025: 1590679,
+    semKam2025: 1252596,
+    atual2026: 644615,
+    volumeComKam2025: 448760,
+    volumeSemKam2025: 345960,
+    volumeAtual2026: 155750,
+    margemComKam2025: 27.5,
+    margemSemKam2025: 27.7,
+    margemAtual2026: 20.8,
+  },
+  {
+    mes: 'SET',
+    comKam2025: 871993,
+    semKam2025: 806993,
+    atual2026: 740575,
+    volumeComKam2025: 273755,
+    volumeSemKam2025: 258755,
+    volumeAtual2026: 224068,
+    margemComKam2025: 19.2,
+    margemSemKam2025: 18.9,
+    margemAtual2026: 24.1,
+  },
 ]
 
 const teamMonthly = [
@@ -179,6 +204,8 @@ const teamMonthly = [
   { mes: 'MAI', faturamento: 879767, volume: 225208, mc: 168290, margem: 19.1, clientes: 42, tkm: 3906, mcTon: 747 },
   { mes: 'JUN', faturamento: 932396, volume: 259615, mc: 207217, margem: 22.2, clientes: 46, tkm: 3591, mcTon: 798 },
   { mes: 'JUL', faturamento: 917171, volume: 265522, mc: 229723, margem: 25.0, clientes: 44, tkm: 3454, mcTon: 865 },
+  { mes: 'AGO', faturamento: 644615, volume: 155750, mc: 134236, margem: 20.8, clientes: 0, tkm: 4139, mcTon: 862 },
+  { mes: 'SET', faturamento: 740575, volume: 224068, mc: 178775, margem: 24.1, clientes: 0, tkm: 3305, mcTon: 798 },
 ]
 
 const sellers: Seller[] = [
@@ -186,10 +213,11 @@ const sellers: Seller[] = [
     id: 'demitrio',
     nome: 'Demitrio Vieira',
     perfil: 'Expansão e geração de volume',
-    status: 'Rentável, porém concentrado',
-    statusTone: 'amber',
+    status: 'Desligado — histórico até setembro',
+    statusTone: 'slate',
+    ativo: false,
     resumo:
-      'Melhorou margem, MC por tonelada e controle de desconto, mas perdeu volume e mantém alta dependência dos maiores clientes.',
+      'Histórico encerrado em setembro. As vendas realizadas no mês permanecem atribuídas ao profissional, sem participação nas metas e ações futuras.',
     monthly: [
       { mes: 'JAN', faturamento: 325300, volume: 105493, mc: 44129, margem: 13.6, tkm: 3084, mcTon: 418, desconto: 19.3, clientes: 6, ncp: 0, retidos: 0, novos: 6, reativados: 0, perdas: 0 },
       { mes: 'FEV', faturamento: 276604, volume: 81999, mc: 50101, margem: 18.1, tkm: 3373, mcTon: 611, desconto: 12.4, clientes: 7, ncp: 0, retidos: 3, novos: 4, reativados: 0, perdas: 3 },
@@ -198,6 +226,8 @@ const sellers: Seller[] = [
       { mes: 'MAI', faturamento: 212302, volume: 76350, mc: 50684, margem: 23.9, tkm: 2781, mcTon: 664, desconto: 12.1, clientes: 7, ncp: 74700, retidos: 3, novos: 3, reativados: 1, perdas: 4 },
       { mes: 'JUN', faturamento: 213881, volume: 53420, mc: 52101, margem: 24.4, tkm: 4004, mcTon: 975, desconto: 10.9, clientes: 4, ncp: 49198, retidos: 4, novos: 0, reativados: 0, perdas: 3 },
       { mes: 'JUL', faturamento: 334668, volume: 110862, mc: 84256, margem: 25.2, tkm: 3019, mcTon: 760, desconto: 16.1, clientes: 7, ncp: 285767, retidos: 7, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'AGO', faturamento: 191738, volume: 52400, mc: 42870, margem: 22.4, tkm: 3659, mcTon: 818, desconto: 13.5, clientes: 0, ncp: 60900, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'SET', faturamento: 52755, volume: 24500, mc: 36562, margem: 69.3, tkm: 2153, mcTon: 1492, desconto: 14.7, clientes: 0, ncp: 52755, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 19,
     recorrentes: 8,
@@ -229,7 +259,7 @@ const sellers: Seller[] = [
       'Reduzir dependência dos três maiores clientes.',
     ],
     diagnostico:
-      'O principal avanço foi financeiro: Demitrio gera mais contribuição por tonelada e concede menos desconto. A evolução ainda não é estrutural, porque a carteira ativa caiu, o volume recuou e o resultado permanece muito concentrado.',
+      'O histórico de Demitrio permanece disponível para leitura do resultado até setembro. A partir de outubro, ele não integra a operação ativa; suas vendas não devem ser projetadas como capacidade futura da equipe.',
   },
   {
     id: 'renata',
@@ -237,6 +267,7 @@ const sellers: Seller[] = [
     perfil: 'Relacionamento e sustentação comercial',
     status: 'Estável, boa margem e retenção moderada',
     statusTone: 'blue',
+    ativo: true,
     resumo:
       'Mantém boa rentabilidade e carteira relativamente distribuída, mas precisa converter aquisição e reativação em continuidade mensal.',
     monthly: [
@@ -247,6 +278,8 @@ const sellers: Seller[] = [
       { mes: 'MAI', faturamento: 290857, volume: 68560, mc: 65424, margem: 22.5, tkm: 4242, mcTon: 954, desconto: 9.5, clientes: 12, ncp: 86137, retidos: 3, novos: 2, reativados: 7, perdas: 7 },
       { mes: 'JUN', faturamento: 226738, volume: 68460, mc: 47288, margem: 20.9, tkm: 3312, mcTon: 691, desconto: 11.1, clientes: 12, ncp: 24270, retidos: 9, novos: 3, reativados: 0, perdas: 3 },
       { mes: 'JUL', faturamento: 215176, volume: 62830, mc: 51313, margem: 23.8, tkm: 3425, mcTon: 817, desconto: 10.5, clientes: 11, ncp: 25698, retidos: 8, novos: 2, reativados: 1, perdas: 4 },
+      { mes: 'AGO', faturamento: 183132, volume: 28890, mc: 30965, margem: 16.9, tkm: 6339, mcTon: 1072, desconto: 11.1, clientes: 0, ncp: 152999, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'SET', faturamento: 193443, volume: 54060, mc: 38012, margem: 19.7, tkm: 3578, mcTon: 703, desconto: 10.3, clientes: 0, ncp: 27855, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 31,
     recorrentes: 14,
@@ -286,6 +319,7 @@ const sellers: Seller[] = [
     perfil: 'Prospecção e potencial consultivo',
     status: 'Tecnificada, porém pontual e instável',
     statusTone: 'purple',
+    ativo: true,
     resumo:
       'Mostra capacidade de vender soluções tecnificadas e negócios de alto valor, mas a carteira ainda é pequena e pouco recorrente.',
     monthly: [
@@ -296,6 +330,8 @@ const sellers: Seller[] = [
       { mes: 'MAI', faturamento: 232297, volume: 29778, mc: 37205, margem: 16.0, tkm: 7801, mcTon: 1249, desconto: 18.0, clientes: 8, ncp: 142837, retidos: 0, novos: 5, reativados: 3, perdas: 4 },
       { mes: 'JUN', faturamento: 40361, volume: 10525, mc: 9870, margem: 24.5, tkm: 3835, mcTon: 938, desconto: 7.3, clientes: 7, ncp: 14523, retidos: 2, novos: 3, reativados: 2, perdas: 6 },
       { mes: 'JUL', faturamento: 161444, volume: 46740, mc: 34366, margem: 21.3, tkm: 3454, mcTon: 735, desconto: 7.7, clientes: 11, ncp: 72403, retidos: 3, novos: 2, reativados: 6, perdas: 4 },
+      { mes: 'AGO', faturamento: 138564, volume: 30670, mc: 37879, margem: 27.3, tkm: 4518, mcTon: 1235, desconto: 4.7, clientes: 0, ncp: 101413, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'SET', faturamento: 29564, volume: 7150, mc: 7866, margem: 26.6, tkm: 4135, mcTon: 1100, desconto: 2.4, clientes: 0, ncp: 22290, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 17,
     recorrentes: 7,
@@ -335,6 +371,7 @@ const sellers: Seller[] = [
     perfil: 'Equilíbrio e sustentação operacional',
     status: 'Melhor evolução estrutural',
     statusTone: 'green',
+    ativo: true,
     resumo:
       'Apresentou crescimento real de volume, faturamento, MC e clientes, com a melhor recorrência e maior pulverização da equipe.',
     monthly: [
@@ -345,6 +382,8 @@ const sellers: Seller[] = [
       { mes: 'MAI', faturamento: 144312, volume: 50520, mc: 23643, margem: 16.4, tkm: 2857, mcTon: 468, desconto: 7.9, clientes: 15, ncp: 8257, retidos: 8, novos: 2, reativados: 5, perdas: 8 },
       { mes: 'JUN', faturamento: 448616, volume: 126310, mc: 99498, margem: 22.2, tkm: 3552, mcTon: 788, desconto: 9.2, clientes: 22, ncp: 61907, retidos: 17, novos: 3, reativados: 2, perdas: 10 },
       { mes: 'JUL', faturamento: 182636, volume: 41740, mc: 53725, margem: 29.4, tkm: 4376, mcTon: 1287, desconto: 8.4, clientes: 13, ncp: 112808, retidos: 11, novos: 0, reativados: 2, perdas: 11 },
+      { mes: 'AGO', faturamento: 125192, volume: 42290, mc: 20471, margem: 16.4, tkm: 2960, mcTon: 484, desconto: 7.0, clientes: 0, ncp: 2824, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'SET', faturamento: 245283, volume: 79120, mc: 47186, margem: 19.2, tkm: 3100, mcTon: 596, desconto: 6.8, clientes: 0, ncp: 39675, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 40,
     recorrentes: 24,
@@ -382,15 +421,18 @@ const sellers: Seller[] = [
     id: 'heliara',
     nome: 'Heliara Nogueira',
     perfil: 'Formação e recuperação de carteira',
-    status: 'Em evolução, ainda sem equilíbrio',
-    statusTone: 'blue',
+    status: 'Desligada — histórico até setembro',
+    statusTone: 'slate',
+    ativo: false,
     resumo:
-      'Ingressou em 01/04/2026 e trabalha uma base saturada, praticamente de resgate. Julho marcou uma mudança de ritmo, mas o desafio central ainda é transformar movimentações pontuais em carteira fiel e rentável.',
+      'Histórico encerrado em setembro. As vendas realizadas no mês permanecem atribuídas à profissional, sem participação nas metas e ações futuras.',
     monthly: [
       { mes: 'ABR', faturamento: 2101, volume: 920, mc: 126, margem: 6.0, tkm: 2284, mcTon: 137, desconto: 6.8, clientes: 1, ncp: 0, retidos: 0, novos: 0, reativados: 1, perdas: 0 },
       { mes: 'MAI', faturamento: 0, volume: 0, mc: 0, margem: 0, tkm: 0, mcTon: 0, desconto: 0, clientes: 0, ncp: 0, retidos: 0, novos: 0, reativados: 0, perdas: 1 },
       { mes: 'JUN', faturamento: 2800, volume: 900, mc: 701, margem: 25.0, tkm: 3111, mcTon: 779, desconto: 8.0, clientes: 1, ncp: 0, retidos: 0, novos: 1, reativados: 0, perdas: 0 },
       { mes: 'JUL', faturamento: 23247, volume: 3350, mc: 6063, margem: 26.1, tkm: 6939, mcTon: 1810, desconto: 7.7, clientes: 2, ncp: 23247, retidos: 0, novos: 1, reativados: 1, perdas: 1 },
+      { mes: 'AGO', faturamento: 5985, volume: 1500, mc: 2052, margem: 34.3, tkm: 3990, mcTon: 1368, desconto: 7.9, clientes: 0, ncp: 5985, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
+      { mes: 'SET', faturamento: 52254, volume: 8500, mc: 12345, margem: 23.6, tkm: 6147, mcTon: 1452, desconto: 15.5, clientes: 0, ncp: 52254, retidos: 0, novos: 0, reativados: 0, perdas: 0 },
     ],
     clientesUnicos: 3,
     recorrentes: 1,
@@ -423,7 +465,7 @@ const sellers: Seller[] = [
       'Preservar o foco nas responsabilidades comerciais.',
     ],
     diagnostico:
-      'Heliara possui potencial comercial, energia e capacidade de lidar com objeções. Julho demonstra evolução relevante, porém ainda pontual. O próximo estágio é converter comunicação em método, disciplina e previsibilidade, ampliando a carteira ativa e a frequência de compra.',
+      'O histórico de Heliara permanece disponível para leitura do resultado até setembro. A partir de outubro, ela não integra a operação ativa; suas vendas não devem ser projetadas como capacidade futura da equipe.',
   },
 ]
 
@@ -436,35 +478,35 @@ const sellerPhotos: Record<SellerId, string> = {
 }
 
 const executiveTotals = {
-  faturamento: 5516617,
-  volume: 1580445,
-  mc: 1114173,
-  margem: 20.2,
-  tkm: 3491,
-  mcTon: 705,
+  faturamento: 7086208,
+  volume: 2024085,
+  mc: 1461787,
+  margem: 20.6,
+  tkm: 3501,
+  mcTon: 722,
   clientesCarteira: 110,
   recorrentes: 54,
   compraUnica: 56,
-  ncp: 1544497,
-  ncpShare: 28.0,
+  ncp: 2117013,
+  ncpShare: 29.9,
 }
 
 const comparableTotals = {
-  faturamentoComKam: 6405681,
-  faturamentoSemKam: 5341579,
-  faturamento2026: 5516617,
-  volumeComKam: 1984520,
-  volumeSemKam: 1686240,
-  volume2026: 1580445,
-  crescimentoOrganicoValor: 6.7,
-  gapComKamValor: -11.0,
-  recuperacaoKamValor: 16.4,
-  crescimentoOrganicoVolume: -2.5,
-  gapComKamVolume: -17.1,
-  recuperacaoKamVolume: -35.5,
-  margemComKam: 17.7,
-  margemSemKam: 17.1,
-  margem2026: 20.2,
+  faturamentoComKam: 8868183,
+  faturamentoSemKam: 7401214,
+  faturamento2026: 7086208,
+  volumeComKam: 2707125,
+  volumeSemKam: 2290955,
+  volume2026: 2024085,
+  crescimentoOrganicoValor: -4.3,
+  gapComKamValor: -20.1,
+  recuperacaoKamValor: -21.5,
+  crescimentoOrganicoVolume: -11.6,
+  gapComKamVolume: -25.2,
+  recuperacaoKamVolume: -64.1,
+  margemComKam: 19.6,
+  margemSemKam: 19.1,
+  margem2026: 20.6,
 }
 
 const acquisitionChannels = [
@@ -973,6 +1015,7 @@ function RecoveryCard({ title, recovery, organic, gap, text }: { title: string; 
 }
 
 function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId) => void }) {
+  const activeSellers = sellers.filter((seller) => seller.ativo)
   const ranking = useMemo(() => {
     return sellers
       .map((seller) => {
@@ -1003,12 +1046,12 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Visão consolidada"
           title="Resultado atual da operação"
-          subtitle="Janeiro a julho de 2026 com todos os meses fechados. As análises individuais cobrem toda a equipe, respeitando o período de atuação de cada profissional."
+          subtitle="Janeiro a setembro de 2026 com todos os meses fechados. Demitrio e Heliara permanecem no histórico até setembro, mas não integram mais a operação ativa."
         />
         <div className="cd-grid cd-grid-6">
-          <MetricCard label="Faturamento" value={formatCurrency(executiveTotals.faturamento)} subtitle="Acumulado Jan–Jul" tone="green" icon={<CircleDollarSign size={18} />} />
-          <MetricCard label="Volume" value={formatKg(executiveTotals.volume)} subtitle="Acumulado Jan–Jul" tone="blue" icon={<Boxes size={18} />} />
-          <MetricCard label="MC Gerencial" value={formatCurrency(executiveTotals.mc)} subtitle="20,2% sobre o faturamento" tone="purple" icon={<WalletCards size={18} />} />
+          <MetricCard label="Faturamento" value={formatCurrency(executiveTotals.faturamento)} subtitle="Acumulado Jan–Set" tone="green" icon={<CircleDollarSign size={18} />} />
+          <MetricCard label="Volume" value={formatKg(executiveTotals.volume)} subtitle="Acumulado Jan–Set" tone="blue" icon={<Boxes size={18} />} />
+          <MetricCard label="MC Gerencial" value={formatCurrency(executiveTotals.mc)} subtitle="20,6% sobre o faturamento" tone="purple" icon={<WalletCards size={18} />} />
           <MetricCard label="TKM / Ton" value={formatCurrency(executiveTotals.tkm, false)} subtitle="Valor médio por tonelada" tone="amber" icon={<Gauge size={18} />} />
           <MetricCard label="MC / Ton" value={formatCurrency(executiveTotals.mcTon, false)} subtitle="Contribuição por tonelada" tone="green" icon={<Activity size={18} />} />
           <MetricCard label="Clientes nas carteiras" value={formatNumber(executiveTotals.clientesCarteira)} subtitle="53 recorrentes e 54 de compra única" tone="slate" icon={<Users size={18} />} />
@@ -1019,7 +1062,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Equipe em foco"
           title="Pessoas por trás do resultado"
-          subtitle="Conheça a equipe e acesse a leitura individual das carteiras já consolidadas no dashboard."
+          subtitle="Equipe ativa em outubro e acesso às leituras individuais. Os profissionais desligados seguem disponíveis na seção histórica."
         />
         <div className="cd-team-strip">
           <div className="cd-team-intro">
@@ -1027,9 +1070,9 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
               <div className="cd-kicker">Vendas Internas</div>
               <h3>Resultado com rosto, contexto e responsabilidade.</h3>
             </div>
-            <p>Julho está fechado e incorporado integralmente aos acumulados, comparativos e análises individuais.</p>
+            <p>Setembro está fechado. Renata, Wanderson e Luana seguem como equipe ativa para o próximo ciclo.</p>
           </div>
-          {sellers.map((seller) => (
+          {activeSellers.map((seller) => (
             <button className="cd-person-card" key={seller.id} onClick={() => onSelectSeller(seller.id)}>
               <img className="cd-person-photo" src={sellerPhotos[seller.id]} alt={seller.nome} />
               <strong>{seller.nome}</strong>
@@ -1043,13 +1086,13 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
         <SectionHeader
           kicker="Comparação histórica obrigatória"
           title="2025 com KAM × 2025 sem KAM × 2026"
-          subtitle="Janeiro a julho de 2026, com julho fechado em todos os comparativos."
+          subtitle="Janeiro a setembro de 2026, com setembro fechado em todos os comparativos."
         />
         <div className="cd-grid cd-grid-4">
           <MetricCard
             label="Faturamento 2026 comparável"
             value={formatCurrency(comparableTotals.faturamento2026)}
-            subtitle="Janeiro a julho · período fechado"
+            subtitle="Janeiro a setembro · período fechado"
             tone="green"
             icon={<CircleDollarSign size={18} />}
             deltas={[
@@ -1060,7 +1103,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           <MetricCard
             label="Volume 2026 comparável"
             value={formatKg(comparableTotals.volume2026)}
-            subtitle="Janeiro a julho · período fechado"
+            subtitle="Janeiro a setembro · período fechado"
             tone="blue"
             icon={<Boxes size={18} />}
             deltas={[
@@ -1095,19 +1138,19 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           recovery={comparableTotals.recuperacaoKamValor}
           organic={comparableTotals.crescimentoOrganicoValor}
           gap={comparableTotals.gapComKamValor}
-          text="Até julho, a equipe recompôs 33,8% do faturamento associado ao efeito KAM. O resultado está 6,7% acima de 2025 sem KAM, mas ainda 11,0% abaixo da operação total anterior."
+          text="Até setembro, o faturamento está 4,3% abaixo de 2025 sem KAM e 20,1% abaixo da operação total anterior. Setembro reagiu frente a agosto, mas ainda não recompôs o gap acumulado."
         />
         <RecoveryCard
           title="Recuperação de volume do efeito KAM"
           recovery={comparableTotals.recuperacaoKamVolume}
           organic={comparableTotals.crescimentoOrganicoVolume}
           gap={comparableTotals.gapComKamVolume}
-          text="O volume de 2026 está 6,3% abaixo de 2025 sem KAM e 20,4% abaixo de 2025 com KAM. A evolução financeira vem de preço, mix e margem, não de recuperação da escala física."
+          text="O volume de 2026 está 11,6% abaixo de 2025 sem KAM e 25,2% abaixo de 2025 com KAM. A margem segue protegida, mas a recuperação de escala física continua sendo o principal desafio."
         />
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a julho de 2026 · valores em reais">
+        <ChartCard title="Faturamento mensal comparável" subtitle="Janeiro a setembro de 2026 · valores em reais">
           <ResponsiveContainer width="100%" height={330}>
             <BarChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1122,7 +1165,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a julho de 2026 · quilos vendidos">
+        <ChartCard title="Volume mensal comparável" subtitle="Janeiro a setembro de 2026 · quilos vendidos">
           <ResponsiveContainer width="100%" height={330}>
             <LineChart data={historicalComparison} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1154,7 +1197,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Evolução operacional de 2026" subtitle="Faturamento, MC Gerencial e volume; julho fechado">
+        <ChartCard title="Evolução operacional de 2026" subtitle="Faturamento, MC Gerencial e volume; setembro fechado">
           <ResponsiveContainer width="100%" height={310}>
             <ComposedChart data={teamMonthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1190,7 +1233,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
                 <th>Recorrência</th>
                 <th>Top 3</th>
                 <th>NCP</th>
-                <th>Jan × Jul</th>
+                <th>Jan × Set</th>
                 <th></th>
               </tr>
             </thead>
@@ -1229,9 +1272,9 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Clientes ativos por mês" subtitle="Julho fechado; carteira sem duplicar clientes cobertos nas férias">
+        <ChartCard title="Clientes ativos por mês" subtitle="Carteira mantida até julho; agosto e setembro aguardam validação">
           <ResponsiveContainer width="100%" height={300}>
-            <ComposedChart data={teamMonthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
+            <ComposedChart data={teamMonthly.filter((item) => item.mes !== 'AGO' && item.mes !== 'SET')} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
               <XAxis dataKey="mes" tick={{ fontSize: 11 }} />
               <YAxis domain={[0, 50]} tick={{ fontSize: 10 }} />
@@ -1242,7 +1285,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Participação de NCP por vendedor" subtitle="Tecnificação acumulada no faturamento de janeiro a julho">
+        <ChartCard title="Participação de NCP por vendedor" subtitle="Tecnificação acumulada no faturamento de janeiro a setembro">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={ncpBySeller} layout="vertical" margin={{ top: 8, right: 28, left: 12, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1258,8 +1301,8 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       <section className="cd-grid cd-grid-3">
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Leitura de crescimento</div>
-          <h3>Evolução financeira, não de escala</h3>
-          <p>Julho fechado alcançou 265,5 mil kg, R$ 917,2 mil em faturamento e margem de 25,0%, a maior do ano até o momento.</p>
+          <h3>Setembro reagiu, mas o gap permanece</h3>
+          <p>Setembro alcançou 224,1 mil kg, R$ 740,6 mil em faturamento e margem de 24,1%. Frente a agosto, houve avanço de 43,9% em volume e 14,9% em receita.</p>
         </div>
         <div className="cd-card cd-insight-card">
           <div className="cd-kicker">Dependência da equipe</div>
@@ -1304,7 +1347,7 @@ function ExecutiveDashboard({ onSelectSeller }: { onSelectSeller: (id: SellerId)
       <section className="cd-card cd-diagnosis">
         <h3>Diagnóstico executivo da operação</h3>
         <p>
-          <strong>Houve evolução financeira e forte ganho de rentabilidade, mas a escala ainda não foi totalmente recuperada.</strong> De janeiro a julho, a equipe está 6,7% acima de 2025 sem KAM em faturamento e 11,0% abaixo do resultado com KAM. Em volume, está 2,5% abaixo de 2025 sem KAM e 17,1% abaixo de 2025 com KAM. A margem acumulada chegou a 20,2%, acima dos dois cenários históricos. O próximo ciclo deve priorizar expansão de volume, segunda compra e distribuição do crescimento entre os cinco vendedores.
+          <strong>Setembro apresentou recuperação frente a agosto, com margem preservada, mas ainda não recompôs a perda de escala do acumulado.</strong> De janeiro a setembro, a operação está 4,3% abaixo de 2025 sem KAM em faturamento e 20,1% abaixo do resultado com KAM. Em volume, os gaps são de 11,6% e 25,2%, respectivamente. A margem acumulada chegou a 20,6%, acima dos dois referenciais. O próximo ciclo deve concentrar a recuperação em Renata, Wanderson e Luana, sem atribuir metas futuras a Demitrio e Heliara.
         </p>
       </section>
     </div>
@@ -1353,8 +1396,15 @@ function SellerDashboard({ seller }: { seller: Seller }) {
 
       <section className="cd-card cd-kam-context">
         <ShieldCheck size={22} color="#1d8f56" />
-        <p><strong>Contexto corporativo KAM:</strong> de janeiro a julho, 2026 está 6,7% acima de 2025 sem KAM e 11,0% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
+        <p><strong>Contexto corporativo KAM:</strong> de janeiro a setembro, 2026 está 4,3% abaixo de 2025 sem KAM e 20,1% abaixo de 2025 com KAM. O recorte histórico por vendedor não está disponível; por isso, a tela individual utiliza somente dados verificados de 2026.</p>
       </section>
+
+      {!seller.ativo && (
+        <section className="cd-card cd-kam-context">
+          <AlertTriangle size={22} color="#f2994a" />
+          <p><strong>Registro histórico:</strong> as vendas de setembro permanecem integralmente no resultado de {seller.nome}, mas o profissional está desligado e não integra metas, carteira ativa ou plano de ação a partir de outubro.</p>
+        </section>
+      )}
 
       {seller.id === 'luana' && (
         <section className="cd-card cd-kam-context">
@@ -1371,9 +1421,9 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       )}
 
       <section className="cd-grid cd-grid-4">
-        <MetricCard label="Faturamento" value={formatCurrency(totals.faturamento)} subtitle="Jan–Jul" tone="green" icon={<CircleDollarSign size={18} />} deltas={[{ value: totals.crescimentoFaturamento, label: 'Jan × Jul' }]} />
-        <MetricCard label="Volume" value={formatKg(totals.volume)} subtitle="Jan–Jul" tone="blue" icon={<Boxes size={18} />} deltas={[{ value: totals.crescimentoVolume, label: 'Jan × Jul' }]} />
-        <MetricCard label="MC Gerencial" value={formatCurrency(totals.mc)} subtitle={formatPercent(totals.margem)} tone="purple" icon={<WalletCards size={18} />} deltas={[{ value: totals.crescimentoMc, label: 'Jan × Jul' }]} />
+        <MetricCard label="Faturamento" value={formatCurrency(totals.faturamento)} subtitle="Jan–Set" tone="green" icon={<CircleDollarSign size={18} />} deltas={[{ value: totals.crescimentoFaturamento, label: 'Jan × Set' }]} />
+        <MetricCard label="Volume" value={formatKg(totals.volume)} subtitle="Jan–Set" tone="blue" icon={<Boxes size={18} />} deltas={[{ value: totals.crescimentoVolume, label: 'Jan × Set' }]} />
+        <MetricCard label="MC Gerencial" value={formatCurrency(totals.mc)} subtitle={formatPercent(totals.margem)} tone="purple" icon={<WalletCards size={18} />} deltas={[{ value: totals.crescimentoMc, label: 'Jan × Set' }]} />
         <MetricCard label="Clientes únicos" value={formatNumber(seller.clientesUnicos)} subtitle={`${seller.recorrentes} recorrentes · ${seller.compraUnica} compra única`} tone="slate" icon={<Users size={18} />} />
         <MetricCard label="TKM / Ton" value={formatCurrency(totals.tkm, false)} subtitle="Valor médio acumulado" tone="amber" icon={<Gauge size={18} />} />
         <MetricCard label="MC / Ton" value={formatCurrency(totals.mcTon, false)} subtitle="Contribuição média" tone="green" icon={<Activity size={18} />} />
@@ -1382,7 +1432,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Evolução mensal" subtitle="Faturamento, MC e volume; julho fechado">
+        <ChartCard title="Evolução mensal" subtitle="Faturamento, MC e volume; setembro fechado">
           <ResponsiveContainer width="100%" height={330}>
             <ComposedChart data={seller.monthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
@@ -1398,9 +1448,9 @@ function SellerDashboard({ seller }: { seller: Seller }) {
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Qualidade mensal" subtitle="Margem, desconto e clientes ativos">
+        <ChartCard title="Qualidade mensal" subtitle="Margem e desconto até setembro; clientes validados até julho">
           <ResponsiveContainer width="100%" height={330}>
-            <ComposedChart data={seller.monthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
+            <ComposedChart data={seller.monthly.map((item) => ({ ...item, clientes: item.mes === 'AGO' || item.mes === 'SET' ? undefined : item.clientes }))} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
               <XAxis dataKey="mes" tick={{ fontSize: 11 }} />
               <YAxis yAxisId="percent" domain={[0, 35]} tickFormatter={(v) => `${v}%`} tick={{ fontSize: 10 }} />
@@ -1416,9 +1466,9 @@ function SellerDashboard({ seller }: { seller: Seller }) {
       </section>
 
       <section className="cd-grid cd-grid-2">
-        <ChartCard title="Movimentação da carteira" subtitle="Novos, retidos, reativados e saídas mensais">
+        <ChartCard title="Movimentação da carteira" subtitle="Dados mantidos até julho; agosto e setembro aguardam validação">
           <ResponsiveContainer width="100%" height={310}>
-            <BarChart data={seller.monthly} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
+            <BarChart data={seller.monthly.filter((item) => item.mes !== 'AGO' && item.mes !== 'SET')} margin={{ top: 10, right: 8, left: 4, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7ece9" />
               <XAxis dataKey="mes" tick={{ fontSize: 11 }} />
               <YAxis allowDecimals={false} tick={{ fontSize: 10 }} />
@@ -1476,7 +1526,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
             <tbody>
               {seller.monthly.map((item) => (
                 <tr key={item.mes}>
-                  <td><strong>{item.mes}</strong>{item.mes === 'JUL' && <div className="cd-client-reading">Fechado</div>}</td>
+                  <td><strong>{item.mes}</strong>{item.mes === 'SET' && <div className="cd-client-reading">Fechado</div>}</td>
                   <td>{formatCurrency(item.faturamento, false)}</td>
                   <td>{formatKg(item.volume, false)}</td>
                   <td>{formatCurrency(item.mc, false)}</td>
@@ -1484,7 +1534,7 @@ function SellerDashboard({ seller }: { seller: Seller }) {
                   <td>{formatCurrency(item.tkm, false)}</td>
                   <td>{formatCurrency(item.mcTon, false)}</td>
                   <td>{formatPercent(item.desconto)}</td>
-                  <td>{item.clientes}</td>
+                  <td>{item.mes === 'AGO' || item.mes === 'SET' ? '—' : item.clientes}</td>
                   <td>{formatCurrency(item.ncp, false)}</td>
                 </tr>
               ))}
@@ -1579,7 +1629,17 @@ export default function App() {
 
           <div className="cd-nav-label">Análises individuais</div>
           <nav className="cd-nav">
-            {sellers.map((seller) => (
+            {sellers.filter((seller) => seller.ativo).map((seller) => (
+              <button key={seller.id} className={page === seller.id ? 'cd-active' : ''} onClick={() => navigate(seller.id)}>
+                <img className="cd-avatar" src={sellerPhotos[seller.id]} alt="" />
+                <span>{seller.nome}</span>
+              </button>
+            ))}
+          </nav>
+
+          <div className="cd-nav-label">Histórico — desligados</div>
+          <nav className="cd-nav">
+            {sellers.filter((seller) => !seller.ativo).map((seller) => (
               <button key={seller.id} className={page === seller.id ? 'cd-active' : ''} onClick={() => navigate(seller.id)}>
                 <img className="cd-avatar" src={sellerPhotos[seller.id]} alt="" />
                 <span>{seller.nome}</span>
@@ -1589,7 +1649,7 @@ export default function App() {
 
           <div className="cd-sidebar-note">
             <strong>Critério de leitura</strong><br />
-            2025 c/KAM mostra o tamanho total anterior. 2025 s/KAM é a base comparável. 2026 mede a evolução orgânica da operação interna.
+            Comparativos atualizados até setembro. Demitrio e Heliara permanecem apenas no histórico, com suas vendas do mês preservadas.
           </div>
         </aside>
 
@@ -1602,7 +1662,7 @@ export default function App() {
                 <p>{page === 'executivo' ? 'Visão macro da operação, carteira, mix e comparação histórica' : selectedSeller?.perfil}</p>
               </div>
             </div>
-            <div className="cd-period"><Activity size={15} /><span>Atualização: <strong>Julho/2026 fechado</strong></span></div>
+            <div className="cd-period"><Activity size={15} /><span>Atualização: <strong>Setembro/2026 fechado</strong></span></div>
           </header>
 
           <div className="cd-content">
